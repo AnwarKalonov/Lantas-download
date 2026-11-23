@@ -147,7 +147,7 @@
       <h2>First run</h2>
       <p>Lantas opens on the chat. Three things to do once:</p>
       <ol>
-        <li>Open <strong>Settings → Providers</strong>, pick Anthropic, OpenAI, OpenRouter, Groq or Google and paste a key — or point it at Ollama or LM Studio, which need none.</li>
+        <li>Open <strong>Settings → Providers</strong>, pick Anthropic, OpenAI, OpenRouter, Groq, Google or NVIDIA NIM and paste a key — or point it at Ollama or LM Studio, which need none.</li>
         <li>Pick the model the agent should use. The model list is fetched from the provider when a key is present.</li>
         <li>Open <strong>Browser</strong>, then <strong>Chrome extension</strong>, and load the extension folder Chrome is told about.</li>
       </ol>
@@ -323,6 +323,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v5M12 17.5v.5M10.3 4.6 2.7 18a1.6 1.6 0 0 0 1.4 2.4h15.8a1.6 1.6 0 0 0 1.4-2.4L13.7 4.6a1.6 1.6 0 0 0-2.8 0Z"/></svg>
         <span>Reloading the extension gives it a new id and breaks the connection until Chrome reconnects. Keep the folder in one place.</span>
       </div>
+      <p>The extension asks for Chrome’s <code>debugger</code> permission so its clicks and keystrokes go through the browser’s real input pipeline, not a JavaScript imitation. Chrome shows a “Lantas started debugging this browser” banner while an action runs. Close DevTools on that tab if Chrome refuses to attach; Lantas falls back to DOM actions automatically.</p>
     </section>
 
     <section class="doc-sec" id="page">
@@ -377,10 +378,12 @@
         <div class="k">OpenRouter</div><div class="v">One key for most hosted models</div>
         <div class="k">Groq</div><div class="v">Fast hosted open models</div>
         <div class="k">Google</div><div class="v">Gemini, through AI Studio</div>
+        <div class="k">NVIDIA NIM</div><div class="v">Hosted open models from build.nvidia.com</div>
         <div class="k">Ollama · LM Studio</div><div class="v">Models running on this Mac, no key</div>
         <div class="k">OpenAI-compatible</div><div class="v">Any base URL: a local server, a gateway, or your own proxy</div>
       </div>
       <p>The default model is yours to choose per session, and the agent switch in the browser rail uses the same provider. Nothing is sent to Lantas: requests go from your Mac to the provider you picked, with the key you pasted.</p>
+      <p>For NVIDIA NIM, create a key at <a href="https://build.nvidia.com/settings/api-keys">build.nvidia.com</a>, paste it into Providers, and use <code>Fetch models</code> to fill the picker from that key’s live catalog. The base URL is <code>https://integrate.api.nvidia.com/v1</code>.</p>
       <div class="callout">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5v.5"/></svg>
         <span>A local endpoint needs no key. Set the base URL to <code>http://127.0.0.1:11434/v1</code> or whatever your server serves, and pick a model name it knows.</span>
