@@ -1,0 +1,49 @@
+name: Publish macOS release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Version without the leading v
+        required: true
+        default: 1.0.3
+      artifact_url:
+        description: Presigned URL for the Lantas-macOS artifact zip
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download the build
+        env:
+          ARTIFACT_URL: ${{ inputs.artifact_url }}
+        run: |
+          set -euo pipefail
+          mkdir -p dist/out
+          curl -fL --retry 3 --retry-delay 2 "$ARTIFACT_URL" -o dist/build.zip
+          unzip -q dist/build.zip -d dist/out
+          rm dist/build.zip
+          find dist/out -maxdepth 1 -type f -printf '%f  %s bytes\n'
+
+      - name: Publish the release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VERSION: ${{ inputs.version }}
+        run: |
+          set -euo pipefail
+          TAG="v$VERSION"
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release upload "$TAG" dist/out/* --clobber
+            gh release edit "$TAG" --title "Lantas $VERSION" --notes-file RELEASE_NOTES.md
+          else
+            gh release create "$TAG" dist/out/* \
+              --title "Lantas $VERSION" \
+              --notes-file RELEASE_NOTES.md \
+              --latest
+          fi
