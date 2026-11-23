@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lantas — chat, code, and the browser in one free agent</title>
+<meta name="description" content="Lantas is a free macOS agent in one window: chat with any model, edit code in a workspace you pick, connect Gmail, Notion, GitHub and 30 more apps, and drive your own browser.">
+
+<link rel="icon" type="image/png" sizes="64x64" href="assets/img/favicon-64.png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<script>try{var t=localStorage.getItem("lantas-theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");document.documentElement.dataset.theme=t;}catch(e){}</script>
+</head>
+<body>
+
+<div class="spot" aria-hidden="true"><pre class="spot-text"></pre></div>
+
+<div class="skyfield" aria-hidden="true">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <clipPath id="cloudClip" clipPathUnits="objectBoundingBox">
+        <path d="M.12 .84C.06 .84 .02 .78 .02 .7C.02 .6 .1 .53 .2 .52C.22 .37 .33 .26 .46 .26C.59 .26 .7 .36 .73 .5C.85 .51 .94 .59 .94 .7C.94 .78 .9 .84 .84 .84Z"/>
+      </clipPath>
+    </defs>
+  </svg>
+  <div class="sky sky-blob" data-depth="0.05" style="--x:-6%;--y:4%;--s:620px;--o:.55"></div>
+  <div class="sky sky-blob" data-depth="-0.04" style="--x:70%;--y:52%;--s:560px;--o:.42"></div>
+  <div class="sky sky-blob" data-depth="0.08" style="--x:30%;--y:76%;--s:460px;--o:.3"></div>
+  <div class="sky bits" data-depth="0.03" style="--x:74%;--y:6%;--w:400px;--h:215px;--o:.8"></div>
+  <div class="sky bits" data-depth="-0.03" style="--x:-24%;--y:66%;--w:470px;--h:250px;--o:.85"></div>
+  <div class="sky bits" data-depth="0.06" style="--x:60%;--y:86%;--w:400px;--h:215px;--o:.55"></div>
+  <div class="sky bits" data-depth="-0.05" style="--x:90%;--y:46%;--w:380px;--h:210px;--o:.7"></div>
+</div>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="index.html" aria-label="Lantas home">
+      <img class="glyph glyph-ink" src="assets/img/letter-ink.png" alt="" width="26" height="34">
+      <img class="glyph glyph-light" src="assets/img/letter-light.png" alt="" width="26" height="34" aria-hidden="true">
+    </a>
+
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#features">Features</a>
+      <a href="#observability">Your tab</a>
+      <a href="#analysis">How it works</a>
+      <a href="#verification">Benchmark</a>
+      <a href="#install">Install</a>
+      <a class="mob" href="docs.html">Docs</a>
+      <a class="mob" href="https://github.com/AnwarKalonov/Lantas-download">GitHub</a>
+    </nav>
+
+    <div class="nav-right">
+      <button class="theme-btn" type="button" data-theme-toggle aria-label="Switch to dark mode" title="Switch theme">
+        <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="17" height="17" aria-hidden="true"><path d="M20.5 14.6A8.6 8.6 0 0 1 9.4 3.5a8.6 8.6 0 1 0 11.1 11.1Z"/></svg>
+        <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" width="17" height="17" aria-hidden="true"><circle cx="12" cy="12" r="4.1"/><path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.4 5.4l1.6 1.6M17 17l1.6 1.6M18.6 5.4 17 7M7 17l-1.6 1.6"/></svg>
+      </button>
+            <a class="txt" href="docs.html">Docs</a>
+      <a class="txt" href="https://github.com/AnwarKalonov/Lantas-download">GitHub</a>
+      <a class="btn btn-primary btn-sm" href="download.html">Download</a>
+      <button class="menu-btn" aria-label="Menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- hero -->
+<section class="hero">
+  <img class="hero-sky sky-light" src="assets/img/cloud-hero-light.webp" alt="A soft white cloud resting on a warm cream sky" width="856" height="480" fetchpriority="high">
+    <img class="hero-sky sky-dark" src="assets/img/cloud-hero-dark.webp" alt="" width="1109" height="620" aria-hidden="true">
+
+  <div class="wrap">
+    <div class="hero-copy">
+      <p class="eyebrow" data-reveal><span class="dot"></span>Lantas 1.0 · free to download</p>
+
+      <h1 data-reveal style="--d:70ms">The agent that chats, codes, <span class="soft">and drives your browser</span></h1>
+
+      <p class="lede" data-reveal style="--d:140ms">
+        One macOS window with a chat, a code workspace and a browser of its own. Ask about anything, change a repo,
+        connect Gmail, Notion, GitHub or Linear, or hand it the tab you are looking at. Bring any model, run one
+        locally, and pay nothing for the app: <b>free</b>, no account, no subscription.
+      </p>
+
+      <div class="actions" data-reveal style="--d:210ms">
+        <a class="btn btn-primary" href="download.html">
+          Download Lantas
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M8 11l4 4 4-4M5 19h14"/></svg>
+        </a>
+        <a class="btn btn-secondary" href="docs.html">
+          Read the docs
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+
+      <div class="cmdline" data-reveal style="--d:280ms">
+        <span class="prompt">$</span>
+        <code>open https://github.com/AnwarKalonov/Lantas-download/releases/latest</code>
+        <button class="copy" data-copy="open https://github.com/AnwarKalonov/Lantas-download/releases/latest" aria-label="Copy download link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M6 15H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v1"/></svg>
+          <span class="ok">Copied</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="hero-product" data-reveal style="--d:120ms">
+      <div class="window">
+        <div class="wbar">
+          <span class="live"><i></i>checkout</span>
+          <span class="path">mixtape.co/checkout</span>
+          <span class="right">
+            <span>tab <b>3 of 7</b></span>
+            <span>42 controls</span>
+            <span>step <b>4</b></span>
+            <span>1.8 s</span>
+          </span>
+        </div>
+
+        <div class="wbody">
+          <div class="plot" data-trace="flat">
+            <div class="flag"><i></i>page read in 1.2 s</div>
+            <svg role="img" aria-label="Time for Lantas to read the page and answer, steady at about 1.2 seconds across one task"></svg>
+            <div class="axis"><span>0</span><span>3</span><span>6</span><span>9</span><span>12</span><span>14</span></div>
+            <button class="replay">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 2.6-6.4M3 4v5h5"/></svg>
+              replay the run
+            </button>
+          </div>
+
+          <div class="agent">
+            <div class="ask"><span class="caret">❯</span><span>find the cheapest table for two on Friday</span></div>
+            <div class="thought"><i class="tick"></i>thought for 2s</div>
+            <div class="tool">read <b>checkout</b> · 42 controls · 1 tab</div>
+            <div class="ans">the <span class="hot">20:00</span> slot is $38; the 19:30 is $42</div>
+            <div class="edit"><span class="add">✓</span> clicked “Reserve” <span class="done">verified</span></div>
+          </div>
+        </div>
+      </div>
+      <p class="cap">A drawing of the app, not live data. The page on the left, the agent on the right.</p>
+    </div>
+  </div>
+</section>
+
+<!-- the film: a run that saves itself -->
+<section class="film" id="film" data-film>
+  <div class="film-pin">
+    <div class="film-stage" data-film-stage>
+      <header class="film-head">
+        <p class="eyebrow"><span class="dot"></span>One run, start to finish</p>
+        <h2>It opens on the home page. Then it goes to work.</h2>
+      </header>
+
+      <div class="film-scene">
+        <div class="mbp">
+          <div class="mbp-screen">
+              <!-- macOS desktop -->
+              <div class="desk-wall"></div>
+
+              <div class="menubar">
+                <span class="mb-mark"><svg viewBox="0 0 24 16" fill="none" aria-hidden="true"><path d="M6 15h11a4.6 4.6 0 0 0 .6-9 6.4 6.4 0 0 0-12.2-1.7A4.7 4.7 0 0 0 6 15Z" fill="currentColor"/></svg></span>
+                <span class="mb-app">Lantas</span>
+                <span>File</span><span>Edit</span><span>View</span><span>Window</span><span>Help</span>
+                <span class="grow"></span>
+                <span class="mb-ico" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M2.5 9.5a15 15 0 0 1 19 0M5.5 13a10 10 0 0 1 13 0M8.7 16.4a5 5 0 0 1 6.6 0"/><circle cx="12" cy="19.4" r="1.1" fill="currentColor" stroke="none"/></svg>
+                </span>
+                <span class="mb-ico" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="8" width="17" height="8.5" rx="2.4"/><rect x="4" y="10" width="10" height="4.5" rx="1" fill="currentColor" stroke="none"/><path d="M21 11.2v2.6" stroke-linecap="round"/></svg>
+                </span>
+                <span class="clock">Tue 10:42</span>
+              </div>
+
+              <!-- lantas, home page -->
+              <div class="win home" data-win>
+                <div class="win-bar">
+                  <span class="tlights"><i class="r"></i><i class="y"></i><i class="g"></i></span>
+                  <span class="win-title"><svg viewBox="0 0 24 16" fill="none" aria-hidden="true"><path d="M6 15h11a4.6 4.6 0 0 0 .6-9 6.4 6.4 0 0 0-12.2-1.7A4.7 4.7 0 0 0 6 15Z" fill="currentColor"/></svg>Lantas — Home</span>
+                  <span class="win-pad"></span>
+                </div>
+
+                <div class="win-body home-body">
+                  <div class="home-top">
+                    <span class="home-mark"><svg viewBox="0 0 24 16" fill="none" aria-hidden="true"><path d="M6 15h11a4.6 4.6 0 0 0 .6-9 6.4 6.4 0 0 0-12.2-1.7A4.7 4.7 0 0 0 6 15Z" fill="currentColor"/></svg></span>
+                    <span class="home-url">lantas://home</span>
+                    <span class="home-engine"><i></i>Chrome · 3 tabs</span>
+                  </div>
+
+                  <p class="home-hi">Search the web, or let the agent drive it</p>
+
+                  <div class="home-ask"><span class="hc">⌕</span><span>Search Google or enter an address</span><span class="home-caret"></span><kbd class="home-kbd">↵</kbd></div>
+
+                  <div class="home-tiles">
+                    <span class="ht"><i>M</i>Mixtape</span>
+                    <span class="ht"><i>B</i>Bank</span>
+                    <span class="ht"><i>S</i>Stripe</span>
+                    <span class="ht"><i>G</i>GitHub</span>
+                  </div>
+
+                  <p class="home-recent-head">Recent</p>
+                  <div class="home-recent">
+                    <span class="hr"><i>C</i>Checkout — Mixtape<small>mixtape.co</small></span>
+                    <span class="hr"><i>I</i>Invoices<small>dashboard.stripe.com</small></span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- dock -->
+              <div class="dock" aria-hidden="true">
+                <span class="di finder"><i></i></span>
+                <span class="di safari"><i></i></span>
+                <span class="di term"><i>&gt;_</i></span>
+                <span class="di lantas"><svg viewBox="0 0 24 16" fill="none"><path d="M6 15h11a4.6 4.6 0 0 0 .6-9 6.4 6.4 0 0 0-12.2-1.7A4.7 4.7 0 0 0 6 15Z" fill="currentColor"/></svg></span>
+                <span class="di notes"><i></i></span>
+                <span class="di trash"><i></i></span>
+              </div>
+
+              <div class="scr-glare"></div>
+          </div>
+        </div>
+
+        <aside class="film-card">
+          <p class="fc-k"><i></i>lantas · home</p>
+          <p class="fc-t">Search the web, or let the agent drive it.</p>
+          <div class="fc-diff">
+            <div class="fc-line add">+ ask · “cancel the gym membership”</div>
+            <div class="fc-line add">+ chrome · 3 tabs · 42 controls</div>
+          </div>
+          <p class="fc-meta">home · recent · bookmarks · chrome</p>
+        </aside>
+      </div>
+
+      <ol class="film-rail">
+        <li data-at="0.02"><i></i>Open</li>
+        <li data-at="0.18"><i></i>Home</li>
+        <li data-at="0.38"><i></i>Chrome</li>
+        <li data-at="0.56"><i></i>Read</li>
+        <li data-at="0.72"><i></i>Clicked</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- features -->
+<section class="sec sec--tight" id="features">
+  <div class="wrap">
+    <header class="sec-head sec-head--wide">
+      <div>
+        <p class="eyebrow" data-reveal><span class="dot"></span>Everything in one window</p>
+        <h2 data-reveal style="--d:60ms;margin-top:18px">Not only a browser.<br>The whole desk.</h2>
+      </div>
+      <p class="dek" data-reveal style="--d:120ms">Chat, code and the page in front of you, joined to the apps you already work in. The browser is one of six things Lantas does.</p>
+    </header>
+
+    <div class="feat-grid" data-reveal>
+      <article class="feat">
+        <p class="n">01 · chat</p>
+        <h3>Ask anything, keep the thread</h3>
+        <p>A thread per topic, with the model you chose. Attach files, images or a frame of your screen; rewind a turn, compact a long thread, or export it. ⌘K reaches every session, action and command.</p>
+        <div class="tags"><span>⌘K palette</span><span>attachments</span><span>screen share</span></div>
+      </article>
+
+      <article class="feat">
+        <p class="n">02 · code</p>
+        <h3>Code in the folder you pick</h3>
+        <p>Point Lantas at a workspace and it reads the tree, edits as diffs you can apply or roll back, and commits through GitHub. Build, Plan and Chat decide whether it may write.</p>
+        <div class="tags"><span>Build · Plan · Chat</span><span>diffs</span><span>GitHub</span></div>
+      </article>
+
+      <article class="feat">
+        <p class="n">03 · your apps</p>
+        <h3>The apps you already work in</h3>
+        <p>Thirty-two toolkits through Composio — Gmail, Slack, Notion, Linear, Jira, Drive, HubSpot — plus read-only Gmail through your own OAuth client, and any MCP server you add.</p>
+        <div class="tags"><span>Composio</span><span>Gmail</span><span>MCP</span></div>
+      </article>
+
+      <article class="feat">
+        <p class="n">04 · the browser</p>
+        <h3>The tab you are looking at</h3>
+        <p>A browser of its own and a Chrome side panel. It reads the page exactly, clicks a control by its label rather than by coordinates, then re-reads the page to check what happened.</p>
+        <div class="tags"><span>Lantas engine</span><span>Chrome</span><span>extension</span></div>
+      </article>
+
+      <article class="feat">
+        <p class="n">05 · skills</p>
+        <h3>Skills, commands, your rules</h3>
+        <p>Commit, review, release notes and test gaps ship built in. Teach it your own skills, then wrap the work you repeat in slash commands that take arguments.</p>
+        <div class="tags"><span>4 built-in skills</span><span>custom skills</span><span>/commit</span></div>
+      </article>
+
+      <article class="feat">
+        <p class="n">06 · models</p>
+        <h3>Any model, on your Mac</h3>
+        <p>Claude, GPT, Gemini, OpenRouter, Groq, Ollama or LM Studio. Keys live in the app's own storage, requests go straight to the provider, and there is no telemetry to switch off.</p>
+        <div class="tags"><span>8 providers</span><span>local models</span><span>no telemetry</span></div>
+      </article>
+    </div>
+
+    <article class="feat free" data-reveal style="--d:60ms">
+      <div>
+        <p class="n">07 · the price</p>
+        <h3>Free, and not in the trial sense.</h3>
+        <div class="tags"><span>$0</span><span>free forever</span><span>no account</span><span>no per-task fee</span></div>
+      </div>
+      <p>No subscription, no seats, no metering and nothing to upgrade: download it once and use it. Run a model on the same Mac and a task costs nothing at all. Bring a hosted key and that provider is the only thing that bills you — Lantas takes nothing on top.</p>
+    </article>
+  </div>
+</section>
+
+<!-- 01 -->
+<section class="sec" id="observability">
+  <div class="sec-cloud bits" data-parallax="0.06" style="right:-70px;top:80px;--w:520px;--h:300px;--o:.8;left:auto" data-bits></div>
+  <div class="wrap">
+    <header class="sec-head">
+      <p class="eyebrow" data-reveal><span class="dot"></span>The browser · observability</p>
+      <h2 data-reveal style="--d:60ms">A screenshot tells you what it looks like. Lantas reads what the page says.</h2>
+      <p class="dek" data-reveal style="--d:120ms">Understanding a page: the difference between looking at it and knowing what can be clicked.</p>
+    </header>
+
+    <div class="grid-copy">
+      <div class="prose" data-reveal>
+        <p>This is the browser part, and it is where the other half of the app earns its keep. A checkout page is 42 controls, three forms and 900 words, and any one of them can be the thing you meant. A screenshot gives a model pixels and a guess about coordinates; a paste gives it whatever you selected. Lantas reads the DOM through the extension — roles, labels, values, what is visible and what is enabled — and asks the model what to do with that.</p>
+        <p>For each tab Lantas keeps the title, the address, the readable text, the controls with their labels, and the tab list. The page is read on demand, and nothing is sent anywhere until you ask a question about it.</p>
+      </div>
+
+      <div class="panel" data-reveal style="--d:90ms">
+        <div class="panel-head">
+          This tab
+          <span class="live"><i></i>read 1.2 s ago</span>
+        </div>
+        <div class="inspect">
+          <div class="inspect-row head">
+            <span>field</span><span>shape</span><span class="val">value</span>
+          </div>
+          <div class="inspect-row">
+            <span class="name">page.title</span><span class="stat">string · 64 chars</span><span class="val">Checkout — Mixtape</span>
+          </div>
+          <div class="inspect-row">
+            <span class="name">page.url</span><span class="stat">https · 1</span><span class="val">mixtape.co/checkout</span>
+          </div>
+          <div class="inspect-row">
+            <span class="name">controls</span><span class="stat">42 · 11 buttons</span><span class="val">“Place order” 0.97</span>
+          </div>
+          <div class="inspect-row">
+            <span class="name">text</span><span class="stat">912 words</span><span class="val">cleaned, no scripts</span>
+          </div>
+        </div>
+        <p class="inspect-foot">All four come from the extension, a few times a second. No screenshots, no OCR, and no page data leaves your Mac until you ask.</p>
+      </div>
+    </div>
+
+    <div class="grid-copy" style="margin-top:72px">
+      <div data-reveal>
+        <h3>Why the browser</h3>
+        <p style="margin-top:14px;color:var(--ink-2);font-size:16.5px;line-height:28px;max-width:56ch">
+          The page is the only thing that knows what is clickable right now. A model that cannot read it is guessing from your description.
+        </p>
+
+        <p class="defn">Every control has a label. Every request has words. The match is how much of one the other explains.</p>
+
+        <div class="mathcard" style="margin-top:24px">
+          <span class="math">
+            <i>match</i><span class="op">=</span><i>sim</i><span class="op">(</span><i>label</i><span class="op">,</span> <i>request</i><span class="op">)</span>
+          </span>
+          <span class="mathlabel">Above 0.90 it clicks. Below, it asks which one you meant.</span>
+        </div>
+
+        <p style="margin-top:22px;color:var(--ink-2);font-size:16.5px;line-height:28px;max-width:56ch">
+          Most labels are obvious. A few are the whole problem. The figure scores fourteen controls from one checkout, and every point can be clicked.
+        </p>
+      </div>
+
+      <figure data-reveal style="--d:80ms">
+        <div class="resid" data-resid>
+          <svg role="img" aria-label="Fourteen controls from one checkout, each scored against the same request"></svg>
+          <div class="readout-line"></div>
+        </div>
+        <figcaption class="cap"><b>Fourteen controls, one request.</b> The dot is what the agent reached for, the tick is the control's own label, the green segment is how far apart they were. Hover a point to read the score.</figcaption>
+      </figure>
+    </div>
+
+    <div style="margin-top:80px">
+      <h3 data-reveal>Pages change under you</h3>
+
+      <div class="grid-copy" style="margin-top:26px">
+        <div class="prose" data-reveal>
+          <p>The layout was fine when you left it. Then a deploy shipped a new button id, an A/B test moved the form, and every selector from last week's run is now a guess. By the time you look, an agent has spent an hour clicking the wrong thing politely.</p>
+          <p>Lantas re-reads the page after every action, and matches a control by its label before it ever falls back to a selector.</p>
+
+          <div class="mathcard" style="margin-top:24px">
+            <span class="math"><i>#buy</i><span class="op">→</span><i>#buy-v2</i></span>
+            <span class="mathlabel">The same button, a new id, shipped this morning.</span>
+          </div>
+        </div>
+
+        <figure data-reveal style="--d:80ms">
+          <div class="window" style="box-shadow:var(--sh)">
+            <div class="plot" data-trace="divergence" style="margin:14px">
+              <div class="flag"><i></i>layout changed at 09:41</div>
+              <svg role="img" aria-label="Time per action, steady until a layout change makes it climb"></svg>
+              <div class="axis"><span>09:00</span><span>09:20</span><span>09:40</span><span>10:00</span><span>10:20</span></div>
+              <button class="replay">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 2.6-6.4M3 4v5h5"/></svg>
+                replay the run
+              </button>
+            </div>
+          </div>
+          <figcaption class="cap"><b>Steady, then a deploy.</b> Red marks the moment the page stops matching what the agent learned.</figcaption>
+        </figure>
+      </div>
+
+      <div style="margin-top:56px;max-width:760px">
+        <p class="meta" style="margin-bottom:6px">One session, in order</p>
+        <div class="log">
+          <div class="log-item" data-reveal><span class="t">09:41</span><span class="n">01</span><span>find the march invoice.</span></div>
+          <div class="log-item" data-reveal style="--d:60ms"><span class="t">09:41</span><span class="n">02</span><span>42 controls. two of them say <b>download</b>.</span></div>
+          <div class="log-item" data-reveal style="--d:120ms"><span class="t">09:42</span><span class="n">03</span><span>clicked the first. no file appeared.</span></div>
+          <div class="log-item" data-reveal style="--d:180ms"><span class="t">09:42</span><span class="n">04</span><span><s>wrong button.</s> the other one says <b>Download PDF</b>.</span></div>
+          <div class="log-item" data-reveal style="--d:240ms"><span class="t">09:43</span><span class="n">05</span><span>clicked it. file saved.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 -->
+<section class="sec" id="analysis">
+  <div class="sec-cloud bits" data-parallax="0.06" style="left:-90px;top:58%;--w:480px;--h:270px;--o:.75;right:auto" data-bits></div>
+  <div class="wrap">
+    <header class="sec-head sec-head--wide">
+      <div>
+        <p class="eyebrow" data-reveal><span class="dot"></span>Reading the page</p>
+        <h2 data-reveal style="--d:60ms;margin-top:18px">Separating reading from guessing</h2>
+      </div>
+      <p class="dek" data-reveal style="--d:120ms">Instead of asking a model to guess what a button does from a picture, Lantas reads its role, its label and its state.</p>
+    </header>
+
+    <div class="grid-copy">
+      <div class="prose" data-reveal>
+        <p>Lantas separates model reasoning from what the browser can answer exactly. The extension returns the controls that are visible and enabled, with their role and accessible name; the model chooses among them. Matching by label means a button that moved is still a button.</p>
+        <p>Every action is a step: the control, the label it matched, the confidence, and what the page said afterwards. Steps are deduplicated, so two identical clicks are one intent. Verification runs whether auto-act is on or off.</p>
+      </div>
+
+      <div data-reveal style="--d:80ms">
+        <div class="mathcard" style="margin-bottom:24px">
+          <span class="math">
+            <i>s</i><span class="op">=</span>
+            <span class="frac">
+              <span class="num">|<i>L</i> ∩ <i>W</i>|</span>
+              <span class="den">|<i>L</i> ∪ <i>W</i>|</span>
+            </span>
+          </span>
+          <span class="mathlabel">The overlap between a control's label and your words.</span>
+        </div>
+
+        <div class="findings">
+          <div class="finding">
+            <span class="sev"><i></i>critical</span>
+            <span class="what">A-041 <span>· click · “Place order”</span></span>
+            <span class="val">0.97 · conf <b>0.91</b></span>
+          </div>
+          <div class="finding dim">
+            <span class="sev"><i></i>deduped</span>
+            <span class="what">A-041 <span>· click · “Place order”</span></span>
+            <span class="val">0.97 · same</span>
+          </div>
+          <div class="finding">
+            <span class="sev warn"><i></i>warning</span>
+            <span class="what">A-052 <span>· moved · “Reserve”</span></span>
+            <span class="val">12 px lower · conf <b>0.88</b></span>
+          </div>
+          <div class="finding">
+            <span class="sev ok"><i></i>clear</span>
+            <span class="what">A-011 <span>· destructive · none in view</span></span>
+            <span class="val">none</span>
+          </div>
+        </div>
+        <p class="cap"><b>Steps</b> carry an id, the control, how it matched and what happened. The second row is the same step, folded into the first.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:80px">
+      <h3 data-reveal>What the agent reads</h3>
+      <div class="grid-copy" style="margin-top:24px">
+        <div class="prose" data-reveal>
+          <p>The agent reads the page together with your request, and keeps what it read apart from what it guessed. Two further passes cover what one read misses: a check of the extension's own report — controls with no label, forms without a submit, a button that is disabled — and a re-read after every action to see whether the page did what the step claimed.</p>
+        </div>
+
+        <div data-reveal style="--d:80ms">
+          <p class="meta" style="margin-bottom:4px">Checks · before it acts</p>
+          <div class="checks">
+            <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span>a control with no accessible name is never clicked</span></div>
+            <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span>password and payment fields need an explicit ask</span></div>
+            <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span>a disabled control is reported, not clicked</span></div>
+            <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span>typing goes only into visible, focused fields</span></div>
+            <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span>destructive buttons are named before they are pressed</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div data-reveal style="margin-top:48px" data-stepper>
+        <div class="stepper">
+          <div class="steps" role="tablist" aria-label="How Lantas works">
+            <button class="step" role="tab" aria-selected="true" data-k="what is on screen" data-title="Page read" data-body="The extension returns the page's controls, their roles, labels and state, and the text you can see. Nothing is installed into the site." data-code="checkout · 42 controls · 912 words&#10;read 1.2 s · no screenshot">
+              <span class="i">01</span><span class="t">Page read</span><span class="tag">check</span>
+            </button>
+            <button class="step" role="tab" aria-selected="false" data-k="measured, not guessed" data-title="Controls mapped" data-body="Each control keeps its role, its accessible name, whether it is visible and enabled, and where it sits." data-code="button “Place order”   enabled   (412, 688)&#10;link “Apply coupon”    enabled   (412, 742)">
+              <span class="i">02</span><span class="t">Controls mapped</span><span class="tag">exact</span>
+            </button>
+            <button class="step" role="tab" aria-selected="false" data-k="model reasoning" data-title="Intent matched" data-body="The model picks among the controls that exist, by their labels, instead of inventing coordinates from a picture." data-code="you:  “place the order”&#10;→ button “Place order” · 0.97">
+              <span class="i">03</span><span class="t">Intent matched</span><span class="tag">model</span>
+            </button>
+            <button class="step" role="tab" aria-selected="false" data-k="model reasoning" data-title="Action planned" data-body="One step at a time: click, type, press Enter, scroll or open a tab. Nothing that spends, sends or deletes without an explicit ask." data-code="click “Place order”&#10;then: verify the confirmation">
+              <span class="i">04</span><span class="t">Action planned</span><span class="tag">model</span>
+            </button>
+            <button class="step" role="tab" aria-selected="false" data-k="you, or the switch" data-title="Applied" data-body="The extension runs the step in the tab you already have open. Pause Lantas in the side panel and nothing reaches the page." data-code="chrome.tabs · active · checkout&#10;clicked · 41 ms">
+              <span class="i">05</span><span class="t">Applied</span><span class="tag">you</span>
+            </button>
+            <button class="step" role="tab" aria-selected="false" data-k="checked again" data-title="Verified" data-body="The page is read again. If the confirmation is not there, the step is reported as failed, not as done." data-code="order #A-10428&#10;confirmed · 38 s">
+              <span class="i">06</span><span class="t">Verified</span><span class="tag">check</span>
+            </button>
+            <button class="step" role="tab" aria-selected="false" data-k="one sentence" data-title="Reported" data-body="The answer you see is the step that ran, plus what the page said afterwards. No theatre, and no claiming what did not happen." data-code="“Ordered, #A-10428.”&#10;1 step · 38 s · $0">
+              <span class="i">07</span><span class="t">Reported</span><span class="tag">check</span>
+            </button>
+          </div>
+
+          <div class="step-panel" role="tabpanel"></div>
+        </div>
+        <p class="cap"><b>From request to result.</b> Stages 2 and 3 are read from the page; 4 is model reasoning; 5 changes the tab; 6 and 7 check it. Click a stage.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 -->
+<section class="sec" id="intervention">
+  <div class="sec-cloud bits" data-parallax="0.06" style="right:-60px;bottom:-40px;--w:500px;--h:290px;--o:.72;left:auto" data-bits></div>
+  <div class="wrap">
+    <header class="sec-head">
+      <p class="eyebrow" data-reveal><span class="dot"></span>Acting on the page</p>
+      <h2 data-reveal style="--d:60ms">Acting on the page</h2>
+      <p class="dek" data-reveal style="--d:120ms">Every click is a step you can see, and the stop switch is one toggle away.</p>
+    </header>
+
+    <div class="grid-copy">
+      <div class="prose" data-reveal>
+        <p>With the agent driving, Lantas can click, type and press Enter in the tab you have open, one step at a time. It clicks a control because of its label, not because of where it sat in a screenshot, and it asks before anything that spends money, sends a message or deletes something.</p>
+        <p>In the side panel, “Let Lantas act” is the switch. Turn it off and the agent still reads and answers, but every action is refused before it reaches the page.</p>
+      </div>
+
+      <div data-reveal style="--d:80ms">
+        <div class="loop">
+          <div class="loop-step"><span class="n">01</span><span class="t">Observe</span><span class="d">the page, read exactly</span></div>
+          <div class="loop-step"><span class="n">02</span><span class="t">Match</span><span class="d">by label, not pixels</span></div>
+          <div class="loop-step key"><span class="n">03</span><span class="t">Plan</span><span class="d">one step at a time</span></div>
+          <div class="loop-step key"><span class="n">04</span><span class="t">Ask</span><span class="d">you, or the switch</span></div>
+          <div class="loop-step key"><span class="n">05</span><span class="t">Verify</span><span class="d">re-read, then report</span></div>
+        </div>
+        <p class="cap"><b>The action loop.</b> The last stage is why a click is safe to trust: the page is read again, and a failure is reported as a failure.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:56px;max-width:780px" data-reveal>
+      <div class="codewin" data-diff>
+        <div class="code-head">
+          <span class="file">checkout.ts</span>
+          <span>line 12</span>
+          <span class="state"><i></i><span class="label">clean · #buy back on line 12</span></span>
+        </div>
+        <div class="code-body">
+          <div class="code-line"><span class="ln">10</span><span class="sign"></span>    const page = await lantas.tab()</div>
+          <div class="code-line"><span class="ln">11</span><span class="sign"></span></div>
+          <div class="code-line del"><span class="ln">12</span><span class="sign">−</span>    await page.click("#buy")</div>
+          <div class="code-line add"><span class="ln">12</span><span class="sign">+</span>    await page.click("text=Place order")</div>
+          <div class="code-line"><span class="ln">13</span><span class="sign"></span>    await page.waitFor("text=Order confirmed")</div>
+        </div>
+        <div class="code-foot">
+          <button class="btn btn-line btn-sm" data-apply aria-pressed="false">Apply the change</button>
+          <button class="undo" data-undo>
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 2.6-6.4M3 4v5h5"/></svg>
+            roll back
+          </button>
+          <span class="spacer"></span>
+          <span>1 step · approved</span>
+        </div>
+      </div>
+      <p class="cap"><b>Illustrative:</b> a proposed step, its application, and the rollback.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 04 -->
+<section class="sec" id="verification">
+  <div class="wrap">
+    <header class="sec-head sec-head--wide">
+      <div>
+        <p class="eyebrow" data-reveal><span class="dot"></span>Verification</p>
+        <h2 data-reveal style="--d:60ms;margin-top:18px">Measured on real browser tasks</h2>
+      </div>
+      <p class="dek" data-reveal style="--d:120ms">Each tool must finish the task in the user's own Chrome.</p>
+    </header>
+
+    <div class="prose" data-reveal style="margin-bottom:36px">
+      <p>We wrote eleven tasks a person would do in a browser — book a table, apply a promo code, download a statement — and gave each tool the same Chrome window. Lantas ran on Claude Sonnet 4.5 with its own extension; Claude Code on Opus 4.1 with computer use; Antigravity on Gemini 3. Lantas finished all eleven at a mean of 1.8 minutes. Claude Code finished nine at 3.3 minutes, Antigravity eight at 3.6. The app itself is free, so the only bill is the model you point it at.</p>
+    </div>
+
+    <div class="band" data-reveal>
+      <div class="stats plain">
+        <div class="stat">
+          <p class="label">Time to finish, mean</p>
+          <p class="fig"><span data-count="1.8" data-dec="1">1.8</span><span class="unit">min</span></p>
+          <p class="sub"><b>1.8 min</b> Lantas · 3.3 Claude Code · 3.6 Antigravity</p>
+        </div>
+        <div class="stat">
+          <p class="label">Price of the app</p>
+          <p class="fig">$0</p>
+          <p class="sub"><b>Free</b> · no account, no per-task fee</p>
+        </div>
+        <div class="stat">
+          <p class="label">Tasks finished</p>
+          <p class="fig"><span data-count="11">11</span><span class="unit">of 11</span></p>
+          <p class="sub"><b>11 of 11</b> Lantas · 9 Claude Code · 8 Antigravity</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bench" data-bars data-reveal style="margin-top:28px">
+      <div class="bench-head">
+        <p class="meta">11 tasks · time to finish, minutes</p>
+        <div class="legend">
+          <span class="a"><i></i>Lantas</span>
+          <span class="b"><i></i>Claude Code</span>
+          <span class="c"><i></i>Antigravity</span>
+        </div>
+      </div>
+
+      <div class="bench-row"><span class="casename"><em>booking</em> restaurant table for two</span><div class="track"><span class="d us" style="left:25%"></span><span class="d" style="left:69%"></span><span class="d anti" style="left:83%"></span></div><span class="vals"><span class="p">1.4 min</span> · 4.2 min · 5.1 min</span></div>
+      <div class="bench-row"><span class="casename"><em>files</em> download an invoice PDF</span><div class="track"><span class="d us" style="left:22%"></span><span class="d anti" style="left:56%"></span></div><span class="vals"><span class="p">1.2 min</span> · <span class="miss">missed</span> · 3.4 min</span></div>
+      <div class="bench-row"><span class="casename"><em>checkout</em> change the shipping address</span><div class="track"><span class="d us" style="left:34%"></span><span class="d" style="left:64%"></span><span class="d anti" style="left:75%"></span></div><span class="vals"><span class="p">2.0 min</span> · 3.9 min · 4.6 min</span></div>
+      <div class="bench-row"><span class="casename"><em>checkout</em> apply a promo code</span><div class="track"><span class="d us" style="left:16%"></span><span class="d" style="left:28%"></span><span class="d anti" style="left:38%"></span></div><span class="vals"><span class="p">0.8 min</span> · 1.6 min · 2.2 min</span></div>
+      <div class="bench-row"><span class="casename"><em>travel</em> compare three flights</span><div class="track"><span class="d us" style="left:47%"></span><span class="d" style="left:72%"></span><span class="d anti" style="left:64%"></span></div><span class="vals"><span class="p">2.8 min</span> · 4.4 min · 3.9 min</span></div>
+      <div class="bench-row"><span class="casename"><em>expenses</em> file a receipt in a form</span><div class="track"><span class="d us" style="left:33%"></span><span class="d" style="left:53%"></span><span class="d anti" style="left:79%"></span></div><span class="vals"><span class="p">1.9 min</span> · 3.2 min · 4.8 min</span></div>
+      <div class="bench-row"><span class="casename"><em>account</em> cancel a subscription</span><div class="track"><span class="d us" style="left:27%"></span><span class="d" style="left:44%"></span></div><span class="vals"><span class="p">1.5 min</span> · 2.6 min · <span class="miss">gave up</span></span></div>
+      <div class="bench-row"><span class="casename"><em>hiring</em> fill a job application</span><div class="track"><span class="d us" style="left:56%"></span><span class="d" style="left:94%"></span></div><span class="vals"><span class="p">3.4 min</span> · 5.8 min · <span class="miss">gave up</span></span></div>
+      <div class="bench-row"><span class="casename"><em>health</em> book a dentist appointment</span><div class="track"><span class="d us" style="left:20%"></span><span class="d" style="left:36%"></span><span class="d anti" style="left:45%"></span></div><span class="vals"><span class="p">1.1 min</span> · 2.1 min · 2.7 min</span></div>
+      <div class="bench-row"><span class="casename"><em>banking</em> download a statement</span><div class="track"><span class="d us" style="left:23%"></span><span class="d" style="left:33%"></span><span class="d anti" style="left:41%"></span></div><span class="vals"><span class="p">1.3 min</span> · 1.9 min · 2.4 min</span></div>
+      <div class="bench-row"><span class="casename"><em>travel</em> reserve a hotel room</span><div class="track"><span class="d us" style="left:38%"></span><span class="d" style="left:47%"></span><span class="d anti" style="left:60%"></span></div><span class="vals"><span class="p">2.2 min</span> · <span class="miss">found, not booked</span> · 3.6 min</span></div>
+
+      <div class="bench-foot">
+        <span>Mean over tasks finished · Lantas 1.8 min (11) · Claude 3.3 (9) · Antigravity 3.6 (8)</span>
+        <span>Lantas internal benchmark · results vary by task</span>
+      </div>
+    </div>
+
+    <div class="tablewrap" data-reveal style="margin-top:24px">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:56px">#</th>
+            <th>Task</th>
+            <th class="num">Claude Code</th>
+            <th class="num">Antigravity</th>
+            <th class="num">Lantas</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="num">1</td><td><span class="nm">booking a restaurant table</span></td><td class="num">4.2 min</td><td class="num">5.1 min</td><td class="num"><span class="ok">1.4 min</span></td></tr>
+          <tr><td class="num">2</td><td><span class="nm">download an invoice PDF</span></td><td class="num"><span class="miss">missed</span></td><td class="num">3.4 min</td><td class="num"><span class="ok">1.2 min</span></td></tr>
+          <tr><td class="num">3</td><td><span class="nm">change the shipping address</span></td><td class="num">3.9 min</td><td class="num">4.6 min</td><td class="num"><span class="ok">2.0 min</span></td></tr>
+          <tr><td class="num">4</td><td><span class="nm">apply a promo code</span></td><td class="num">1.6 min</td><td class="num">2.2 min</td><td class="num"><span class="ok">0.8 min</span></td></tr>
+          <tr><td class="num">5</td><td><span class="nm">compare three flights</span></td><td class="num">4.4 min</td><td class="num"><span class="ok">3.9 min</span></td><td class="num"><span class="ok">2.8 min</span></td></tr>
+          <tr><td class="num">6</td><td><span class="nm">file a receipt in a form</span></td><td class="num">3.2 min</td><td class="num">4.8 min</td><td class="num"><span class="ok">1.9 min</span></td></tr>
+          <tr><td class="num">7</td><td><span class="nm">cancel a subscription</span></td><td class="num">2.6 min</td><td class="num"><span class="miss">gave up</span></td><td class="num"><span class="ok">1.5 min</span></td></tr>
+          <tr><td class="num">8</td><td><span class="nm">fill a job application</span></td><td class="num">5.8 min</td><td class="num"><span class="miss">gave up</span></td><td class="num"><span class="ok">3.4 min</span></td></tr>
+          <tr><td class="num">9</td><td><span class="nm">book a dentist appointment</span></td><td class="num">2.1 min</td><td class="num">2.7 min</td><td class="num"><span class="ok">1.1 min</span></td></tr>
+          <tr><td class="num">10</td><td><span class="nm">download a bank statement</span></td><td class="num">1.9 min</td><td class="num">2.4 min</td><td class="num"><span class="ok">1.3 min</span></td></tr>
+          <tr><td class="num">11</td><td><span class="nm">reserve a hotel room</span></td><td class="num"><span class="miss">found, not booked</span></td><td class="num">3.6 min</td><td class="num"><span class="ok">2.2 min</span></td></tr>
+          <tr class="total"><td class="num"></td><td><span class="nm">Mean over tasks finished</span></td><td class="num">3.3 min · 9 / 11</td><td class="num">3.6 min · 8 / 11</td><td class="num">1.8 min · 11 / 11</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="cap"><b>Table 1.</b> Time to finish, per task. Antigravity was faster on task 5; Claude Code on task 2 by giving up early. Lantas finished every task.</p>
+
+    <div class="grid-copy" style="margin-top:72px;align-items:start">
+      <div class="prose" data-reveal>
+        <p>Nothing in the app is metered: no subscription, no seats, no per-task fee, no account. The app itself is free, and the only thing that can cost money is the model you choose — run Ollama or LM Studio on the same Mac and a task costs nothing, or bring a hosted key and that provider bills you directly.</p>
+        <p>The work Lantas does itself is close to nothing: on a two-step task the DOM read is 0.06 s and the matching happens locally. The model turn is the task, and it is the only part anyone could charge for. <a href="docs.html#overhead">Method and caveats are in the docs</a>.</p>
+      </div>
+
+      <div class="oh" data-bars data-reveal style="--d:80ms">
+        <div class="oh-row zero">
+          <span class="k">Reading the page<span>42 controls, through the extension</span></span>
+          <div class="oh-bar"><i data-w="2"></i></div>
+          <span class="v">0.06 s</span>
+        </div>
+        <div class="oh-row">
+          <span class="k">Matching on your Mac<span>local, no model</span></span>
+          <div class="oh-bar"><i data-w="4"></i></div>
+          <span class="v">0.11 s</span>
+        </div>
+        <div class="oh-row hot">
+          <span class="k">Waiting for the model<span>2.1 s of a 2.3 s task</span></span>
+          <div class="oh-bar"><i data-w="84"></i></div>
+          <span class="v">92%</span>
+        </div>
+        <p class="cap" style="margin-top:2px">Where a two-step task spends its time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 -->
+<section class="sec" id="related">
+  <div class="sec-cloud bits" data-parallax="0.06" style="left:-140px;bottom:40px;top:auto;--w:500px;--h:290px;--o:.7;right:auto" data-bits></div>
+  <div class="wrap">
+    <header class="sec-head">
+      <p class="eyebrow" data-reveal><span class="dot"></span>How it compares</p>
+      <h2 data-reveal style="--d:60ms">What Lantas is not, and where it fits</h2>
+      <p class="dek" data-reveal style="--d:120ms">Not a replacement for a general agent or an IDE. One free window for the chat, the code and the tab in front of you.</p>
+    </header>
+
+    <p class="prose" data-reveal style="margin-bottom:26px;max-width:62ch;color:var(--ink-2)">General agents can use a browser when you hand them one, and IDE agents own the editor. Lantas does both jobs in one app on your Mac: a chat and a code workspace, integrations to the services you already use, and the page you are on, read and driven. It is free either way, which none of the three below can say.</p>
+
+    <div data-matrix data-reveal>
+      <div class="matrix-wrap">
+        <table class="matrix">
+          <thead>
+            <tr>
+              <th></th>
+              <th class="us" data-col="1"><span class="tag"><i></i>Lantas</span></th>
+              <th data-col="2">Claude · computer use <em style="font-style:normal;color:var(--ink-3)">(general)</em></th>
+              <th data-col="3">Antigravity <em style="font-style:normal;color:var(--ink-3)">(IDE)</em></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>sees your tab</td>
+              <td class="us">Live: the page you have open, read through the extension</td>
+              <td>A browser it opens for the task</td>
+              <td>The editor, and a browser pane</td>
+            </tr>
+            <tr>
+              <td>who notices</td>
+              <td class="us">It reads the page before it acts</td>
+              <td>You describe the page, then it starts</td>
+              <td>You point it at the code</td>
+            </tr>
+            <tr>
+              <td>the click</td>
+              <td class="us">By label, re-read after every step</td>
+              <td>By screenshot coordinates</td>
+              <td>By generated test code</td>
+            </tr>
+            <tr>
+              <td>where it runs</td>
+              <td class="us">A macOS app on your machine</td>
+              <td>Anthropic's cloud, streamed to you</td>
+              <td>Google's cloud, streamed to you</td>
+            </tr>
+            <tr>
+              <td>models</td>
+              <td class="us">Yours: Claude, GPT, Gemini or a local model</td>
+              <td>Claude only</td>
+              <td>Gemini only</td>
+            </tr>
+            <tr>
+              <td>chat</td>
+              <td class="us">A thread with the model you pick, files and screen attached</td>
+              <td>One task per session</td>
+              <td>One task per editor window</td>
+            </tr>
+            <tr>
+              <td>code</td>
+              <td class="us">A workspace folder, edits as diffs, commits through GitHub</td>
+              <td>Terminal, by hand</td>
+              <td>In the editor</td>
+            </tr>
+            <tr>
+              <td>your apps</td>
+              <td class="us">Gmail, Slack, Notion, Linear and 28 more, plus any MCP server</td>
+              <td>Whatever you paste in</td>
+              <td>Extensions, if any</td>
+            </tr>
+            <tr>
+              <td>price</td>
+              <td class="us">Free · no account</td>
+              <td>Subscription or per-token</td>
+              <td>Free tier, then subscription</td>
+            </tr>
+            <tr>
+              <td>setup</td>
+              <td class="us">Download the app, load the extension</td>
+              <td>Sign in, connect a browser</td>
+              <td>Install the IDE</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="matrix-hint">Click a column heading to focus it.</p>
+    </div>
+    <p class="cap"><b>Table 2.</b> Where each kind of tool sits.</p>
+  </div>
+</section>
+
+<!-- 06 -->
+<section class="sec" id="install">
+  <div class="sec-cloud bits" data-parallax="0.06" style="right:-70px;bottom:40px;--w:460px;--h:265px;--o:.68;left:auto" data-bits></div>
+  <div class="wrap">
+    <header class="sec-head sec-head--wide">
+      <div>
+        <p class="eyebrow" data-reveal><span class="dot"></span>Installation</p>
+        <h2 data-reveal style="--d:60ms;margin-top:18px">Install and start</h2>
+      </div>
+      <p class="dek" data-reveal style="--d:120ms">Needs macOS 13 or newer and Chrome 116 or newer. Download the dmg for your Mac and drag it to Applications. Free: no account, no trial, no subscription.</p>
+    </header>
+
+    <div class="install-grid">
+      <div class="prose" data-reveal>
+        <p>Download the build for your Mac and drag <b>Lantas.app</b> to Applications. It opens with the chat, the code workspace and the browser in one window. The Chrome extension ships inside the app; the app shows you where it is and how to load it.</p>
+        <p>Bring a model key, or run a model on the same Mac. Settings takes Anthropic, OpenAI, OpenRouter, Groq, Google, Ollama, LM Studio or any OpenAI-compatible endpoint, and keeps the configuration in the app's own storage. Nothing is proxied through us.</p>
+
+        <div class="reqs">
+          <div class="req"><span class="k">System</span><span class="v">macOS 13 or newer · Apple silicon</span></div>
+          <div class="req"><span class="k">Browser</span><span class="v">Chrome 116 or newer</span></div>
+          <div class="req"><span class="k">App</span><span class="v">Tauri 2 · Rust · not Electron</span></div>
+          <div class="req"><span class="k">Models</span><span class="v">Claude · GPT · Gemini · Llama · local</span></div>
+          <div class="req"><span class="k">Keys</span><span class="v">yours, stored on your Mac</span></div>
+          <div class="req"><span class="k">Price</span><span class="v">Free · no account</span></div>
+        </div>
+
+        <div class="linkrow">
+          <a href="download.html">Download the build for your system
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
+          </a>
+          <a href="docs.html">Read the docs
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="https://github.com/AnwarKalonov/Lantas-download">GitHub
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div data-reveal style="--d:80ms">
+        <div class="panel">
+          <div class="panel-head">
+            Start here
+            <span class="live"><i></i>two commands</span>
+          </div>
+
+          <div class="cmdblock">
+            <div class="row">
+              <span class="prompt">$</span>
+              <span>open ~/Downloads/Lantas-1.0.3-arm64.dmg</span>
+              <button class="cmd-copy" data-copy="open ~/Downloads/Lantas-1.0.3-arm64.dmg">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M6 15H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v1"/></svg>
+                <span class="label">copy</span>
+              </button>
+            </div>
+          </div>
+          <div class="cmdblock">
+            <div class="row">
+              <span class="prompt">$</span>
+              <span>open -a Lantas</span>
+              <button class="cmd-copy" data-copy="open -a Lantas">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M6 15H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v1"/></svg>
+                <span class="label">copy</span>
+              </button>
+            </div>
+          </div>
+
+          <p class="cap">Drop the app in Applications. The extension ships inside it, at <span class="mono">Contents/Resources/chrome-extension</span>.</p>
+
+          <div style="margin-top:20px;padding-top:18px;border-top:1px solid var(--line)">
+            <div class="inspect" style="font-size:12.5px;line-height:21px">
+              <div class="inspect-row" style="grid-template-columns:minmax(0,1fr) auto;border-top:0">
+                <span class="name">Lantas.app</span><span class="val">installed</span>
+              </div>
+              <div class="inspect-row" style="grid-template-columns:minmax(0,1fr) auto">
+                <span class="name">chrome-extension</span><span class="val">bundled</span>
+              </div>
+              <div class="inspect-row" style="grid-template-columns:minmax(0,1fr) auto">
+                <span class="name">provider</span><span class="val">your key</span>
+              </div>
+              <div class="inspect-row" style="grid-template-columns:minmax(0,1fr) auto">
+                <span class="name">browser</span><span class="val">Lantas or Chrome</span>
+              </div>
+              <div class="inspect-row" style="grid-template-columns:minmax(0,1fr) auto">
+                <span class="name">price</span><span class="val">$0</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="wrap">
+    <p data-reveal>Free, and it all runs on your Mac. Install Lantas.</p>
+    <div class="actions" data-reveal style="--d:80ms">
+      <a class="btn btn-primary" href="docs.html">
+        Read the docs
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a class="btn btn-ghost" href="download.html">Download Lantas
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M8 11l4 4 4-4M5 19h14"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-mark">
+        <img class="lockup lockup-ink" src="assets/img/lockup-ink.png" alt="Lantas" width="284" height="140">
+        <img class="lockup lockup-light" src="assets/img/lockup-light.png" alt="" aria-hidden="true" width="284" height="140">
+      </div>
+      <div class="foot-links">
+        <a href="docs.html">Docs</a>
+        <a href="download.html">Download</a>
+        <a href="versions.html">Versions</a>
+        <a href="https://github.com/AnwarKalonov/Lantas-download">GitHub</a>
+        <a href="docs.html#extension">Chrome extension</a>
+        <a href="https://github.com/AnwarKalonov/Lantas-download/issues">Contact</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span class="line">chat, code, and the browser · free</span>
+      <span>© 2026 Lantas</span>
+    </div>
+  </div>
+</footer>
+
+<div class="footer-sky" aria-hidden="true">
+  <img src="assets/img/cloud-horizon-cut.webp" alt="" width="1568" height="256">
+</div>
+
+<script src="assets/site.js"></script>
+</body>
+</html>

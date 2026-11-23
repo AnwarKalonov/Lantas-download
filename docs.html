@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Docs — Lantas</title>
+<meta name="description" content="Use Lantas: the free macOS agent with chat, code and browser in one window. Install it, connect providers and apps, learn the commands, and read the benchmark.">
+
+<link rel="icon" type="image/png" sizes="64x64" href="assets/img/favicon-64.png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<script>try{var t=localStorage.getItem("lantas-theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");document.documentElement.dataset.theme=t;}catch(e){}</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="index.html" aria-label="Lantas home">
+      <img class="glyph glyph-ink" src="assets/img/letter-ink.png" alt="" width="26" height="34">
+      <img class="glyph glyph-light" src="assets/img/letter-light.png" alt="" width="26" height="34" aria-hidden="true">
+      <span class="slash">/</span> <span class="sub">Docs</span>
+    </a>
+
+    <nav class="nav-links" aria-label="Docs sections">
+      <a href="#installation">Install</a>
+      <a href="#extension">Extension</a>
+      <a href="#actions">Actions</a>
+      <a href="#benchmark">Benchmark</a>
+      <a href="#troubleshooting">Troubleshooting</a>
+    </nav>
+
+    <div class="nav-right">
+      <button class="theme-btn" type="button" data-theme-toggle aria-label="Switch to dark mode" title="Switch theme">
+        <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="17" height="17" aria-hidden="true"><path d="M20.5 14.6A8.6 8.6 0 0 1 9.4 3.5a8.6 8.6 0 1 0 11.1 11.1Z"/></svg>
+        <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" width="17" height="17" aria-hidden="true"><circle cx="12" cy="12" r="4.1"/><path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.4 5.4l1.6 1.6M17 17l1.6 1.6M18.6 5.4 17 7M7 17l-1.6 1.6"/></svg>
+      </button>
+      <a class="txt" href="index.html">Home</a>
+      <a class="txt" href="https://github.com/AnwarKalonov/Lantas-download">GitHub</a>
+      <a class="btn btn-primary btn-sm" href="download.html">Download</a>
+      <button class="menu-btn" aria-label="Menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="nav-progress" aria-hidden="true"><span></span></div>
+</header>
+
+<main>
+
+<div class="doc-hero">
+  <div class="wrap">
+    <p class="eyebrow"><span class="dot"></span>lantas docs · 1.0 · free</p>
+    <h1>The whole desk, in one window</h1>
+    <p>Lantas is a free macOS agent: a chat, a code workspace and a browser that can read and act. Ask a question, change a repo, connect the apps you work in, or hand it the tab you have open. Everything runs on your Mac with the model you choose.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="#installation">Install Lantas
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a class="btn btn-ghost" href="#quickstart">Quickstart
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a class="btn btn-ghost" href="https://github.com/AnwarKalonov/Lantas-download">GitHub
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="wrap doc-layout">
+  <nav class="doc-nav" aria-label="Contents">
+    <div class="group">
+      <p class="group-t">Getting started</p>
+      <a href="#installation">Installation</a>
+      <a href="#start">First run</a>
+      <a href="#quickstart">Quickstart</a>
+      <a href="#app">The Lantas window</a>
+    </div>
+    <div class="group">
+      <p class="group-t">Everyday</p>
+      <a href="#chat">Chat</a>
+      <a href="#code">Code</a>
+      <a href="#workspace">Workspace and apps</a>
+      <a href="#skills">Skills and commands</a>
+    </div>
+    <div class="group">
+      <p class="group-t">The browser</p>
+      <a href="#engines">Two engines</a>
+      <a href="#extension">The Chrome extension</a>
+      <a href="#page">Reading the page</a>
+      <a href="#actions">Acting on the page</a>
+    </div>
+    <div class="group">
+      <p class="group-t">Models</p>
+      <a href="#models">Providers and keys</a>
+      <a href="#free">Why it is free</a>
+    </div>
+    <div class="group">
+      <p class="group-t">Reference</p>
+      <a href="#benchmark">Benchmark</a>
+      <a href="#overhead">Overhead</a>
+      <a href="#security">Security</a>
+      <a href="#shortcuts">Shortcuts</a>
+      <a href="#troubleshooting">Troubleshooting</a>
+    </div>
+  </nav>
+
+  <div class="doc-body">
+
+    <section class="doc-sec" id="installation">
+      <p class="eyebrow"><span class="dot"></span>getting started</p>
+      <h2>Installation</h2>
+      <p>Lantas is a macOS app. Download the dmg for Apple silicon from the releases page, open it, and drag <b>Lantas.app</b> to Applications. You need macOS 13 or newer, and Chrome 116 or newer for the extension.</p>
+      <div class="cmdblock">
+        <div class="row">
+          <span class="prompt">$</span><span>open ~/Downloads/Lantas-1.0.3-arm64.dmg</span>
+          <button class="cmd-copy" data-copy="open ~/Downloads/Lantas-1.0.3-arm64.dmg">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M6 15H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v1"/></svg>
+            <span class="label">copy</span>
+          </button>
+        </div>
+      </div>
+      <p>Or take <code>Lantas-1.0.3-arm64.app.zip</code> and unzip it into Applications. The Chrome extension is inside the app at <code>Contents/Resources/chrome-extension</code>, and the app shows you the folder.</p>
+      <p>Nothing is built on your machine, and no toolchain is needed.</p>
+      <div class="callout">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5v.5"/></svg>
+        <span>The build is ad-hoc signed, so macOS asks you to approve Lantas once. Open <b>System Settings → Privacy &amp; Security</b>, click <b>Open Anyway</b>, then authenticate. After that it opens normally. The installer clears the flag for you if you prefer.</span>
+      </div>
+
+      <h3>Start it</h3>
+      <div class="cmdblock">
+        <div class="row">
+          <span class="prompt">$</span><span>open -a Lantas</span>
+          <button class="cmd-copy" data-copy="open -a Lantas">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M6 15H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v1"/></svg>
+            <span class="label">copy</span>
+          </button>
+        </div>
+      </div>
+      <p>There is also <code>Lantas.command</code> in the repo, for the web build while you are working on the UI. It is not the app.</p>
+    </section>
+
+    <section class="doc-sec" id="start">
+      <p class="eyebrow"><span class="dot"></span>getting started</p>
+      <h2>First run</h2>
+      <p>Lantas opens on the chat. Three things to do once:</p>
+      <ol>
+        <li>Open <strong>Settings → Providers</strong>, pick Anthropic, OpenAI, OpenRouter, Groq or Google and paste a key — or point it at Ollama or LM Studio, which need none.</li>
+        <li>Pick the model the agent should use. The model list is fetched from the provider when a key is present.</li>
+        <li>Open <strong>Browser</strong>, then <strong>Chrome extension</strong>, and load the extension folder Chrome is told about.</li>
+      </ol>
+      <p>Keys live in the app's own storage on your Mac. They are not synced, not proxied through a server, and never committed anywhere.</p>
+      <div class="callout warn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v5M12 17.5v.5M10.3 4.6 2.7 18a1.6 1.6 0 0 0 1.4 2.4h15.8a1.6 1.6 0 0 0 1.4-2.4L13.7 4.6a1.6 1.6 0 0 0-2.8 0Z"/></svg>
+        <span>Without a provider the app still opens and the browser still works. The agent will say it needs a key rather than answer.</span>
+      </div>
+    </section>
+
+    <section class="doc-sec" id="quickstart">
+      <p class="eyebrow"><span class="dot"></span>getting started</p>
+      <h2>Quickstart</h2>
+      <p>Four steps, and the first task takes about a minute.</p>
+      <ol>
+        <li>Download the dmg, drag the app to Applications, and open it.</li>
+        <li>Load the extension once: <code>chrome://extensions</code> → Developer mode → Load unpacked → the folder the app shows you.</li>
+        <li>Open the page you care about in Chrome, then click the Lantas icon. The side panel opens on the right.</li>
+        <li>Ask. “Summarise this page”, “find the invoice and download it”, “click Place order”.</li>
+      </ol>
+      <p>The app has to be open: the panel talks to it over a loopback socket on <code>127.0.0.1:47654</code>. If the app is closed the panel says so instead of pretending.</p>
+    </section>
+
+    <section class="doc-sec" id="app">
+      <p class="eyebrow"><span class="dot"></span>getting started</p>
+      <h2>The Lantas window</h2>
+      <p>Three tabs, one window, and a side panel that can sit in any of them.</p>
+      <div class="kv">
+        <div class="k">chat</div><div class="v">Threads with the agent, slash commands, file and image attachments, and screen sharing</div>
+        <div class="k">code</div><div class="v">A workspace folder, files in the tree, edits as diffs, and the GitHub panel</div>
+        <div class="k">browser</div><div class="v">Lantas' own webview, or your real Chrome through the extension. A home page with bookmarks, history and a star beside the address bar.</div>
+        <div class="k">the rail</div><div class="v">Ask about the page you are on without leaving it. The switch at the bottom is whether the agent may act.</div>
+        <div class="k">modes</div><div class="v">Build writes, Plan drafts, Chat answers — chosen per thread</div>
+      </div>
+      <p>Colour has one job in the browser: the accent marks what is live or selected, red marks a failure, and everything else is grey.</p>
+    </section>
+
+    <section class="doc-sec" id="chat">
+      <p class="eyebrow"><span class="dot"></span>everyday</p>
+      <h2>Chat</h2>
+      <p>A thread per topic. The agent keeps the thread's context, and you can rewind a turn, compact a long thread, or export it as JSON. Every session is listed in the sidebar and searchable from ⌘K.</p>
+      <h3>Three modes</h3>
+      <div class="kv">
+        <div class="k">chat</div><div class="v">Answers without touching anything. Read-only.</div>
+        <div class="k">plan</div><div class="v">Reads the repo and drafts an approach before a file changes. Read-only.</div>
+        <div class="k">build</div><div class="v">Reads, edits and runs commands in the folder you opened.</div>
+      </div>
+      <p>The mode sits in the composer and is chosen per thread: Plan for the shape of a change, Build when you want it written, Chat when the answer is the whole point.</p>
+
+      <h3>Attachments and the screen</h3>
+      <p>Drop files or images into the composer, or pick them with <code>/attach</code>. <code>/screen</code> asks for a window or a display, samples it at four frames a second, and attaches one frame to the question. The stream stays in this process; it is never uploaded.</p>
+
+      <h3>Slash commands</h3>
+      <p>Type <code>/</code> for the menu, or reach the same commands from ⌘K.</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Command</th><th>What it does</th></tr></thead>
+          <tbody>
+            <tr><td><span class="nm">/new · /clear</span></td><td>Start a fresh thread, or empty this one</td></tr>
+            <tr><td><span class="nm">/code · /chat</span></td><td>Move between the workspace and the thread</td></tr>
+            <tr><td><span class="nm">/attach · /screen</span></td><td>Add files, or share a window or display</td></tr>
+            <tr><td><span class="nm">/init</span></td><td>Scan the repository and write an AGENTS.md</td></tr>
+            <tr><td><span class="nm">/review · /diff</span></td><td>Review the working tree, or walk the last change</td></tr>
+            <tr><td><span class="nm">/fix · /test</span></td><td>Reproduce a failure and fix the cause</td></tr>
+            <tr><td><span class="nm">/commit</span></td><td>Commit the working tree</td></tr>
+            <tr><td><span class="nm">/plan · /build</span></td><td>Switch the mode without opening a menu</td></tr>
+            <tr><td><span class="nm">/model · /usage</span></td><td>Choose a model, or read tokens and context</td></tr>
+            <tr><td><span class="nm">/skills · /mcp</span></td><td>Manage skills and MCP servers</td></tr>
+            <tr><td><span class="nm">/undo · /redo</span></td><td>Rewind a turn, or put it back</td></tr>
+            <tr><td><span class="nm">/compact · /export</span></td><td>Summarise the thread, or download it</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Settings → Commands adds your own: a name, a description, and a prompt body that receives <code>$ARGUMENTS</code>. Custom commands and skills appear in the same menu as the built-ins.</p>
+    </section>
+
+    <section class="doc-sec" id="code">
+      <p class="eyebrow"><span class="dot"></span>everyday</p>
+      <h2>Code</h2>
+      <p>The Code tab is a workspace: a folder you pick with the native dialog, or files you drop on the panel, up to 600 of them. Lantas reads every text file under it, skipping <code>node_modules</code>, <code>.git</code>, <code>dist</code>, <code>build</code>, <code>target</code> and similar, then shows the tree with a filter.</p>
+      <p>Nothing is uploaded. In the desktop build the folder is read through Tauri's filesystem plugin; in a browser tab it uses the File System Access API with the permission you grant.</p>
+
+      <h3>Edits are diffs</h3>
+      <p>An edit arrives as a diff: the file, the lines and the reason. Apply it, or roll it back. Build mode may propose changes; Plan and Chat only read. The code view shows a file with line numbers and its language, and names a binary or oversized file as such instead of showing it as text.</p>
+
+      <h3>GitHub</h3>
+      <div class="kv">
+        <div class="k">token</div><div class="v">A personal access token, stored in this app on this Mac</div>
+        <div class="k">repos</div><div class="v">List your repositories and open a file tree without cloning</div>
+        <div class="k">commit</div><div class="v">Edit a file and commit it to a branch with a message, from the panel</div>
+        <div class="k">create</div><div class="v">Make a repository, private or public, without leaving the app</div>
+      </div>
+    </section>
+
+    <section class="doc-sec" id="workspace">
+      <p class="eyebrow"><span class="dot"></span>everyday</p>
+      <h2>Workspace and apps</h2>
+      <p>Integrations come in two kinds: managed toolkits through Composio, and MCP servers you add yourself. Both make the services you already use callable from the same thread.</p>
+
+      <h3>Composio</h3>
+      <p>Add a Composio project key once in Settings → Integrations. From that panel you connect an app, finish the sign-in in your browser, and the toolkit appears in the list as active. Each connection can be revoked from the same place.</p>
+      <div class="kv">
+        <div class="k">communication</div><div class="v">Gmail, Slack, Discord, Telegram, WhatsApp, Outlook, Intercom, Zendesk</div>
+        <div class="k">productivity</div><div class="v">Notion, Calendar, Drive, Airtable, Trello, Asana, monday.com, ClickUp, Todoist</div>
+        <div class="k">developer</div><div class="v">GitHub, Linear, Jira, Sentry, Vercel, Supabase</div>
+        <div class="k">crm</div><div class="v">HubSpot, Salesforce, Pipedrive</div>
+        <div class="k">storage · social</div><div class="v">Dropbox, Box · X, Reddit, YouTube, Spotify</div>
+      </div>
+      <p>Thirty-two in all. The key and the connection tokens stay in this app's storage on your Mac; the browser tab only does the sign-in step.</p>
+
+      <h3>Gmail, directly</h3>
+      <p>The Google panel is the other route: a read-only Gmail inbox through your own OAuth client. Nothing is written back, the token stays local, and disconnecting clears it.</p>
+
+      <h3>MCP</h3>
+      <p>Settings → Integrations adds Model Context Protocol servers. An HTTP server gets a real <code>initialize</code> handshake from Test; a stdio server keeps its command and starts with the desktop runtime. A filesystem, a database, your own service — anything with an MCP server becomes a tool the agent can call.</p>
+    </section>
+
+    <section class="doc-sec" id="skills">
+      <p class="eyebrow"><span class="dot"></span>everyday</p>
+      <h2>Skills and commands</h2>
+      <p>A skill is a paragraph of instructions appended to the system prompt while it is switched on. Four ship built in:</p>
+      <div class="kv">
+        <div class="k">commit</div><div class="v">A conventional commit message written from the staged diff</div>
+        <div class="k">review</div><div class="v">A diff read for correctness, edge cases and regressions</div>
+        <div class="k">release notes</div><div class="v">A changelog entry from the commits since the last tag</div>
+        <div class="k">test gaps</div><div class="v">The cases a change leaves untested, and the smallest test that would catch them</div>
+      </div>
+      <p>Write your own in Settings → Skills: a name, a description and the instructions. Enable it for a thread and it joins the prompt; leave it off and it costs nothing.</p>
+      <p>Commands are the other direction — a name you type and a prompt body. Both live in Settings, and both appear in the composer's slash menu next to the built-ins.</p>
+    </section>
+
+    <section class="doc-sec" id="engines">
+      <p class="eyebrow"><span class="dot"></span>the browser</p>
+      <h2>Two engines</h2>
+      <p>The browser tab has a switch with two positions.</p>
+      <div class="kv">
+        <div class="k">lantas</div><div class="v">A native webview inside the app. Pages render in Lantas, links stay in Lantas, and the agent reads them through the app.</div>
+        <div class="k">chrome</div><div class="v">Your real Chrome. Lantas sends commands to the extension and the extension acts in the tab you have open, with your logins and your extensions.</div>
+      </div>
+      <p>Use the Lantas engine for reading and research; use Chrome for anything that needs you signed in. The engine is remembered between launches, and the browser always opens on its home page.</p>
+      <div class="callout">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5v.5"/></svg>
+        <span>Some sites refuse to load in a webview at all — Notion, Google Docs, most banks. That is what the Chrome engine is for.</span>
+      </div>
+    </section>
+
+    <section class="doc-sec" id="extension">
+      <p class="eyebrow"><span class="dot"></span>the browser</p>
+      <h2>The Chrome extension</h2>
+      <p>A side panel, not a popup. Click the Lantas icon in the toolbar and the panel opens on the right of the tab you are reading.</p>
+      <p>Load it once. The app shows the folder, or use this path:</p>
+      <div class="cmdblock">
+        <div class="row">
+          <span class="prompt">$</span><span>/Applications/Lantas.app/Contents/Resources/chrome-extension</span>
+          <button class="cmd-copy" data-copy="/Applications/Lantas.app/Contents/Resources/chrome-extension">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M6 15H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v1"/></svg>
+            <span class="label">copy</span>
+          </button>
+        </div>
+      </div>
+
+      <h3>What the panel shows</h3>
+      <div class="kv">
+        <div class="k">status</div><div class="v">Connected or not, and the app it is talking to</div>
+        <div class="k">the page</div><div class="v">Title, address and how many controls the agent can see</div>
+        <div class="k">the thread</div><div class="v">Your questions, its answers, and a note for every action it ran</div>
+        <div class="k">let lantas act</div><div class="v">The kill switch. Off means read-only, immediately</div>
+      </div>
+
+      <h3>How it talks to the app</h3>
+      <p>The extension opens a WebSocket to <code>ws://127.0.0.1:47654</code> and says hello. The app only accepts <code>chrome-extension://</code> origins, so a website cannot pretend to be the extension. Commands go one way, results and answers come back with the same id.</p>
+      <div class="callout warn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v5M12 17.5v.5M10.3 4.6 2.7 18a1.6 1.6 0 0 0 1.4 2.4h15.8a1.6 1.6 0 0 0 1.4-2.4L13.7 4.6a1.6 1.6 0 0 0-2.8 0Z"/></svg>
+        <span>Reloading the extension gives it a new id and breaks the connection until Chrome reconnects. Keep the folder in one place.</span>
+      </div>
+    </section>
+
+    <section class="doc-sec" id="page">
+      <p class="eyebrow"><span class="dot"></span>the browser</p>
+      <h2>Reading the page</h2>
+      <p>The content script returns four things, and nothing else:</p>
+      <div class="kv">
+        <div class="k">title · url</div><div class="v">What the tab says it is, with query strings and fragments intact</div>
+        <div class="k">text</div><div class="v">Visible text, cleaned of scripts and styles, capped so one long page cannot eat the context</div>
+        <div class="k">controls</div><div class="v">Buttons, links, inputs, selects and textareas: role, accessible name, value, whether visible and enabled</div>
+        <div class="k">elements</div><div class="v">A short numbered list of the labelled controls, so the model can name one instead of guessing coordinates</div>
+      </div>
+      <p>Nothing is captured as an image. There is no OCR, no screenshot, and no cursor tracking. A page the extension cannot script — <code>chrome://</code>, the Web Store, PDF viewers — is reported as unreadable rather than half-read.</p>
+      <p>Iframes on another origin, closed shadow roots and canvas-only apps are read as text at best. Lantas says which part it could not see.</p>
+    </section>
+
+    <section class="doc-sec" id="actions">
+      <p class="eyebrow"><span class="dot"></span>the browser</p>
+      <h2>Acting on the page</h2>
+      <p>Seven actions, one at a time:</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Action</th><th>What it needs</th></tr></thead>
+          <tbody>
+            <tr><td><span class="nm">click</span></td><td>The label of the control, or a CSS selector as a fallback</td></tr>
+            <tr><td><span class="nm">type</span></td><td>The text, and a field by label or selector; optionally submit</td></tr>
+            <tr><td><span class="nm">enter</span></td><td>Nothing: Enter goes to the focused field</td></tr>
+            <tr><td><span class="nm">scroll</span></td><td>Pixels up or down</td></tr>
+            <tr><td><span class="nm">open</span></td><td>A URL, in the current tab or a new one</td></tr>
+            <tr><td><span class="nm">back · forward</span></td><td>Nothing</td></tr>
+            <tr><td><span class="nm">reload</span></td><td>Nothing</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>How a click finds its target</h3>
+      <p>By label first. The extension scores the control's accessible name against what the model asked for; a button that moved is still a button. A CSS selector is the fallback, and coordinates are never used. If two controls match equally well, the agent asks instead of picking one.</p>
+
+      <h3>What it will not do</h3>
+      <p>It does not press anything destructive without the word in your request, does not type into password or payment fields without an explicit ask, and does not click a disabled control. When the switch is off, every action is refused in the extension before it reaches the page.</p>
+
+      <h3>After every action</h3>
+      <p>The page is read again. If the confirmation the step expected is not there, the action is reported as failed — with what the page actually said — rather than as done. The answer you read in the panel is the step that ran, not a description of it.</p>
+    </section>
+
+    <section class="doc-sec" id="models">
+      <p class="eyebrow"><span class="dot"></span>models</p>
+      <h2>Providers and keys</h2>
+      <div class="kv">
+        <div class="k">Anthropic</div><div class="v">Claude Opus, Sonnet and Haiku</div>
+        <div class="k">OpenAI</div><div class="v">GPT models, streaming</div>
+        <div class="k">OpenRouter</div><div class="v">One key for most hosted models</div>
+        <div class="k">Groq</div><div class="v">Fast hosted open models</div>
+        <div class="k">Google</div><div class="v">Gemini, through AI Studio</div>
+        <div class="k">Ollama · LM Studio</div><div class="v">Models running on this Mac, no key</div>
+        <div class="k">OpenAI-compatible</div><div class="v">Any base URL: a local server, a gateway, or your own proxy</div>
+      </div>
+      <p>The default model is yours to choose per session, and the agent switch in the browser rail uses the same provider. Nothing is sent to Lantas: requests go from your Mac to the provider you picked, with the key you pasted.</p>
+      <div class="callout">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5v.5"/></svg>
+        <span>A local endpoint needs no key. Set the base URL to <code>http://127.0.0.1:11434/v1</code> or whatever your server serves, and pick a model name it knows.</span>
+      </div>
+    </section>
+
+    <section class="doc-sec" id="free">
+      <p class="eyebrow"><span class="dot"></span>models</p>
+      <h2>Why it is free</h2>
+      <p>Lantas is free: no subscription, no seats, no trial, no per-task fee and no account. You download it, it runs on your Mac, and there is no server of ours in the middle of anything.</p>
+      <div class="kv">
+        <div class="k">the app</div><div class="v">$0, free to download and use</div>
+        <div class="k">the model</div><div class="v">Yours. A local model on the same Mac costs nothing; a hosted key is billed by that provider, not by us</div>
+        <div class="k">the machine</div><div class="v">0.06 s to read a page of 42 controls, 0.11 s to match locally</div>
+      </div>
+      <p>There is no metering inside the app, no analytics endpoint and nothing to upgrade. The only number that can move is your provider's bill, and the composer always shows which model is making the call.</p>
+    </section>
+
+    <section class="doc-sec" id="benchmark">
+      <p class="eyebrow"><span class="dot"></span>reference</p>
+      <h2>Benchmark</h2>
+      <p>Eleven tasks a person would do in a browser, each run in the same Chrome profile with the same logins. Lantas on Claude Sonnet 4.5, Claude Code on Opus 4.1 with computer use, Antigravity on Gemini 3. The benchmark measures speed and completion; the app itself is free, so price is not part of the comparison.</p>
+
+      <div class="stats">
+        <div class="stat">
+          <p class="label">Time to finish</p>
+          <p class="fig">1.8<span class="unit">min</span></p>
+          <p class="sub">Claude Code 3.3 · Antigravity 3.6</p>
+        </div>
+        <div class="stat">
+          <p class="label">Price of the app</p>
+          <p class="fig">$0</p>
+          <p class="sub">Free · no account</p>
+        </div>
+        <div class="stat">
+          <p class="label">Tasks finished</p>
+          <p class="fig">11<span class="unit">/ 11</span></p>
+          <p class="sub">Claude Code 9 / 11 · Antigravity 8 / 11</p>
+        </div>
+      </div>
+
+      <p style="margin-top:20px">Means are over the tasks each tool finished. Lantas finished all eleven; Claude Code missed one and found another without booking it; Antigravity gave up on two. Lantas' internal benchmark, small sample, results vary by task.</p>
+
+      <div class="tablewrap" style="margin-top:16px">
+        <table>
+          <thead><tr><th style="width:44px">#</th><th>Task</th><th class="num">Claude Code</th><th class="num">Antigravity</th><th class="num">Lantas</th></tr></thead>
+          <tbody>
+            <tr><td class="num">1</td><td><span class="nm">booking a restaurant table</span></td><td class="num">4.2 min</td><td class="num">5.1 min</td><td class="num"><span class="ok">1.4 min</span></td></tr>
+            <tr><td class="num">2</td><td><span class="nm">download an invoice PDF</span></td><td class="num"><span class="miss">missed</span></td><td class="num">3.4 min</td><td class="num"><span class="ok">1.2 min</span></td></tr>
+            <tr><td class="num">3</td><td><span class="nm">change the shipping address</span></td><td class="num">3.9 min</td><td class="num">4.6 min</td><td class="num"><span class="ok">2.0 min</span></td></tr>
+            <tr><td class="num">4</td><td><span class="nm">apply a promo code</span></td><td class="num">1.6 min</td><td class="num">2.2 min</td><td class="num"><span class="ok">0.8 min</span></td></tr>
+            <tr><td class="num">5</td><td><span class="nm">compare three flights</span></td><td class="num">4.4 min</td><td class="num"><span class="ok">3.9 min</span></td><td class="num"><span class="ok">2.8 min</span></td></tr>
+            <tr><td class="num">6</td><td><span class="nm">file a receipt in a form</span></td><td class="num">3.2 min</td><td class="num">4.8 min</td><td class="num"><span class="ok">1.9 min</span></td></tr>
+            <tr><td class="num">7</td><td><span class="nm">cancel a subscription</span></td><td class="num">2.6 min</td><td class="num"><span class="miss">gave up</span></td><td class="num"><span class="ok">1.5 min</span></td></tr>
+            <tr><td class="num">8</td><td><span class="nm">fill a job application</span></td><td class="num">5.8 min</td><td class="num"><span class="miss">gave up</span></td><td class="num"><span class="ok">3.4 min</span></td></tr>
+            <tr><td class="num">9</td><td><span class="nm">book a dentist appointment</span></td><td class="num">2.1 min</td><td class="num">2.7 min</td><td class="num"><span class="ok">1.1 min</span></td></tr>
+            <tr><td class="num">10</td><td><span class="nm">download a bank statement</span></td><td class="num">1.9 min</td><td class="num">2.4 min</td><td class="num"><span class="ok">1.3 min</span></td></tr>
+            <tr><td class="num">11</td><td><span class="nm">reserve a hotel room</span></td><td class="num"><span class="miss">found, not booked</span></td><td class="num">3.6 min</td><td class="num"><span class="ok">2.2 min</span></td></tr>
+            <tr class="total"><td class="num"></td><td><span class="nm">Mean over tasks finished</span></td><td class="num">3.3 min · 9 / 11</td><td class="num">3.6 min · 8 / 11</td><td class="num">1.8 min · 11 / 11</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Caveats</h3>
+      <ul>
+        <li>Eleven tasks is a sample, not a study. The tasks were written by us, and we knew what the right answer looked like.</li>
+        <li>Timing is wall clock, from the first prompt to the page saying the task was done. A tool that gives up is not counted as fast.</li>
+        <li>The app is free; model calls are billed by whichever provider or local server you use, so a hosted run has a cost Lantas does not set.</li>
+        <li>The three tools were run on different models because those are the models each is built around.</li>
+      </ul>
+    </section>
+
+    <section class="doc-sec" id="overhead">
+      <p class="eyebrow"><span class="dot"></span>reference</p>
+      <h2>Overhead</h2>
+      <p>Where a two-step task spends its 2.3 seconds of machine time:</p>
+      <div class="kv">
+        <div class="k">reading the page</div><div class="v">0.06 s for 42 controls, through the extension</div>
+        <div class="k">matching</div><div class="v">0.11 s locally, no model</div>
+        <div class="k">the model</div><div class="v">2.1 s, waiting on the provider</div>
+      </div>
+      <p>The app is a native Tauri binary. Its idle cost is a window and a socket; there is no browser engine running until you open the browser tab, and no polling loop when the panel is closed. The bridge keeps one socket per Chrome profile.</p>
+    </section>
+
+    <section class="doc-sec" id="security">
+      <p class="eyebrow"><span class="dot"></span>reference</p>
+      <h2>Security</h2>
+      <div class="kv">
+        <div class="k">the bridge</div><div class="v">Loopback only, and it refuses any origin that is not <code>chrome-extension://</code></div>
+        <div class="k">page data</div><div class="v">Sent to your provider with the question you asked, and nowhere else</div>
+        <div class="k">keys</div><div class="v">Stored in the app's own storage on your Mac, never in the repo</div>
+        <div class="k">integrations</div><div class="v">Composio and Google tokens stay in this app's storage; an MCP server runs where you point it</div>
+        <div class="k">telemetry</div><div class="v">None. There is no analytics endpoint to turn off</div>
+        <div class="k">the switch</div><div class="v">“Let Lantas act” off means the extension refuses every action</div>
+      </div>
+      <p>The extension asks for <code>tabs</code>, <code>scripting</code>, <code>storage</code> and <code>sidePanel</code>. It reads a page only when a question or an action needs it; it does not run in the background on every site you visit.</p>
+    </section>
+
+    <section class="doc-sec" id="shortcuts">
+      <p class="eyebrow"><span class="dot"></span>reference</p>
+      <h2>Shortcuts</h2>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Key</th><th>What it does</th></tr></thead>
+          <tbody>
+            <tr><td><span class="nm">⌘ K</span></td><td>Command palette</td></tr>
+            <tr><td><span class="nm">⌘ N</span></td><td>New thread</td></tr>
+            <tr><td><span class="nm">⌘ ,</span></td><td>Settings</td></tr>
+            <tr><td><span class="nm">⌘ B</span></td><td>Show or hide the sidebar</td></tr>
+            <tr><td><span class="nm">⌘ ⇧ B</span></td><td>Show or hide the context panel</td></tr>
+            <tr><td><span class="nm">⌘ ⏎</span></td><td>Send the message</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="doc-sec" id="troubleshooting">
+      <p class="eyebrow"><span class="dot"></span>reference</p>
+      <h2>Troubleshooting</h2>
+
+      <h3>The app will not open</h3>
+      <p>Open <b>System Settings → Privacy &amp; Security</b>, scroll to Security and click <b>Open Anyway</b> next to Lantas. If the app was copied by a script and still refuses, run <code>xattr -dr com.apple.quarantine /Applications/Lantas.app</code>.</p>
+
+      <h3>The panel says “Lantas is closed”</h3>
+      <p>The app is not running, or the bridge port is taken. Open Lantas; if it is already open, quit it and start it again. The port is <code>127.0.0.1:47654</code>.</p>
+
+      <h3>Chrome will not load the extension</h3>
+      <p>Chrome 116 or newer is required. In <code>chrome://extensions</code>, turn on Developer mode, choose Load unpacked, and pick the <code>chrome-extension</code> folder inside the app bundle. Loading it from a moved folder gives a new id.</p>
+
+      <h3>It cannot read a page</h3>
+      <p><code>chrome://</code> pages, the Chrome Web Store, the PDF viewer and other extensions' pages cannot be scripted. Switch to a normal website tab.</p>
+
+      <h3>A workspace will not open</h3>
+      <p>In the desktop app the folder picker is native. In a browser tab the File System Access API is only available in Chrome, and it asks for permission once per folder. You can always drop files onto the Code tab instead.</p>
+
+      <h3>An app will not connect</h3>
+      <p>Composio project keys start with <code>ak_</code>. Finish the sign-in in the browser window the panel opens, then refresh the list; it polls while a connection is pending. The web preview blocks Composio's API because of CORS, so connect from the desktop build.</p>
+
+      <h3>It clicked the wrong thing</h3>
+      <p>Say which control you meant by its visible words. Matching is by label; if the page has two buttons with the same name, Lantas asks rather than picking one. The side panel shows the label it matched.</p>
+
+      <h3>A provider call fails</h3>
+      <p>Check the key and the model name in Settings → Providers. A 401 is the key, a 404 is usually the model id, and a timeout is the network. The panel reports the provider's own message rather than a generic error.</p>
+    </section>
+
+    <div class="doc-foot">
+      <a href="index.html">← Home</a>
+      <a class="next" href="download.html">Download Lantas →</a>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-mark">
+        <img class="lockup lockup-ink" src="assets/img/lockup-ink.png" alt="Lantas" width="284" height="140">
+        <img class="lockup lockup-light" src="assets/img/lockup-light.png" alt="" aria-hidden="true" width="284" height="140">
+      </div>
+      <div class="foot-links">
+        <a href="docs.html">Docs</a>
+        <a href="download.html">Download</a>
+        <a href="versions.html">Versions</a>
+        <a href="https://github.com/AnwarKalonov/Lantas-download">GitHub</a>
+        <a href="docs.html#extension">Chrome extension</a>
+        <a href="https://github.com/AnwarKalonov/Lantas-download/issues">Contact</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span class="line">chat, code, and the browser · free</span>
+      <span class="mono">© 2026 Lantas</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>
