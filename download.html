@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Download — Lantas</title>
-<meta name="description" content="Download Lantas 1.0 for Apple silicon Macs. Free, no account: chat, code and the Chrome extension inside one app.">
+<meta name="description" content="Download Lantas 1.0.3 for Apple silicon Macs. Free, no account: chat, code and the Chrome extension inside one app.">
 
 <link rel="icon" type="image/png" sizes="64x64" href="assets/img/favicon-64.png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
@@ -12,6 +12,28 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/site.css">
+<style>
+  .dl-cta-row { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 22px; }
+  .dl-cta-row .btn { gap: 10px; }
+  .dl-cta-meta { font-family: var(--mono); font-size: 11px; letter-spacing: .02em; color: var(--ink-3); }
+  .drag-strip { position: relative; overflow: hidden; display: grid; grid-template-columns: auto minmax(56px, 1fr) auto; align-items: center; gap: 18px; margin: 0 0 26px; padding: 18px 22px; border: 1px solid var(--line); border-radius: var(--r-lg); background: radial-gradient(120% 150% at 0% 0%, var(--green-wash), transparent 55%), var(--card); box-shadow: var(--sh-sm); }
+  .drag-strip::after { content: ""; position: absolute; right: -42px; top: -72px; width: 180px; height: 150px; border-radius: 50%; background: var(--green-wash); filter: blur(26px); opacity: .55; pointer-events: none; }
+  .drag-app, .drag-folder { position: relative; z-index: 1; display: flex; align-items: center; gap: 11px; min-width: 0; }
+  .drag-app img { width: 46px; height: 46px; border-radius: 12px; box-shadow: 0 8px 20px -10px rgba(0,0,0,.45); display: block; }
+  .drag-folder svg { width: 44px; height: 36px; flex: none; color: var(--green); }
+  .drag-app b, .drag-folder b { display: block; font-size: 14px; font-weight: 500; color: var(--ink); line-height: 1.25; }
+  .drag-app small, .drag-folder small { display: block; margin-top: 2px; font-family: var(--mono); font-size: 10px; color: var(--ink-3); }
+  .drag-line { position: relative; z-index: 1; display: flex; align-items: center; gap: 9px; min-width: 44px; color: var(--ink-3); }
+  .drag-line span { flex: 1; border-top: 1px dashed var(--line-2); }
+  .drag-line b { font-family: var(--mono); font-size: 9px; font-weight: 400; letter-spacing: .1em; text-transform: uppercase; }
+  .drag-copy { grid-column: 1 / -1; position: relative; z-index: 1; margin: 0; padding-top: 13px; border-top: 1px solid var(--line); font-size: 12.5px; line-height: 1.5; color: var(--ink-3); }
+  .drag-copy b { color: var(--ink-2); font-weight: 500; }
+  @media (max-width: 620px) {
+    .drag-strip { grid-template-columns: 1fr; gap: 12px; padding: 16px; }
+    .drag-line { width: 100%; }
+    .drag-copy { margin-top: 2px; }
+  }
+</style>
 <script>try{var t=localStorage.getItem("lantas-theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");document.documentElement.dataset.theme=t;}catch(e){}</script>
 </head>
 <body>
@@ -51,14 +73,34 @@
 
 <section class="dl-hero">
   <div class="wrap">
-    <p class="eyebrow"><span class="dot"></span>Lantas 1.0 · macOS</p>
+    <p class="eyebrow"><span class="dot"></span>Lantas 1.0.3 · macOS</p>
     <h1>Download the build for your Mac</h1>
     <p>One free app: a chat, a code workspace and a browser, with the Chrome side panel inside <b style="color:var(--text);font-weight:500">Lantas.app</b>. There is nothing else to install and nothing to pay — the app shows you the extension folder the first time you open the browser tab.</p>
+    <div class="dl-cta-row">
+      <a class="btn btn-primary" href="https://github.com/AnwarKalonov/Lantas-download/releases/latest/download/Lantas-1.0.3-arm64.dmg">
+        Download for Apple silicon
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M8 11l4 4 4-4M5 19h14"/></svg>
+      </a>
+      <span class="dl-cta-meta">macOS 13+ · Apple silicon · 1.0.3</span>
+    </div>
   </div>
 </section>
 
 <div class="wrap dl-grid" id="builds">
   <div>
+    <div class="drag-strip">
+      <div class="drag-app">
+        <img src="assets/img/apple-touch-icon.png" alt="Lantas app icon" width="46" height="46">
+        <span><b>Lantas</b><small>1.0.3</small></span>
+      </div>
+      <div class="drag-line" aria-hidden="true"><span></span><b>drag</b><span></span></div>
+      <div class="drag-folder">
+        <svg viewBox="0 0 44 36" fill="none" aria-hidden="true"><path d="M3 8.5A3.5 3.5 0 0 1 6.5 5h9l3.4 3.8h15.6A3.5 3.5 0 0 1 38 12.3v15.2a3.5 3.5 0 0 1-3.5 3.5h-28A3.5 3.5 0 0 1 3 27.5v-19Z" fill="currentColor" opacity=".16"/><path d="M3 12.2h32v15.3a3.5 3.5 0 0 1-3.5 3.5h-25A3.5 3.5 0 0 1 3 27.5V12.2Z" fill="currentColor" opacity=".3"/><path d="M3 8.5A3.5 3.5 0 0 1 6.5 5h9l3.4 3.8h15.6A3.5 3.5 0 0 1 38 12.3v15.2a3.5 3.5 0 0 1-3.5 3.5h-28A3.5 3.5 0 0 1 3 27.5v-19Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        <span><b>Applications</b><small>Drop it here</small></span>
+      </div>
+      <p class="drag-copy"><b>Open the DMG and drag Lantas across.</b> That is the whole install. The branded window keeps the app beside the Applications folder, exactly where it belongs.</p>
+    </div>
+
     <div class="dl-controls">
       <div class="seg" role="group" aria-label="Platform">
         <button data-os="arm" aria-pressed="true">Apple silicon</button>
@@ -79,18 +121,19 @@
         </thead>
         <tbody>
           <tr data-os="arm">
-            <td class="py">dmg</td><td class="plat">Lantas-1.0.2-arm64.dmg · drag to Applications</td><td class="sz">~10.6 MB</td>
-            <td><a class="dl-link" href="https://github.com/AnwarKalonov/Lantas-download/releases/latest/download/Lantas-1.0.2-arm64.dmg">download
+            <td class="py">dmg</td><td class="plat">Lantas-1.0.3-arm64.dmg · drag to Applications</td><td class="sz">~10.6 MB</td>
+            <td><a class="dl-link" href="https://github.com/AnwarKalonov/Lantas-download/releases/latest/download/Lantas-1.0.3-arm64.dmg">download
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M8 11l4 4 4-4M5 19h14"/></svg></a></td>
           </tr>
           <tr data-os="arm">
-            <td class="py">app</td><td class="plat">Lantas-1.0.2-arm64.app.zip · ad-hoc signed</td><td class="sz">~9.9 MB</td>
-            <td><a class="dl-link" href="https://github.com/AnwarKalonov/Lantas-download/releases/latest/download/Lantas-1.0.2-arm64.app.zip">download
+            <td class="py">app</td><td class="plat">Lantas-1.0.3-arm64.app.zip · drag or unzip into Applications</td><td class="sz">~9.9 MB</td>
+            <td><a class="dl-link" href="https://github.com/AnwarKalonov/Lantas-download/releases/latest/download/Lantas-1.0.3-arm64.app.zip">download
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M8 11l4 4 4-4M5 19h14"/></svg></a></td>
           </tr>
 
+
           <tr data-os="ext">
-            <td class="py">ext</td><td class="plat">chrome-extension.zip · Load unpacked in Chrome 116+</td><td class="sz">~33 KB</td>
+            <td class="py">ext</td><td class="plat">chrome-extension.zip · Load unpacked in Chrome 116+</td><td class="sz">~40 KB</td>
             <td><a class="dl-link" href="https://github.com/AnwarKalonov/Lantas-download/releases/latest/download/chrome-extension.zip">download
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M8 11l4 4 4-4M5 19h14"/></svg></a></td>
           </tr>
@@ -98,7 +141,7 @@
       </table>
     </div>
 
-    <p class="dl-note">Builds are ad-hoc signed until a Developer ID release is published. If macOS warns, use the <a href="install.sh">installer</a> (download it, then <code>bash install.sh</code>), or right-click the app and choose Open. Notarized builds open normally. The newest build is always the latest release, and <a href="versions.html">every past version stays listed</a>.</p>
+    <p class="dl-note">The build is ad-hoc signed, so macOS asks you to approve Lantas once: open <b>System Settings → Privacy &amp; Security</b> and click <b>Open Anyway</b>. After that it opens normally. Prefer no dialog? The <a href="install.sh">installer</a> copies the app and clears the quarantine flag for you. The newest build is always the latest release, and <a href="versions.html">every past version stays listed</a>.</p>
   </div>
 
   <aside>
