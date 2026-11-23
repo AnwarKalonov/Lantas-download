@@ -1,0 +1,45 @@
+name: Import release assets
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Release tag to attach the build to
+        required: true
+      artifact_url:
+        description: Temporary URL for the signed macOS CI artifact zip
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    if: github.actor == 'AnwarKalonov'
+    steps:
+      - name: Download and unpack build
+        env:
+          ARTIFACT_URL: ${{ inputs.artifact_url }}
+        run: |
+          set -euo pipefail
+          mkdir -p release-assets
+          curl --fail --location --retry 3 --silent --show-error "$ARTIFACT_URL" -o build.zip
+          unzip -q build.zip -d release-assets
+          ls -lh release-assets
+          test -f release-assets/Lantas-1.0.2-arm64.dmg
+          test -f release-assets/Lantas-1.0.2-arm64.app.zip
+          test -f release-assets/Lantas.app.tar.gz
+          test -f release-assets/Lantas.app.tar.gz.sig
+          test -f release-assets/latest.json
+          test -f release-assets/chrome-extension.zip
+
+      - name: Attach assets to the release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ inputs.tag }}
+        run: |
+          set -euo pipefail
+          gh release upload "$TAG" release-assets/* --clobber
+          gh release edit "$TAG" --draft=false --latest
+          gh release view "$TAG" --json assets --jq '.assets[].name'
