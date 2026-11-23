@@ -1,0 +1,39 @@
+name: Publish release assets
+
+on:
+  workflow_dispatch:
+    inputs:
+      artifact_url:
+        description: Temporary URL for the Lantas-macOS artifact zip
+        required: true
+      tag:
+        description: Release tag to attach the files to
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download the build artifact
+        env:
+          ARTIFACT_URL: ${{ inputs.artifact_url }}
+        run: |
+          set -euo pipefail
+          curl -fsSL "$ARTIFACT_URL" -o artifact.zip
+          unzip -q artifact.zip -d release-assets
+          ls -lh release-assets
+
+      - name: Upload the release assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ inputs.tag }}
+        run: |
+          set -euo pipefail
+          case "$TAG" in
+            v[0-9]*.[0-9]*.[0-9]*) ;;
+            *) echo "unexpected tag: $TAG"; exit 1 ;;
+          esac
+          gh release upload "$TAG" release-assets/* --clobber --repo "$GITHUB_REPOSITORY"
