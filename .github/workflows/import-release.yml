@@ -38,8 +38,9 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TAG: ${{ inputs.tag }}
+          REPO: ${{ github.repository }}
         run: |
           set -euo pipefail
-          gh release upload "$TAG" release-assets/* --clobber
-          gh release edit "$TAG" --draft=false --latest
-          gh release view "$TAG" --json assets --jq '.assets[].name'
+          gh release upload "$TAG" release-assets/* --clobber --repo "$REPO"
+          gh release edit "$TAG" --draft=false --latest --repo "$REPO"
+          gh release view "$TAG" --repo "$REPO" --json assets --jq '.assets[].name'
