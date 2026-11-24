@@ -50,8 +50,9 @@ https://github.com/AnwarKalonov/Lantas-download/releases/latest/download/Lantas-
 
 - **Chat** — threads with the model you pick, attachments, screen sharing, slash
   commands, skills, and a ⌘K palette.
-- **Code** — open a folder, read the tree, get edits as diffs you can apply or roll
-  back, and commit through the GitHub panel.
+- **Code** — a real workspace with Monaco, tabs, quick open, project search, a file
+  tree, a terminal and an assistant dock. Assistant writes are staged as diffs you can
+  keep or discard, and your own git is built in.
 - **Your apps** — 32 toolkits through Composio (Gmail, Slack, Notion, Linear, Jira,
   Drive, HubSpot and more), Gmail through your own OAuth client, and any MCP server.
 - **Browser** — a browser of its own and a Chrome side panel. It reads the page you are
@@ -60,7 +61,10 @@ https://github.com/AnwarKalonov/Lantas-download/releases/latest/download/Lantas-
   OpenAI-compatible endpoint. Requests go from your Mac to the provider you chose.
 - **Modes** — Build writes, Plan drafts, Chat answers.
 
-Requires macOS 13 or newer, and Chrome 116 or newer for the extension.
+Requires macOS 11 or newer. Chrome 116 or newer is only needed for the optional
+Chrome bridge; the built-in browser works on its own.
+
+![The Lantas Code workspace](https://anwarkalonov.github.io/Lantas-download/assets/img/app-code.webp)
 
 ## Free
 
