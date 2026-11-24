@@ -1017,6 +1017,76 @@ function initFilm() {
   sec._seek = (p) => apply(Math.min(1, Math.max(0, p)));
 }
 
+/* ---------- the demo clip: three panes, eleven seconds, no video file ---------- */
+
+function initDemo() {
+  const player = $("[data-demo]");
+  if (!player) return;
+  const scenes = $$("[data-scene]", player);
+  const views = $$("[data-demo-view]", player);
+  const chapters = $$("[data-chapter]", player);
+  const bar = $("[data-demo-bar]", player);
+  const toggle = $("[data-demo-toggle]", player);
+  const icon = $("[data-demo-icon]", player);
+  if (!scenes.length) return;
+
+  const LENGTH = 11000;
+  const CUES = [0, 2600, 6600];
+  const FADE = 10400;
+  let at = reduced ? FADE - 1 : 0;
+  let shown = -1;
+  let playing = false;
+  let last = 0;
+
+  const paint = () => {
+    const scene = at < CUES[1] ? 0 : at < CUES[2] ? 1 : 2;
+    if (scene !== shown) {
+      shown = scene;
+      scenes.forEach((el, index) => el.classList.toggle("is-on", index === scene));
+      views.forEach((el, index) => el.classList.toggle("on", index === scene));
+      chapters.forEach((el, index) => el.classList.toggle("on", index === scene));
+    }
+    if (bar) bar.style.width = `${((Math.min(at, FADE) / LENGTH) * 100).toFixed(2)}%`;
+  };
+
+  const frame = (now) => {
+    if (!playing) return;
+    if (!last) last = now;
+    at = (at + (now - last)) % LENGTH;
+    last = now;
+    paint();
+    requestAnimationFrame(frame);
+  };
+
+  const setPlaying = (on) => {
+    if (on === playing) return;
+    playing = on;
+    last = 0;
+    player.classList.toggle("is-paused", !on);
+    if (toggle) toggle.setAttribute("aria-label", on ? "Pause the demo" : "Play the demo");
+    if (icon) icon.textContent = on ? "❙❙" : "▶";
+    if (on) requestAnimationFrame(frame);
+  };
+
+  // Respect the operating system: show the still frame and let the user press play.
+  paint();
+  if (reduced) return;
+
+  if (toggle) {
+    toggle.addEventListener("click", () => setPlaying(!playing));
+  }
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => setPlaying(entry.isIntersecting));
+      },
+      { threshold: 0.25 }
+    ).observe(player);
+  } else {
+    setPlaying(true);
+  }
+}
+
 /* ---------- per-section parallax (binary clouds drift with the page) ---------- */
 
 function initParallax() {
@@ -1145,6 +1215,7 @@ function boot() {
   initBits();
   initSky();
   initFilm();
+  initDemo();
   initParallax();
   initAgentLoop();
   $$("[data-trace]").forEach((host) => {

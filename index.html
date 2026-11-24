@@ -146,102 +146,99 @@
   </div>
 </section>
 
-<!-- the film: a run that saves itself -->
-<section class="film" id="film" data-film>
-  <div class="film-pin">
-    <div class="film-stage" data-film-stage>
-      <header class="film-head">
-        <p class="eyebrow"><span class="dot"></span>One run, start to finish</p>
-        <h2>It opens on the home page. Then it goes to work.</h2>
-      </header>
+<!-- the demo: one run, played like a short clip -->
+<section class="film demo" id="film">
+  <div class="wrap demo-wrap">
+    <header class="demo-head">
+      <p class="eyebrow"><span class="dot"></span>Eleven seconds, one task</p>
+      <h2>Ask for the change. Watch the window do it.</h2>
+      <p class="demo-sub">Chat, then the file, then the page. This is the shape of a real run in Lantas, drawn short.</p>
+    </header>
 
-      <div class="film-scene">
-        <div class="mbp">
-          <div class="mbp-screen">
-              <!-- macOS desktop -->
-              <div class="desk-wall"></div>
-
-              <div class="menubar">
-                <span class="mb-mark"><svg viewBox="0 0 24 16" fill="none" aria-hidden="true"><path d="M6 15h11a4.6 4.6 0 0 0 .6-9 6.4 6.4 0 0 0-12.2-1.7A4.7 4.7 0 0 0 6 15Z" fill="currentColor"/></svg></span>
-                <span class="mb-app">Lantas</span>
-                <span>File</span><span>Edit</span><span>View</span><span>Window</span><span>Help</span>
-                <span class="grow"></span>
-                <span class="mb-ico" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M2.5 9.5a15 15 0 0 1 19 0M5.5 13a10 10 0 0 1 13 0M8.7 16.4a5 5 0 0 1 6.6 0"/><circle cx="12" cy="19.4" r="1.1" fill="currentColor" stroke="none"/></svg>
-                </span>
-                <span class="mb-ico" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="8" width="17" height="8.5" rx="2.4"/><rect x="4" y="10" width="10" height="4.5" rx="1" fill="currentColor" stroke="none"/><path d="M21 11.2v2.6" stroke-linecap="round"/></svg>
-                </span>
-                <span class="clock">Tue 10:42</span>
-              </div>
-
-              <!-- lantas, home page -->
-              <div class="win home" data-win>
-                <div class="win-bar">
-                  <span class="tlights"><i class="r"></i><i class="y"></i><i class="g"></i></span>
-                  <span class="win-title"><svg viewBox="0 0 24 16" fill="none" aria-hidden="true"><path d="M6 15h11a4.6 4.6 0 0 0 .6-9 6.4 6.4 0 0 0-12.2-1.7A4.7 4.7 0 0 0 6 15Z" fill="currentColor"/></svg>Lantas — Home</span>
-                  <span class="win-pad"></span>
-                </div>
-
-                <div class="win-body home-body">
-                  <div class="home-top">
-                    <span class="home-mark"><svg viewBox="0 0 24 16" fill="none" aria-hidden="true"><path d="M6 15h11a4.6 4.6 0 0 0 .6-9 6.4 6.4 0 0 0-12.2-1.7A4.7 4.7 0 0 0 6 15Z" fill="currentColor"/></svg></span>
-                    <span class="home-url">lantas://home</span>
-                    <span class="home-engine"><i></i>Chrome · 3 tabs</span>
-                  </div>
-
-                  <p class="home-hi">Search the web, or let the agent drive it</p>
-
-                  <div class="home-ask"><span class="hc">⌕</span><span>Search Google or enter an address</span><span class="home-caret"></span><kbd class="home-kbd">↵</kbd></div>
-
-                  <div class="home-tiles">
-                    <span class="ht"><i>M</i>Mixtape</span>
-                    <span class="ht"><i>B</i>Bank</span>
-                    <span class="ht"><i>S</i>Stripe</span>
-                    <span class="ht"><i>G</i>GitHub</span>
-                  </div>
-
-                  <p class="home-recent-head">Recent</p>
-                  <div class="home-recent">
-                    <span class="hr"><i>C</i>Checkout — Mixtape<small>mixtape.co</small></span>
-                    <span class="hr"><i>I</i>Invoices<small>dashboard.stripe.com</small></span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- dock -->
-              <div class="dock" aria-hidden="true">
-                <span class="di finder"><i></i></span>
-                <span class="di safari"><i></i></span>
-                <span class="di term"><i>&gt;_</i></span>
-                <span class="di lantas"><svg viewBox="0 0 24 16" fill="none"><path d="M6 15h11a4.6 4.6 0 0 0 .6-9 6.4 6.4 0 0 0-12.2-1.7A4.7 4.7 0 0 0 6 15Z" fill="currentColor"/></svg></span>
-                <span class="di notes"><i></i></span>
-                <span class="di trash"><i></i></span>
-              </div>
-
-              <div class="scr-glare"></div>
-          </div>
-        </div>
-
-        <aside class="film-card">
-          <p class="fc-k"><i></i>lantas · home</p>
-          <p class="fc-t">Search the web, or let the agent drive it.</p>
-          <div class="fc-diff">
-            <div class="fc-line add">+ ask · “cancel the gym membership”</div>
-            <div class="fc-line add">+ chrome · 3 tabs · 42 controls</div>
-          </div>
-          <p class="fc-meta">home · recent · bookmarks · chrome</p>
-        </aside>
+    <figure class="player" data-demo>
+      <div class="player-bar">
+        <span class="player-name">
+          <svg viewBox="0 0 24 16" fill="none" aria-hidden="true"><path d="M6 15h11a4.6 4.6 0 0 0 .6-9 6.4 6.4 0 0 0-12.2-1.7A4.7 4.7 0 0 0 6 15Z" fill="currentColor"/></svg>
+          Lantas
+          <em>demo</em>
+        </span>
+        <span class="player-meta">0:11 · silent</span>
+        <button class="player-toggle" type="button" data-demo-toggle aria-label="Pause the demo">
+          <span data-demo-icon aria-hidden="true">❙❙</span>
+        </button>
       </div>
 
-      <ol class="film-rail">
-        <li data-at="0.02"><i></i>Open</li>
-        <li data-at="0.18"><i></i>Home</li>
-        <li data-at="0.38"><i></i>Chrome</li>
-        <li data-at="0.56"><i></i>Read</li>
-        <li data-at="0.72"><i></i>Clicked</li>
-      </ol>
-    </div>
+      <div class="player-stage">
+        <div class="mac">
+          <div class="mac-lid">
+            <div class="mac-screen" data-demo-screen>
+              <div class="mac-top">
+                <span class="mac-lights" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span class="mac-title">Lantas — checkout</span>
+                <span class="mac-views" aria-hidden="true">
+                  <b data-demo-view="0">chat</b><b data-demo-view="1">code</b><b data-demo-view="2">browser</b>
+                </span>
+              </div>
+
+              <div class="sc sc-chat" data-scene="0">
+                <p class="ch-me">refactor the cart totals into one helper, then check checkout still adds up</p>
+                <p class="ch-you"><span class="ch-dots" aria-hidden="true"><i></i><i></i><i></i></span>reading the workspace</p>
+                <div class="ch-tools">
+                  <span>read <b>cart.ts</b></span>
+                  <span>grep <b>subtotal</b></span>
+                  <span>read <b>summary.tsx</b></span>
+                </div>
+                <p class="ch-plan"><span class="ch-plan-k">plan</span>one helper in <code>src/checkout/total.ts</code>, both callers use it, then read the page back.</p>
+              </div>
+
+              <div class="sc sc-code" data-scene="1">
+                <div class="cd-tree">
+                  <p class="cd-tree-k">explorer</p>
+                  <span class="cd-f new">total.ts</span>
+                  <span class="cd-f">summary.tsx</span>
+                  <span class="cd-f">cart.ts</span>
+                  <span class="cd-f dim">package.json</span>
+                  <span class="cd-f dim">README.md</span>
+                </div>
+                <div class="cd-diff">
+                  <p class="cd-h">src/checkout/total.ts <em>new file</em></p>
+                  <span class="cd-l add">+ export function total(items: Item[]): number {</span>
+                  <span class="cd-l add">+   return items.reduce((sum, item) => sum + item.price, 0);</span>
+                  <span class="cd-l add">+ }</span>
+                  <span class="cd-l ctx">// summary.tsx</span>
+                  <span class="cd-l del">− const sum = items.map((i) => i.price).reduce(add, 0);</span>
+                  <span class="cd-l add">+ const sum = total(items);</span>
+                  <div class="cd-review"><b>Keep 2 files</b><span>discard</span><em>written to the folder</em></div>
+                </div>
+              </div>
+
+              <div class="sc sc-page" data-scene="2">
+                <div class="pg-bar"><span class="pg-url">mixtape.co/checkout</span><span class="pg-read">42 controls read</span></div>
+                <div class="pg-body">
+                  <div class="pg-card">
+                    <div class="pg-lines" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+                    <div class="pg-row"><span>Subtotal</span><b>$38.00</b></div>
+                    <div class="pg-row"><span>Tax</span><b>$3.42</b></div>
+                    <div class="pg-row total"><span>Total</span><b>$41.42</b></div>
+                    <span class="pg-cta">Pay</span>
+                  </div>
+                  <p class="pg-note">subtotal 38.00 · matches the helper</p>
+                </div>
+              </div>
+
+              <div class="mac-glow" aria-hidden="true"></div>
+            </div>
+          </div>
+        </div>
+        <div class="mac-base" aria-hidden="true"></div>
+      </div>
+
+      <div class="player-track" aria-hidden="true"><i data-demo-bar></i></div>
+      <div class="player-chapters" aria-hidden="true">
+        <span data-chapter="0">ask</span><span data-chapter="1">edit</span><span data-chapter="2">check</span>
+      </div>
+    </figure>
+    <figcaption class="cap">A drawing of the app, not a screen recording. Same panes, same steps, eleven seconds.</figcaption>
   </div>
 </section>
 
