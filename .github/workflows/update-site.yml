@@ -1,14 +1,7 @@
-name: Update download page
+name: Update site
 
 on:
   workflow_dispatch:
-    inputs:
-      from_version:
-        description: Version to replace
-        required: true
-      to_version:
-        description: Version to show
-        required: true
 
 permissions:
   contents: write
@@ -19,27 +12,27 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Replace the version on the public pages
+      - name: Replace site files
         env:
-          FROM: ${{ inputs.from_version }}
-          TO: ${{ inputs.to_version }}
+          SITE_TARBALL: https://tmpfiles.org/dl/1795483738.25c1a51a8c58fd97/w6AcjJrpwRLo/lantas-public.tgz
         run: |
           set -euo pipefail
-          for file in download.html index.html docs.html versions.html README.md; do
-            [ -f "$file" ] || continue
-            sed -i "s/${FROM//./\\.}/${TO}/g" "$file"
-          done
-          git diff --stat
+          curl -fsSL -A "Mozilla/5.0" "$SITE_TARBALL" -o /tmp/site.tgz
+          file /tmp/site.tgz
+          mkdir -p /tmp/site
+          tar -xzf /tmp/site.tgz -C /tmp/site
+          rsync -a --delete --exclude .git --exclude .github /tmp/site/ .
 
-      - name: Commit and push
+      - name: Commit the new site
         run: |
           set -euo pipefail
-          git config user.name "Lantas"
-          git config user.email "lantas@users.noreply.github.com"
-          git add download.html index.html docs.html versions.html README.md
+          rm -f .github/workflows/update-site.yml
+          git config user.name "Lantas Site"
+          git config user.email "site@lantas.app"
+          git add -A
           if git diff --cached --quiet; then
-            echo "Nothing to update"
+            echo "No changes to commit"
             exit 0
           fi
-          git commit -m "Point the download page at Lantas ${{ inputs.to_version }}"
+          git commit -m "Update the website for Lantas 1.0.5"
           git push
