@@ -1060,6 +1060,82 @@ function initAgentLoop() {
   setInterval(step, 2400);
 }
 
+/* ---------- release: one source of truth for every download link ---------- */
+
+const RELEASE_API =
+  "https://api.github.com/repos/AnwarKalonov/Lantas-download/releases/latest";
+
+const ASSET_KINDS = {
+  dmg: (name) => name.endsWith(".dmg"),
+  app: (name) => name.endsWith(".app.zip"),
+  extension: (name) => name === "chrome-extension.zip",
+  updater: (name) => name === "Lantas.app.tar.gz",
+  manifest: (name) => name === "latest.json",
+};
+
+let releasePromise = null;
+
+function latestRelease() {
+  if (!releasePromise) {
+    releasePromise = fetch(RELEASE_API, {
+      headers: { accept: "application/vnd.github+json" },
+    })
+      .then((response) => (response.ok ? response.json() : null))
+      .catch(() => null);
+  }
+  return releasePromise;
+}
+
+/**
+ * The HTML links to /releases/latest so they are never wrong. When the API
+ * answers, every marked link is pointed at the exact asset of the newest
+ * release and the version labels are filled in. Nothing has to be edited by
+ * hand when a build is cut.
+ */
+function initRelease() {
+  const links = $$("[data-dl]");
+  const versions = $$("[data-version]");
+  const files = $$("[data-file]");
+  if (!links.length && !versions.length && !files.length) return;
+
+  latestRelease().then((release) => {
+    if (!release) return;
+    const version = String(release.tag_name || "").replace(/^v/, "");
+    const assets = Array.isArray(release.assets) ? release.assets : [];
+    const find = (kind) => {
+      const matches = ASSET_KINDS[kind];
+      return matches ? assets.find((asset) => matches(asset.name)) : null;
+    };
+    const name = (kind) => find(kind)?.name || "";
+
+    links.forEach((link) => {
+      const asset = find(link.dataset.dl);
+      if (asset?.browser_download_url) link.href = asset.browser_download_url;
+    });
+
+    if (version) {
+      versions.forEach((node) => {
+        node.textContent = version;
+      });
+    }
+
+    files.forEach((node) => {
+      const resolved = name(node.dataset.file);
+      if (resolved) node.textContent = resolved;
+    });
+
+    // `open ~/Downloads/Lantas-<version>-arm64.dmg` and friends.
+    $$("[data-copy]").forEach((button) => {
+      let text = button.dataset.copy || "";
+      if (!/Lantas-[\d.]+-/.test(text)) return;
+      text = text
+        .replace(/Lantas-[\d.]+-arm64\.app\.zip/g, () => name("app") || text)
+        .replace(/Lantas-[\d.]+-arm64\.dmg/g, () => name("dmg") || text);
+      button.dataset.copy = text;
+    });
+  });
+}
+
 /* ---------- boot ---------- */
 
 function boot() {
@@ -1097,6 +1173,7 @@ function boot() {
   initResidual();
   initDocNav();
   initDownload();
+  initRelease();
   initReveal();
 }
 

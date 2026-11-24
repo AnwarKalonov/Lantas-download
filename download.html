@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Download — Lantas</title>
-<meta name="description" content="Download Lantas 1.0.5 for Apple silicon Macs. Free, no account: chat, code and the Chrome extension inside one app.">
+<meta name="description" content="Download Lantas for Apple silicon Macs. Free, no account: chat, code and the Chrome extension inside one app.">
 
 <link rel="icon" type="image/png" sizes="64x64" href="assets/img/favicon-64.png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
@@ -78,6 +78,16 @@
   .notice-steps b { color: var(--ink); font-weight: 600; }
   .notice-foot { display: flex; align-items: center; gap: 8px; margin-top: 12px; color: var(--ink-3); font-size: 11.5px; }
   .notice-foot svg { width: 13px; height: 13px; flex: none; color: var(--terra); }
+  [data-theme="dark"] .notice { border-color: rgba(224, 161, 132, .24); background: linear-gradient(135deg, rgba(183, 88, 58, .16), rgba(17, 20, 17, .92) 68%); }
+  [data-theme="dark"] .notice::after { border-color: rgba(224, 161, 132, .18); }
+  [data-theme="dark"] .notice-steps { border-top-color: rgba(224, 161, 132, .16); }
+  [data-theme="dark"] .notice-steps li { border-bottom-color: rgba(224, 161, 132, .13); }
+  [data-theme="dark"] .notice p { color: #c9c5ba; }
+  [data-theme="dark"] .notice strong { color: #f1efe9; }
+  [data-theme="dark"] .notice-kicker,
+  [data-theme="dark"] .notice-steps li > span,
+  [data-theme="dark"] .notice-foot svg { color: #e0a184; }
+  [data-theme="dark"] .notice-foot { color: #9b978e; }
 
   .details { margin-top: 14px; border-top: 1px solid var(--line); }
   .details summary { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 13px 0; cursor: pointer; font-size: 12.5px; font-weight: 500; color: var(--ink-2); list-style: none; }
@@ -186,11 +196,11 @@
 <section class="dl-hero">
   <div class="wrap dl-hero-grid">
     <div>
-      <div class="dl-kicker"><span class="dot"></span>Lantas 1.0.5 · macOS</div>
+      <div class="dl-kicker"><span class="dot"></span>Lantas <span data-version>1.0.6</span> · macOS</div>
       <h1>Install Lantas in <em>one drag.</em></h1>
       <p class="dl-dek">One free app with chat, a real code workspace and a browser, plus the Chrome side panel. Download the DMG, drag Lantas into Applications, and open it. No account, no subscription, no trial.</p>
       <div class="dl-cta-row">
-        <a class="btn btn-primary" href="https://github.com/AnwarKalonov/Lantas-download/releases/download/v1.0.5/Lantas-1.0.5-arm64.dmg">
+        <a class="btn btn-primary" data-dl="dmg" href="https://github.com/AnwarKalonov/Lantas-download/releases/latest">
           Download for Apple silicon
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M8 11l4 4 4-4M5 19h14"/></svg>
         </a>
@@ -199,7 +209,7 @@
       <ul class="dl-facts">
         <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m3 8.5 3.2 3.2L13 5"/></svg>Free, no account</li>
         <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m3 8.5 3.2 3.2L13 5"/></svg>Apple silicon</li>
-        <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m3 8.5 3.2 3.2L13 5"/></svg>Source on GitHub</li>
+        <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m3 8.5 3.2 3.2L13 5"/></svg>One download, no account</li>
       </ul>
     </div>
 
@@ -213,7 +223,7 @@
           <div class="dmg-app">
             <img src="assets/img/apple-touch-icon.png" alt="Lantas app icon" width="76" height="76">
             <b>Lantas</b>
-            <small>1.0.5</small>
+            <small data-version>1.0.6</small>
           </div>
           <div class="dmg-arrow" aria-hidden="true">
             <svg viewBox="0 0 52 14" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h44"/><path d="m41 3 4 4-4 4"/></svg>
@@ -243,7 +253,7 @@
         <h2>Open it for the first time</h2>
         <span class="label">Three steps</span>
       </div>
-      <p>Double-click the downloaded <span class="inline-code">Lantas-1.0.5-arm64.dmg</span>. A Finder window opens with the app on the left and Applications on the right. Drag Lantas across, eject the disk image, then launch it from Applications or Spotlight.</p>
+      <p>Double-click the downloaded <span class="inline-code" data-file="dmg">Lantas-1.0.6-arm64.dmg</span>. A Finder window opens with the app on the left and Applications on the right. Drag Lantas across, eject the disk image, then launch it from Applications or Spotlight.</p>
       <ol class="steps">
         <li><b>Mount the disk image</b><span>Double-click the DMG. The Lantas window appears in Finder.</span></li>
         <li><b>Drag Lantas across</b><span>Drop the app icon onto Applications. The copy takes a moment.</span></li>
@@ -256,7 +266,7 @@
         </span>
         <h3>Why macOS says it “could not verify” Lantas</h3>
         <p>Lantas is signed ad-hoc rather than with a paid Apple Developer ID, and it is not notarized by Apple. macOS therefore cannot confirm the developer the first time you open it and shows <strong>“Apple could not verify ‘Lantas’ is free of malware”</strong>. That warning is expected for this independent build; it does not mean the download is damaged or that Lantas needs special access.</p>
-        <p>The release is built by this repository’s GitHub Actions workflow, and the full source is public. If you would rather check the build yourself, build it from source with the instructions in the README.</p>
+        <p>The release is built by the project’s automated macOS workflow and published on the Lantas release page. The app source stays private; each download is the exact build from that release, with no installer extras or bundled offers.</p>
 
         <ol class="notice-steps">
           <li><span>01</span><div>Open <b>System Settings → Privacy &amp; Security</b>.</div></li>
@@ -303,7 +313,7 @@
     <section id="builds">
       <div class="build-head">
         <h2>All builds</h2>
-        <span class="label">1.0.5 · latest</span>
+        <span class="label"><span data-version>1.0.6</span> · latest</span>
       </div>
       <p class="build-sub">The DMG is the normal install. The zip is a direct app copy. The extension is optional.</p>
 
@@ -327,18 +337,18 @@
           </thead>
           <tbody>
             <tr data-os="arm">
-              <td class="py">dmg</td><td class="plat">Lantas-1.0.5-arm64.dmg · recommended</td><td class="sz">~9.5 MB</td>
-              <td><a class="dl-link" href="https://github.com/AnwarKalonov/Lantas-download/releases/download/v1.0.5/Lantas-1.0.5-arm64.dmg">download
+              <td class="py">dmg</td><td class="plat"><span data-file="dmg">Lantas-1.0.6-arm64.dmg</span> · recommended</td><td class="sz">~9.5 MB</td>
+              <td><a class="dl-link" data-dl="dmg" href="https://github.com/AnwarKalonov/Lantas-download/releases/latest">download
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M8 11l4 4 4-4M5 19h14"/></svg></a></td>
             </tr>
             <tr data-os="arm">
-              <td class="py">app</td><td class="plat">Lantas-1.0.5-arm64.app.zip · unzip into Applications</td><td class="sz">~9.2 MB</td>
-              <td><a class="dl-link" href="https://github.com/AnwarKalonov/Lantas-download/releases/download/v1.0.5/Lantas-1.0.5-arm64.app.zip">download
+              <td class="py">app</td><td class="plat"><span data-file="app">Lantas-1.0.6-arm64.app.zip</span> · unzip into Applications</td><td class="sz">~9.2 MB</td>
+              <td><a class="dl-link" data-dl="app" href="https://github.com/AnwarKalonov/Lantas-download/releases/latest">download
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M8 11l4 4 4-4M5 19h14"/></svg></a></td>
             </tr>
             <tr data-os="ext">
-              <td class="py">ext</td><td class="plat">chrome-extension.zip · Load unpacked in Chrome 116+</td><td class="sz">~33 KB</td>
-              <td><a class="dl-link" href="https://github.com/AnwarKalonov/Lantas-download/releases/download/v1.0.5/chrome-extension.zip">download
+              <td class="py">ext</td><td class="plat"><span data-file="extension">chrome-extension.zip</span> · Load unpacked in Chrome 116+</td><td class="sz">~33 KB</td>
+              <td><a class="dl-link" data-dl="extension" href="https://github.com/AnwarKalonov/Lantas-download/releases/latest">download
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M8 11l4 4 4-4M5 19h14"/></svg></a></td>
             </tr>
           </tbody>
