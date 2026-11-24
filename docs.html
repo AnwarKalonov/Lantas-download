@@ -112,7 +112,7 @@
     <section class="doc-sec" id="installation">
       <p class="eyebrow"><span class="dot"></span>getting started</p>
       <h2>Installation</h2>
-      <p>Lantas is a macOS app. Download the dmg for Apple silicon from the releases page, open it, and drag <b>Lantas.app</b> to Applications. You need macOS 13 or newer, and Chrome 116 or newer for the extension.</p>
+      <p>Lantas is a macOS app. Download the dmg for Apple silicon from the releases page, open it, and drag <b>Lantas.app</b> to Applications. You need macOS 11 or newer, and Chrome 116 or newer for the extension.</p>
       <div class="cmdblock">
         <div class="row">
           <span class="prompt">$</span><span>open ~/Downloads/Lantas-1.0.5-arm64.dmg</span>
@@ -228,10 +228,11 @@
       <p class="eyebrow"><span class="dot"></span>everyday</p>
       <h2>Code</h2>
       <p>The Code tab is a workspace: a folder you pick with the native dialog, or files you drop on the panel, up to 600 of them. Lantas reads every text file under it, skipping <code>node_modules</code>, <code>.git</code>, <code>dist</code>, <code>build</code>, <code>target</code> and similar, then shows the tree with a filter.</p>
+      <p>Inside the workspace you get VS Code's Monaco editor, tabs, quick open (⌘P), project-wide search and an assistant dock beside the file. A terminal panel runs commands in the same folder, and the workspace bar shows the branch and changed files. Add more than one folder when a project spans repositories; the tree, search and git context follow all of them.</p>
       <p>Nothing is uploaded. In the desktop build the folder is read through Tauri's filesystem plugin; in a browser tab it uses the File System Access API with the permission you grant.</p>
 
       <h3>Edits are diffs</h3>
-      <p>An edit arrives as a diff: the file, the lines and the reason. Apply it, or roll it back. Build mode may propose changes; Plan and Chat only read. The code view shows a file with line numbers and its language, and names a binary or oversized file as such instead of showing it as text.</p>
+      <p>An edit arrives as a diff: the file, the lines and the reason. In Code mode the assistant stages its writes, and the review bar lets you Keep or Discard each file, or all of them. A save is read back from disk, so a write that did not land is reported as a failure. Build mode may propose changes; Plan and Chat only read.</p>
 
       <h3>GitHub</h3>
       <div class="kv">
@@ -268,7 +269,7 @@
     <section class="doc-sec" id="skills">
       <p class="eyebrow"><span class="dot"></span>everyday</p>
       <h2>Skills and commands</h2>
-      <p>A skill is a paragraph of instructions appended to the system prompt while it is switched on. Four ship built in:</p>
+      <p>A skill is a paragraph of instructions appended to the system prompt while it is switched on. Thirteen ship built in, covering commits, review, debugging, test gaps, refactors, release notes, PR descriptions, API design, SQL, security and interface copy. The four you will reach for most:</p>
       <div class="kv">
         <div class="k">commit</div><div class="v">A conventional commit message written from the staged diff</div>
         <div class="k">review</div><div class="v">A diff read for correctness, edge cases and regressions</div>

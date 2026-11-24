@@ -17,14 +17,14 @@ Every version ever published, with its notes and downloads, is on the
 
 | Build | For | File |
 | --- | --- | --- |
-| dmg | Apple silicon (M1–M4) | `Lantas-1.0.3-arm64.dmg` |
-| zip | Apple silicon (M1–M4) | `Lantas-1.0.3-arm64.app.zip` |
+| dmg | Apple silicon (M1–M4) | `Lantas-1.0.5-arm64.dmg` |
+| zip | Apple silicon (M1–M4) | `Lantas-1.0.5-arm64.app.zip` |
 | zip | Chrome 116+ | `chrome-extension.zip` |
 
 Direct links use `releases/latest/download/<file>`, for example:
 
 ```
-https://github.com/AnwarKalonov/Lantas-download/releases/latest/download/Lantas-1.0.3-arm64.dmg
+https://github.com/AnwarKalonov/Lantas-download/releases/latest/download/Lantas-1.0.5-arm64.dmg
 ```
 
 ## Install

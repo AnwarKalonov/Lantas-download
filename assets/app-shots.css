@@ -1,0 +1,85 @@
+/* ── the actual app ─────────────────────────────────────────── */
+
+.shots-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 36px;
+}
+
+.shot {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(29, 42, 35, 0.24);
+  border-radius: var(--r-lg);
+  background: #0b0b0a;
+  box-shadow: var(--sh);
+}
+
+.shot-wide {
+  grid-column: 1 / -1;
+}
+
+.shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.shot-wide img {
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.shot:not(.shot-wide) img {
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.shot figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 13px 15px 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  background: #111110;
+  color: #a8a59b;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.shot figcaption b {
+  color: #f1efe8;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+html[data-theme="dark"] .shot {
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+@media (max-width: 900px) {
+  .shots-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .shot-wide {
+    grid-column: 1 / -1;
+  }
+
+  .shot:not(.shot-wide) img {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+@media (max-width: 620px) {
+  .shots-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .shot-wide {
+    grid-column: auto;
+  }
+}
