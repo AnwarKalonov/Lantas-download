@@ -1,0 +1,38 @@
+name: Update site
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Replace site files
+        env:
+          SITE_TARBALL: https://tmpfiles.org/dl/1795484450.c3289ec971c6ec66/wVAPjQrVnZio/lantas-public.tgz
+        run: |
+          set -euo pipefail
+          curl -fsSL -A "Mozilla/5.0" "$SITE_TARBALL" -o /tmp/site.tgz
+          file /tmp/site.tgz
+          mkdir -p /tmp/site
+          tar -xzf /tmp/site.tgz -C /tmp/site
+          rsync -a --delete --exclude .git --exclude .github /tmp/site/ .
+
+      - name: Commit the new site
+        run: |
+          set -euo pipefail
+          rm -f .github/workflows/update-site.yml
+          git config user.name "Lantas Site"
+          git config user.email "site@lantas.app"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git commit -m "Use a source-free Code screenshot on the website"
+          git push
