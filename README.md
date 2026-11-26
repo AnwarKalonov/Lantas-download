@@ -5,9 +5,9 @@
 Lantas runs on your Mac. Ask anything, change a codebase, connect the apps you already
 work in, or hand it the tab you have open. No account, no subscription, no trial.
 
-This repository is the **download and website** repository. It contains the built app,
-the Chrome extension, and the site at `index.html`. The application source is not
-published here.
+This repository is the **download** repository. It contains the built app, the Chrome
+extension and the release feed. The website is at [lantas-phi.vercel.app](https://lantas-phi.vercel.app).
+The application source is not published here.
 
 ## Download
 
@@ -17,14 +17,14 @@ Every version ever published, with its notes and downloads, is on the
 
 | Build | For | File |
 | --- | --- | --- |
-| dmg | Apple silicon (M1–M4) | `Lantas-1.0.6-arm64.dmg` |
-| zip | Apple silicon (M1–M4) | `Lantas-1.0.6-arm64.app.zip` |
+| dmg | Apple silicon (M1–M4) | `Lantas-1.1.3-arm64.dmg` |
+| zip | Apple silicon (M1–M4) | `Lantas-1.1.3-arm64.app.zip` |
 | zip | Chrome 116+ | `chrome-extension.zip` |
 
 Direct links use `releases/latest/download/<file>`, for example:
 
 ```
-https://github.com/AnwarKalonov/Lantas-download/releases/latest/download/Lantas-1.0.6-arm64.dmg
+https://github.com/AnwarKalonov/Lantas-download/releases/latest/download/Lantas-1.1.3-arm64.dmg
 ```
 
 ## Install
@@ -64,7 +64,7 @@ https://github.com/AnwarKalonov/Lantas-download/releases/latest/download/Lantas-
 Requires macOS 11 or newer. Chrome 116 or newer is only needed for the optional
 Chrome bridge; the built-in browser works on its own.
 
-![The Lantas Code workspace](https://anwarkalonov.github.io/Lantas-download/assets/img/app-code.webp)
+![The Lantas Code workspace](assets/img/app-code.webp)
 
 ## Free
 
