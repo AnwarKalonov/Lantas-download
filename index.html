@@ -6,8 +6,6 @@
 <title>Lantas — chat, code, and the browser in one free agent</title>
 <meta name="description" content="Lantas is a free macOS agent in one window: chat with any model, edit code in a workspace you pick, connect Gmail, Notion, GitHub and 30 more apps, and drive your own browser.">
 
-<link rel="icon" type="image/png" sizes="64x64" href="assets/img/favicon-64.png">
-<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -38,10 +36,7 @@
 
 <header class="nav">
   <div class="wrap nav-in">
-    <a class="brand" href="index.html" aria-label="Lantas home">
-      <img class="glyph glyph-ink" src="assets/img/letter-ink.png" alt="" width="26" height="34">
-      <img class="glyph glyph-light" src="assets/img/letter-light.png" alt="" width="26" height="34" aria-hidden="true">
-    </a>
+    <a class="brand" href="index.html" aria-label="Lantas home"><span class="brand-mark" aria-hidden="true"></span></a>
 
     <nav class="nav-links" aria-label="Sections">
       <a href="#features">Features</a>
@@ -77,7 +72,7 @@
 
   <div class="wrap">
     <div class="hero-copy">
-      <p class="eyebrow" data-reveal><span class="dot"></span>Lantas <span data-version>1.0.6</span> · free to download</p>
+      <p class="eyebrow" data-reveal><span class="dot"></span>Lantas <span data-version>1.1.3</span> · free to download</p>
 
       <h1 data-reveal style="--d:70ms">The agent that chats, codes, <span class="soft">and drives your browser</span></h1>
 
@@ -146,13 +141,13 @@
   </div>
 </section>
 
-<!-- the demo: one run, played like a short clip -->
+<!-- the demo: the chat tab, played like a short clip -->
 <section class="film demo" id="film">
   <div class="wrap demo-wrap">
     <header class="demo-head">
-      <p class="eyebrow"><span class="dot"></span>Eleven seconds, one task</p>
-      <h2>Ask for the change. Watch the window do it.</h2>
-      <p class="demo-sub">Chat, then the file, then the page. This is the shape of a real run in Lantas, drawn short.</p>
+      <p class="eyebrow"><span class="dot"></span>One run in the chat tab · 24 seconds</p>
+      <h2>Ask. Watch it work. Read the answer.</h2>
+      <p class="demo-sub">A landing page built from a site it read, Gmail connected in one click, then “what’s new in my email?” — the chat tab, the way it actually runs.</p>
     </header>
 
     <figure class="player" data-demo>
@@ -160,10 +155,10 @@
         <span class="player-name">
           <svg viewBox="0 0 24 16" fill="none" aria-hidden="true"><path d="M6 15h11a4.6 4.6 0 0 0 .6-9 6.4 6.4 0 0 0-12.2-1.7A4.7 4.7 0 0 0 6 15Z" fill="currentColor"/></svg>
           Lantas
-          <em>demo</em>
+          <em>chat tab</em>
         </span>
-        <span class="player-meta">0:11 · silent</span>
-        <button class="player-toggle" type="button" data-demo-toggle aria-label="Pause the demo">
+        <span class="player-meta">0:24 · silent</span>
+        <button class="player-toggle" type="button" data-demo-toggle aria-label="Pause the clip">
           <span data-demo-icon aria-hidden="true">❙❙</span>
         </button>
       </div>
@@ -171,58 +166,289 @@
       <div class="player-stage">
         <div class="mac">
           <div class="mac-lid">
-            <div class="mac-screen" data-demo-screen>
-              <div class="mac-top">
-                <span class="mac-lights" aria-hidden="true"><i></i><i></i><i></i></span>
-                <span class="mac-title">Lantas — checkout</span>
-                <span class="mac-views" aria-hidden="true">
-                  <b data-demo-view="0">chat</b><b data-demo-view="1">code</b><b data-demo-view="2">browser</b>
-                </span>
+            <div class="mac-screen" data-demo-screen data-scene="a">
+              <svg class="sprite" aria-hidden="true" focusable="false">
+                <symbol id="i-chat" viewBox="0 0 24 24"><path d="M20 11.7a7.4 7.4 0 0 1-7.4 7.4H8.4L4.6 21l.7-3.4A7.4 7.4 0 0 1 4.6 11.7 7.4 7.4 0 0 1 12 4.3a7.4 7.4 0 0 1 8 7.4Z"/></symbol>
+                <symbol id="i-code" viewBox="0 0 24 24"><rect x="3.2" y="4.6" width="17.6" height="14.8" rx="2.4"/><path d="m7.4 9.9 2.5 2.4-2.5 2.4M12.6 14.9h4.1"/></symbol>
+                <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.3"/><path d="m15.3 8.7-1.9 4.6-4.6 1.9 1.9-4.6 4.6-1.9Z"/></symbol>
+                <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.6"/><path d="m15.9 15.9 3.6 3.6"/></symbol>
+                <symbol id="i-term" viewBox="0 0 24 24"><rect x="3" y="4.6" width="18" height="14.8" rx="2.4"/><path d="m7.3 9.9 2.5 2.4-2.5 2.4M12.6 14.9h4.1"/></symbol>
+                <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.1"/><path d="M12 2.8v2.1M12 19.1v2.1M2.8 12h2.1M19.1 12h2.1M5.5 5.5l1.5 1.5M17 17l1.5 1.5M18.5 5.5 17 7M7 17l-1.5 1.5"/></symbol>
+                <symbol id="i-panel-l" viewBox="0 0 24 24"><rect x="3" y="4.6" width="18" height="14.8" rx="2.4"/><path d="M9.4 4.8v14.4"/></symbol>
+                <symbol id="i-panel-r" viewBox="0 0 24 24"><rect x="3" y="4.6" width="18" height="14.8" rx="2.4"/><path d="M14.6 4.8v14.4"/></symbol>
+                <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 8.4h9.2M17.6 8.4H20M4 15.6h4.4M12.8 15.6H20"/><circle cx="15.4" cy="8.4" r="1.7"/><circle cx="10.6" cy="15.6" r="1.7"/></symbol>
+                <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5.4v13.2M5.4 12h13.2"/></symbol>
+                <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 7.8v4.6l3 1.8"/></symbol>
+                <symbol id="i-book" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 9h4M8 12.6h8M8 16.2h8"/></symbol>
+                <symbol id="i-plug" viewBox="0 0 24 24"><path d="M9.2 3.6v5M14.8 3.6v5M7.2 8.6h9.6v2.9a4.8 4.8 0 0 1-9.6 0V8.6ZM12 16.4v4"/></symbol>
+                <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="m12 3.6 1.9 4.9 4.9 1.9-4.9 1.9L12 17.2l-1.9-4.9-4.9-1.9 4.9-1.9L12 3.6ZM18.4 16.4l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8.8-2Z"/></symbol>
+                <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3.6 7.4a2 2 0 0 1 2-2h3.2l1.9 2.2h5.7a2 2 0 0 1 2 2v7.6a2 2 0 0 1-2 2H5.6a2 2 0 0 1-2-2V7.4Z"/></symbol>
+                <symbol id="i-caret" viewBox="0 0 24 24"><path d="m7.6 9.8 4.4 4.4 4.4-4.4"/></symbol>
+                <symbol id="i-more" viewBox="0 0 24 24"><circle cx="6.4" cy="12" r="1.2" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none"/><circle cx="17.6" cy="12" r="1.2" fill="currentColor" stroke="none"/></symbol>
+                <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.6 4.4 4.4L19 7.4"/></symbol>
+                <symbol id="i-file" viewBox="0 0 24 24"><path d="M6.4 3.8h7l5.2 5.2v11.2a1.6 1.6 0 0 1-1.6 1.6H6.4a1.6 1.6 0 0 1-1.6-1.6V5.4a1.6 1.6 0 0 1 1.6-1.6Z"/><path d="M13 4.2v5h5"/></symbol>
+                <symbol id="i-pen" viewBox="0 0 24 24"><path d="M4 20h4.4L20 8.4 15.6 4 4 15.6V20Z"/><path d="m13.4 6.2 4.4 4.4"/></symbol>
+                <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.3"/><path d="M3.9 12h16.2M12 3.7c2.2 2.3 3.3 5.1 3.3 8.3s-1.1 6-3.3 8.3c-2.2-2.3-3.3-5.1-3.3-8.3S9.8 6 12 3.7Z"/></symbol>
+                <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4.6 7h14.8M9.4 7V4.8h5.2V7M6.6 7l.9 12.2h9l.9-12.2"/></symbol>
+                <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8.8" y="8.8" width="10.8" height="10.8" rx="2.2"/><path d="M15.2 5.4H6.6a2 2 0 0 0-2 2v8.6"/></symbol>
+                <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 19.4V5M6.4 10.6 12 5l5.6 5.6"/></symbol>
+                <symbol id="i-clip" viewBox="0 0 24 24"><path d="m18.6 11.4-6.8 6.8a4.6 4.6 0 0 1-6.5-6.5l7.4-7.4a3.1 3.1 0 0 1 4.4 4.4l-7.3 7.3a1.6 1.6 0 0 1-2.2-2.2l6.4-6.4"/></symbol>
+                <symbol id="i-at" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.6"/><path d="M15.6 8.4v4.8a2.6 2.6 0 0 0 5.2 0V12a8.8 8.8 0 1 0-3.4 7"/></symbol>
+                <symbol id="i-monitor" viewBox="0 0 24 24"><rect x="3" y="4.8" width="18" height="12.4" rx="2.2"/><path d="M9 20.2h6M12 17.4v2.8"/></symbol>
+                <symbol id="i-cursor" viewBox="0 0 24 24"><path d="m6 3.4 12.6 8.1-5.7 1.1-1.5 5.6L6 3.4Z"/></symbol>
+                <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5.4" width="18" height="13.2" rx="2.2"/><path d="m4.2 7 7.8 5.6L19.8 7"/></symbol>
+                <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3.6" y="5.4" width="16.8" height="14.4" rx="2.2"/><path d="M3.8 9.8h16.4M8.4 3.4v3.6M15.6 3.4v3.6"/></symbol>
+              </svg>
+
+              <div class="app-tb">
+                <div class="tb-left">
+                  <span class="tb-mark" aria-hidden="true">L</span>
+                  <span class="tb-title"><b class="t-a">Ember</b><b class="t-b">Integrations</b><b class="t-c">Inbox</b></span>
+                </div>
+                <div class="mode-tabs" aria-hidden="true">
+                  <span class="mode is-on"><svg class="ic"><use href="#i-chat"/></svg>Chat</span>
+                  <span class="mode"><svg class="ic"><use href="#i-code"/></svg>Code</span>
+                  <span class="mode"><svg class="ic"><use href="#i-compass"/></svg>Browser</span>
+                </div>
+                <div class="tb-right" aria-hidden="true">
+                  <span class="tb-ic"><svg class="ic"><use href="#i-search"/></svg></span>
+                  <span class="tb-ic"><svg class="ic"><use href="#i-term"/></svg></span>
+                  <span class="tb-ic"><svg class="ic"><use href="#i-sun"/></svg></span>
+                  <span class="tb-ic"><svg class="ic"><use href="#i-panel-l"/></svg></span>
+                  <span class="tb-ic"><svg class="ic"><use href="#i-panel-r"/></svg></span>
+                  <span class="tb-ic"><svg class="ic"><use href="#i-sliders"/></svg></span>
+                </div>
               </div>
 
-              <div class="sc sc-chat" data-scene="0">
-                <p class="ch-me">refactor the cart totals into one helper, then check checkout still adds up</p>
-                <p class="ch-you"><span class="ch-dots" aria-hidden="true"><i></i><i></i><i></i></span>reading the workspace</p>
-                <div class="ch-tools">
-                  <span>read <b>cart.ts</b></span>
-                  <span>grep <b>subtotal</b></span>
-                  <span>read <b>summary.tsx</b></span>
+              <div class="app-body">
+                <div class="app-rail" aria-hidden="true">
+                  <span class="rail-btn"><svg class="ic"><use href="#i-panel-l"/></svg></span>
+                  <span class="rail-btn"><svg class="ic"><use href="#i-plus"/></svg></span>
+                  <span class="rail-group">
+                    <span class="rail-btn rail-chat"><svg class="ic"><use href="#i-chat"/></svg></span>
+                    <span class="rail-btn"><svg class="ic"><use href="#i-book"/></svg></span>
+                    <span class="rail-btn rail-plug"><svg class="ic"><use href="#i-plug"/></svg></span>
+                  </span>
+                  <span class="rail-gap"></span>
+                  <span class="rail-btn"><svg class="ic"><use href="#i-sparkle"/></svg></span>
+                  <span class="rail-btn"><svg class="ic"><use href="#i-sliders"/></svg></span>
                 </div>
-                <p class="ch-plan"><span class="ch-plan-k">plan</span>one helper in <code>src/checkout/total.ts</code>, both callers use it, then read the page back.</p>
-              </div>
 
-              <div class="sc sc-code" data-scene="1">
-                <div class="cd-tree">
-                  <p class="cd-tree-k">explorer</p>
-                  <span class="cd-f new">total.ts</span>
-                  <span class="cd-f">summary.tsx</span>
-                  <span class="cd-f">cart.ts</span>
-                  <span class="cd-f dim">package.json</span>
-                  <span class="cd-f dim">README.md</span>
+                <div class="app-nav" aria-hidden="true">
+                  <span class="nav-wordmark">Lantas</span>
+                  <p class="nav-head">Threads</p>
+                  <p class="nav-proj"><svg class="ic"><use href="#i-folder"/></svg>Ember<svg class="ic nav-caret"><use href="#i-caret"/></svg></p>
+                  <p class="nav-new"><svg class="ic"><use href="#i-plus"/></svg>New thread</p>
+                  <div class="nav-row th-a"><svg class="ic"><use href="#i-clock"/></svg><span>Ember landing</span><small>now</small></div>
+                  <div class="nav-row th-b"><svg class="ic"><use href="#i-clock"/></svg><span>Integrations</span><small>1m</small></div>
+                  <div class="nav-row th-c"><svg class="ic"><use href="#i-clock"/></svg><span>Inbox</span><small>now</small></div>
+                  <p class="nav-foot"><svg class="ic"><use href="#i-sliders"/></svg>Settings<kbd>⌘,</kbd></p>
                 </div>
-                <div class="cd-diff">
-                  <p class="cd-h">src/checkout/total.ts <em>new file</em></p>
-                  <span class="cd-l add">+ export function total(items: Item[]): number {</span>
-                  <span class="cd-l add">+   return items.reduce((sum, item) => sum + item.price, 0);</span>
-                  <span class="cd-l add">+ }</span>
-                  <span class="cd-l ctx">// summary.tsx</span>
-                  <span class="cd-l del">− const sum = items.map((i) => i.price).reduce(add, 0);</span>
-                  <span class="cd-l add">+ const sum = total(items);</span>
-                  <div class="cd-review"><b>Keep 2 files</b><span>discard</span><em>written to the folder</em></div>
-                </div>
-              </div>
 
-              <div class="sc sc-page" data-scene="2">
-                <div class="pg-bar"><span class="pg-url">mixtape.co/checkout</span><span class="pg-read">42 controls read</span></div>
-                <div class="pg-body">
-                  <div class="pg-card">
-                    <div class="pg-lines" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
-                    <div class="pg-row"><span>Subtotal</span><b>$38.00</b></div>
-                    <div class="pg-row"><span>Tax</span><b>$3.42</b></div>
-                    <div class="pg-row total"><span>Total</span><b>$41.42</b></div>
-                    <span class="pg-cta">Pay</span>
+                <div class="app-pane">
+                  <!-- 1 · build -->
+                  <div class="pane pane-a">
+                    <div class="pane-head">
+                      <span class="pane-title">Ember</span>
+                      <span class="pane-tools"><svg class="ic"><use href="#i-copy"/></svg><svg class="ic"><use href="#i-trash"/></svg></span>
+                    </div>
+
+                    <div class="thread">
+                      <div class="msg msg-user" data-demo-at="3500">
+                        <div class="u-card">build a landing page for a coffee roastery. take the tone from bluebottle.com</div>
+                      </div>
+
+                      <div class="msg msg-bot">
+                        <div class="bot-head" data-demo-at="3950">
+                          <span class="bot-mark" aria-hidden="true">L</span>
+                          <span class="bot-who">Build</span>
+                          <span class="bot-time">12:04 PM</span>
+                        </div>
+                        <div class="bot-body">
+                          <div class="trow" data-demo-at="4150">
+                            <span class="tr-ok"><svg class="ic"><use href="#i-check"/></svg></span>
+                            <span class="tr-kind"><svg class="ic"><use href="#i-file"/></svg></span>
+                            <span class="tr-label">Read package.json</span>
+                            <span class="tr-chip">package.json</span>
+                          </div>
+                          <div class="trow" data-demo-at="4600">
+                            <span class="tr-ok"><svg class="ic"><use href="#i-check"/></svg></span>
+                            <span class="tr-kind"><svg class="ic"><use href="#i-globe"/></svg></span>
+                            <span class="tr-label">Web read bluebottle.com</span>
+                            <span class="tr-detail">84 controls · 1 page</span>
+                          </div>
+                          <div class="trow is-note" data-demo-at="5150">
+                            <span class="tr-ok"><svg class="ic"><use href="#i-sparkle"/></svg></span>
+                            <span class="tr-note">Tone: short lowercase lines, cream and ink, no hard sell.</span>
+                          </div>
+                          <div class="trow" data-demo-at="5600">
+                            <span class="tr-ok"><svg class="ic"><use href="#i-check"/></svg></span>
+                            <span class="tr-kind"><svg class="ic"><use href="#i-pen"/></svg></span>
+                            <span class="tr-label">Write ember/src/pages/index.astro</span>
+                            <span class="tr-chip">+96</span>
+                          </div>
+                          <div class="trow" data-demo-at="6050">
+                            <span class="tr-ok"><svg class="ic"><use href="#i-check"/></svg></span>
+                            <span class="tr-kind"><svg class="ic"><use href="#i-pen"/></svg></span>
+                            <span class="tr-label">Write ember/src/styles/landing.css</span>
+                            <span class="tr-chip">+184</span>
+                          </div>
+
+                          <div class="sh-block" data-demo-at="6500">
+                            <div class="sh-head">
+                              <svg class="ic"><use href="#i-term"/></svg>
+                              <span class="sh-cmd"><i>$</i> npm run build</span>
+                              <span class="sh-exit">exit 0</span>
+                            </div>
+                            <pre class="sh-body">&gt; ember@0.1.0 build
+&gt; astro build
+
+<span class="ok">✓</span> 4 pages built in 1.24s
+dist/index.html   4.1 kB</pre>
+                          </div>
+
+                          <p class="bot-p" data-demo-at="7500">Landing page is in <code>~/dev/ember</code>: a hero, the three roasts, a subscribe block, all in Blue Bottle’s warm short tone. <code>npm run dev</code> serves it on <code>localhost:4321</code>.</p>
+                          <p class="bot-foot" data-demo-at="8300">Worked for 41s</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="app-composer is-empty">
+                      <div class="cp-input">
+                        <span class="cp-text" data-demo-type="build a landing page for a coffee roastery. take the tone from bluebottle.com" data-demo-at="500" data-demo-cps="46" data-demo-hide="3500"></span>
+                        <i class="cp-caret" aria-hidden="true"></i>
+                        <span class="cp-ph">Follow up…</span>
+                      </div>
+                      <div class="cp-bar" aria-hidden="true">
+                        <span class="cp-ic"><svg class="ic"><use href="#i-clip"/></svg></span>
+                        <span class="cp-ic"><svg class="ic"><use href="#i-at"/></svg></span>
+                        <span class="cp-mode">Build<svg class="ic"><use href="#i-caret"/></svg></span>
+                        <span class="cp-model">Qwen3 Coder 30B<svg class="ic"><use href="#i-caret"/></svg></span>
+                        <span class="cp-div"></span>
+                        <span class="cp-ic is-on"><svg class="ic"><use href="#i-monitor"/></svg></span>
+                        <span class="cp-ic"><svg class="ic"><use href="#i-cursor"/></svg></span>
+                        <span class="cp-end"><span class="cp-pct">12%</span><span class="cp-send"><svg class="ic"><use href="#i-up"/></svg></span></span>
+                      </div>
+                    </div>
                   </div>
-                  <p class="pg-note">subtotal 38.00 · matches the helper</p>
+
+                  <!-- 2 · connect gmail -->
+                  <div class="pane pane-b">
+                    <div class="pane-head">
+                      <span class="pane-title">Integrations</span>
+                      <span class="pane-tools"><span class="pane-count">32 apps</span></span>
+                    </div>
+
+                    <div class="int">
+                      <div class="int-search" data-demo-at="9850"><svg class="ic"><use href="#i-search"/></svg>Search 32 apps</div>
+                      <p class="int-lead" data-demo-at="10050">Connect once. After that, ask in any thread.</p>
+
+                      <div class="int-list">
+                        <div class="int-row is-gmail" data-demo-at="10250">
+                          <span class="int-tile"><svg class="ic"><use href="#i-mail"/></svg></span>
+                          <span class="int-text">
+                            <b>Gmail</b>
+                            <small class="int-idle">Read, search and send mail<span class="int-src">Google</span></small>
+                            <small class="int-live">Connected · anwar.kalonov@gmail.com</small>
+                          </span>
+                          <span class="int-btn int-idle" data-demo-until="11600">Connect</span>
+                          <span class="int-btn is-done int-live">Manage</span>
+                          <span class="int-ring" data-demo-at="11300" data-demo-until="12300"></span>
+                          <span class="int-cursor" data-demo-at="10600" data-demo-until="12200"><svg class="ic"><use href="#i-cursor"/></svg></span>
+                        </div>
+
+                        <div class="int-row" data-demo-at="10550">
+                          <span class="int-tile"><svg class="ic"><use href="#i-cal"/></svg></span>
+                          <span class="int-text"><b>Google Calendar</b><small>Events and availability</small></span>
+                          <span class="int-btn">Connect</span>
+                        </div>
+                        <div class="int-row" data-demo-at="10700">
+                          <span class="int-tile">N</span>
+                          <span class="int-text"><b>Notion</b><small>Pages and databases</small></span>
+                          <span class="int-btn">Connect</span>
+                        </div>
+                        <div class="int-row" data-demo-at="10850">
+                          <span class="int-tile">S</span>
+                          <span class="int-text"><b>Slack</b><small>Messages and channels</small></span>
+                          <span class="int-btn">Connect</span>
+                        </div>
+                        <div class="int-row" data-demo-at="11000">
+                          <span class="int-tile">L</span>
+                          <span class="int-text"><b>Linear</b><small>Issues and projects</small></span>
+                          <span class="int-btn">Connect</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="toast" data-demo-at="11850" data-demo-until="13400">
+                      <svg class="ic ok"><use href="#i-check"/></svg>Gmail connected
+                    </div>
+                  </div>
+
+                  <!-- 3 · read the inbox -->
+                  <div class="pane pane-c">
+                    <div class="pane-head">
+                      <span class="pane-title">Inbox</span>
+                      <span class="pane-tools"><svg class="ic"><use href="#i-copy"/></svg><svg class="ic"><use href="#i-trash"/></svg></span>
+                    </div>
+
+                    <div class="thread">
+                      <div class="msg msg-user" data-demo-at="15300">
+                        <div class="u-card">what’s new in my email today?</div>
+                      </div>
+
+                      <div class="msg msg-bot">
+                        <div class="bot-head" data-demo-at="15700">
+                          <span class="bot-mark" aria-hidden="true">L</span>
+                          <span class="bot-who">Build</span>
+                          <span class="bot-time">12:06 PM</span>
+                        </div>
+                        <div class="bot-body">
+                          <div class="trow" data-demo-at="16000">
+                            <span class="tr-ok"><svg class="ic"><use href="#i-check"/></svg></span>
+                            <span class="tr-kind"><svg class="ic"><use href="#i-mail"/></svg></span>
+                            <span class="tr-label">Gmail · list messages</span>
+                            <span class="tr-detail">is:unread newer_than:1d</span>
+                          </div>
+                          <div class="trow" data-demo-at="16500">
+                            <span class="tr-ok"><svg class="ic"><use href="#i-check"/></svg></span>
+                            <span class="tr-kind"><svg class="ic"><use href="#i-file"/></svg></span>
+                            <span class="tr-label">Read 7 messages</span>
+                            <span class="tr-detail">2 need you</span>
+                          </div>
+
+                          <div class="bot-p is-list" data-demo-at="17200">
+                            <p>Three worth your time:</p>
+                            <ul>
+                              <li><b>Stripe</b> — receipt for $20.00; Pro renews Dec 24</li>
+                              <li><b>Priya</b> — design review moved to 3:00 PM today</li>
+                              <li><b>Linear</b> — 4 issues closed in Lantas 1.0.9</li>
+                            </ul>
+                            <p>Nothing else is unread. Want the invoice saved to your downloads?</p>
+                          </div>
+                          <p class="bot-foot" data-demo-at="19800">Worked for 6s</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="app-composer is-empty">
+                      <div class="cp-input">
+                        <span class="cp-text" data-demo-type="what’s new in my email today?" data-demo-at="14100" data-demo-cps="48" data-demo-hide="15300"></span>
+                        <i class="cp-caret" aria-hidden="true"></i>
+                        <span class="cp-ph">Follow up…</span>
+                      </div>
+                      <div class="cp-bar" aria-hidden="true">
+                        <span class="cp-ic"><svg class="ic"><use href="#i-clip"/></svg></span>
+                        <span class="cp-ic"><svg class="ic"><use href="#i-at"/></svg></span>
+                        <span class="cp-mode">Build<svg class="ic"><use href="#i-caret"/></svg></span>
+                        <span class="cp-model">Qwen3 Coder 30B<svg class="ic"><use href="#i-caret"/></svg></span>
+                        <span class="cp-div"></span>
+                        <span class="cp-ic is-on"><svg class="ic"><use href="#i-monitor"/></svg></span>
+                        <span class="cp-ic"><svg class="ic"><use href="#i-cursor"/></svg></span>
+                        <span class="cp-end"><span class="cp-pct">9%</span><span class="cp-send"><svg class="ic"><use href="#i-up"/></svg></span></span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -235,10 +461,10 @@
 
       <div class="player-track" aria-hidden="true"><i data-demo-bar></i></div>
       <div class="player-chapters" aria-hidden="true">
-        <span data-chapter="0">ask</span><span data-chapter="1">edit</span><span data-chapter="2">check</span>
+        <span data-chapter="0">build</span><span data-chapter="1">connect gmail</span><span data-chapter="2">read inbox</span>
       </div>
     </figure>
-    <figcaption class="cap">A drawing of the app, not a screen recording. Same panes, same steps, eleven seconds.</figcaption>
+    <figcaption class="cap">The chat tab at its real proportions — titlebar, threads, tool rows, composer — rebuilt in the page, not a screen capture. It plays by itself; nothing in it is clickable. <a href="download.html">Download Lantas</a> to connect your own accounts.</figcaption>
   </div>
 </section>
 
@@ -309,6 +535,29 @@
 </section>
 
 <!-- the actual app -->
+<!-- macs: three screens spin in behind the clouds -->
+<section class="macs" id="macs" aria-labelledby="macs-title">
+  <div class="macs-stage">
+    <div class="macs-sky" aria-hidden="true"></div>
+    <figure class="mac mac--a">
+      <span class="mac-bar"><i></i><i></i><i></i></span>
+      <img src="assets/img/app-home.webp" alt="Lantas home: one thread for the folder, the screen and the page" width="880" height="560">
+    </figure>
+    <figure class="mac mac--b">
+      <span class="mac-bar"><i></i><i></i><i></i></span>
+      <img src="assets/img/app-code.webp" alt="Lantas code workspace with a diff and a passing check" width="880" height="560">
+    </figure>
+    <figure class="mac mac--c">
+      <span class="mac-bar"><i></i><i></i><i></i></span>
+      <img src="assets/img/app-browser.webp" alt="Lantas browser with a page read and a pointer on the control" width="880" height="560">
+    </figure>
+    <div class="macs-copy">
+      <h2 id="macs-title">Three surfaces, <em>one window.</em></h2>
+      <p>Chat, the editor and the page it is driving, stacked in the same frame. Bring a task in from any of them and the agent keeps the thread.</p>
+    </div>
+  </div>
+</section>
+
 <section class="sec" id="app">
   <div class="wrap">
     <header class="sec-head sec-head--wide">
@@ -316,7 +565,7 @@
         <p class="eyebrow" data-reveal><span class="dot"></span>The app, not a drawing</p>
         <h2 data-reveal style="--d:60ms;margin-top:18px">This is what you open.</h2>
       </div>
-      <p class="dek" data-reveal style="--d:120ms">Chat, code and browser, captured from Lantas <span data-version>1.0.6</span> while a task is running. The page you have been scrolling through is the site; these are the surfaces inside the app.</p>
+      <p class="dek" data-reveal style="--d:120ms">Chat, code and browser, captured from Lantas while a task is running. The page you have been scrolling through is the site; these are the surfaces inside the app.</p>
     </header>
 
     <div class="shots-grid" data-reveal>
@@ -326,14 +575,14 @@
       </figure>
       <figure class="shot">
         <img src="assets/img/app-home.webp" alt="Lantas Chat: a finished task with file reads, an edit, a passing test run and the assistant's summary" width="1240" height="1225" loading="lazy">
-        <figcaption><b>Chat</b><span>The same work as a readable thread: every file read, edit and command stays in the conversation.</span></figcaption>
+        <figcaption><b>Chat</b><span>One thread for the question, the folder and the page in front of you, with every read, edit and command kept in the conversation.</span></figcaption>
       </figure>
       <figure class="shot">
         <img src="assets/img/app-browser.webp" alt="Lantas Browser: a browser-only thread, a new tab, the address bar and the Ask the page assistant in Act mode" width="1240" height="1225" loading="lazy">
         <figcaption><b>Browser</b><span>A browser-only thread with its own history, tabs and an assistant that can act in the page one step at a time.</span></figcaption>
       </figure>
     </div>
-    <p class="cap">Screens from Lantas <span data-version>1.0.6</span>. The sample workspace is local; the app is free, and you bring the model key or run one on the same Mac.</p>
+    <p class="cap">Screens from Lantas. The sample workspace is local; the app is free, and you bring the model key or run one on the same Mac.</p>
   </div>
 </section>
 
@@ -881,8 +1130,8 @@
           <div class="cmdblock">
             <div class="row">
               <span class="prompt">$</span>
-              <span>open ~/Downloads/<span data-file="dmg">Lantas-1.0.6-arm64.dmg</span></span>
-              <button class="cmd-copy" data-copy="open ~/Downloads/Lantas-1.0.6-arm64.dmg">
+              <span>open ~/Downloads/<span data-file="dmg">Lantas-1.1.3-arm64.dmg</span></span>
+              <button class="cmd-copy" data-copy="open ~/Downloads/Lantas-1.1.3-arm64.dmg">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M6 15H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v1"/></svg>
                 <span class="label">copy</span>
               </button>
@@ -956,7 +1205,9 @@
         <a href="versions.html">Versions</a>
         <a href="https://github.com/AnwarKalonov/Lantas-download">GitHub</a>
         <a href="docs.html#extension">Chrome extension</a>
-        <a href="https://github.com/AnwarKalonov/Lantas-download/issues">Contact</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="https://github.com/AnwarKalonov">Contact</a>
       </div>
     </div>
     <div class="foot-bottom">
@@ -971,5 +1222,49 @@
 </div>
 
 <script src="assets/site.js"></script>
+<script>
+/* Drive the macs section from scroll position: --p runs 0 to 1 across the
+   sticky stage, and the cards interpolate in CSS from their own vectors. */
+(() => {
+  const section = document.getElementById("macs");
+  if (!section || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const stage = section.querySelector(".macs-stage");
+  let queued = false;
+  const update = () => {
+    queued = false;
+    const rect = section.getBoundingClientRect();
+    const travel = Math.max(1, rect.height - innerHeight);
+    const p = Math.min(1, Math.max(0, -rect.top / travel));
+    stage.style.setProperty("--p", p.toFixed(3));
+  };
+  const queue = () => {
+    if (queued) return;
+    queued = true;
+    requestAnimationFrame(update);
+  };
+  addEventListener("scroll", queue, { passive: true });
+  addEventListener("resize", queue, { passive: true });
+  update();
+})();
+</script>
+<script>
+/* A header that settles into frosted glass once you leave the top of the page. */
+(() => {
+  const head = document.querySelector("header, .site-head, .nav, .bar");
+  if (!head) return;
+  let queued = false;
+  const update = () => {
+    queued = false;
+    head.classList.toggle("is-stuck", scrollY > 12);
+  };
+  addEventListener("scroll", () => {
+    if (queued) return;
+    queued = true;
+    requestAnimationFrame(update);
+  }, { passive: true });
+  update();
+})();
+</script>
+<script src="assets/motion.js" defer></script>
 </body>
 </html>

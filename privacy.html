@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy — Lantas</title>
+<meta name="description" content="How Lantas handles your data: local-first by default, no account, no telemetry, and the exact moments anything leaves your Mac.">
+<meta name="robots" content="index, follow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+  .legal-hero { padding-block: clamp(48px, 6vw, 78px) clamp(20px, 3vw, 30px); border-bottom: 1px solid var(--line); background: radial-gradient(110% 130% at 86% 0%, var(--green-wash), transparent 58%); }
+  .legal-kicker { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; font-family: var(--mono); font-size: 11px; letter-spacing: .09em; text-transform: uppercase; color: var(--ink-3); }
+  .legal-kicker .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 4px var(--green-wash); }
+  .legal-hero h1 { margin: 0 0 16px; font-family: var(--serif); font-weight: 400; font-size: clamp(40px, 4.6vw, 60px); line-height: .98; letter-spacing: -.025em; }
+  .legal-hero h1 em { font-style: italic; color: var(--green); }
+  .legal-dek { max-width: 60ch; margin: 0; color: var(--ink-2); font-size: 16px; line-height: 26px; }
+  .legal-meta { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 22px; font-family: var(--mono); font-size: 10.5px; color: var(--ink-3); }
+  .legal-meta b { color: var(--ink-2); font-weight: 500; }
+
+  .legal-wrap { display: grid; grid-template-columns: minmax(0, 1fr) 250px; gap: 56px; padding-block: clamp(38px, 4.5vw, 58px) 96px; align-items: start; }
+  .legal { max-width: 70ch; }
+  .legal section { padding-bottom: 34px; margin-bottom: 34px; border-bottom: 1px solid var(--line); }
+  .legal section:last-child { border-bottom: 0; margin-bottom: 0; padding-bottom: 0; }
+  .legal h2 { margin: 0 0 12px; font-family: var(--serif); font-weight: 400; font-size: clamp(23px, 2.4vw, 29px); line-height: 1.15; letter-spacing: -.012em; }
+  .legal h3 { margin: 22px 0 8px; font-size: 14.5px; font-weight: 600; }
+  .legal p, .legal li { color: var(--ink-2); font-size: 14px; line-height: 23px; }
+  .legal p + p { margin-top: 11px; }
+  .legal ul { margin: 10px 0 0; padding-left: 20px; }
+  .legal li + li { margin-top: 7px; }
+  .legal code { padding: 1px 5px; border: 1px solid var(--line); border-radius: 4px; background: var(--paper-2); font-family: var(--mono); font-size: .88em; color: var(--ink-2); }
+  .legal a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--green); text-underline-offset: 3px; }
+  .legal-fact { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 6px 18px; margin: 14px 0 0; padding: 16px 18px; border: 1px solid var(--line); border-radius: 12px; background: var(--card); }
+  .legal-fact dt { font-family: var(--mono); font-size: 10px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); padding-top: 3px; }
+  .legal-fact dd { margin: 0; color: var(--ink-2); font-size: 13.5px; line-height: 21px; }
+  .legal-aside { position: sticky; top: 84px; padding: 16px 18px; border: 1px solid var(--line); border-radius: 14px; background: var(--card); }
+  .legal-aside h3 { margin: 0 0 10px; font-family: var(--mono); font-size: 10px; letter-spacing: .09em; text-transform: uppercase; color: var(--ink-3); font-weight: 500; }
+  .legal-aside a { display: block; padding: 5px 0; color: var(--ink-2); font-size: 12.5px; text-decoration: none; border-bottom: 1px solid transparent; }
+  .legal-aside a:hover { color: var(--ink); border-color: var(--line); }
+  .legal-aside .aside-foot { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line); font-size: 11.5px; line-height: 18px; color: var(--ink-3); }
+  .legal-aside .aside-foot a { display: inline; padding: 0; color: var(--ink-2); text-decoration: underline; text-decoration-color: var(--line-2); }
+
+  @media (max-width: 900px) { .legal-wrap { grid-template-columns: 1fr; gap: 26px; } .legal-aside { position: static; order: -1; } }
+  @media (max-width: 560px) { .legal-fact { grid-template-columns: 1fr; gap: 2px 0; } .legal-fact dd { margin-bottom: 8px; } }
+</style>
+<script>try{var t=localStorage.getItem("lantas-theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");document.documentElement.dataset.theme=t;}catch(e){}</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="index.html" aria-label="Lantas home">
+      <span class="slash">/</span> <span class="sub">Privacy</span>
+    </a>
+
+    <nav class="nav-links" aria-label="Sections">
+      <a href="index.html#features">Features</a>
+      <a href="docs.html">Docs</a>
+      <a href="download.html">Download</a>
+      <a href="versions.html">Versions</a>
+    </nav>
+
+    <div class="nav-right">
+      <button class="theme-btn" type="button" data-theme-toggle aria-label="Switch to dark mode" title="Switch theme">
+        <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="17" height="17" aria-hidden="true"><path d="M20.5 14.6A8.6 8.6 0 0 1 9.4 3.5a8.6 8.6 0 1 0 11.1 11.1Z"/></svg>
+        <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="17" height="17" aria-hidden="true"><circle cx="12" cy="12" r="4.1"/><path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.4 5.4l1.6 1.6M17 17l1.6 1.6M18.6 5.4 17 7M7 17l-1.6 1.6"/></svg>
+      </button>
+      <a class="txt" href="index.html">Home</a>
+      <a class="txt" href="https://github.com/AnwarKalonov">GitHub</a>
+      <a class="btn btn-primary btn-sm" href="download.html">Download</a>
+      <button class="menu-btn" aria-label="Menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="nav-progress" aria-hidden="true"><span></span></div>
+</header>
+
+<main>
+
+<div class="legal-hero">
+  <div class="wrap">
+    <p class="legal-kicker"><span class="dot"></span>Lantas · legal</p>
+    <h1>Your Mac keeps <em>your data.</em></h1>
+    <p class="legal-dek">Lantas has no account, no analytics and no server of its own. This page lists every moment when something can leave your computer, so you can decide before it does.</p>
+    <div class="legal-meta">
+      <span><b>Effective</b> 25 November 2026</span>
+      <span><b>Applies to</b> the Lantas app, the Chrome extension and this website</span>
+      <span><b>Questions</b> <a href="https://github.com/AnwarKalonov">github.com/AnwarKalonov</a></span>
+    </div>
+  </div>
+</div>
+
+<div class="wrap legal-wrap">
+  <article class="legal">
+
+    <section id="summary">
+      <h2>The short version</h2>
+      <dl class="legal-fact">
+        <dt>Account</dt><dd>None. There is no sign-up, no login and no user profile on a server.</dd>
+        <dt>Telemetry</dt><dd>None. No analytics, no crash reporting, no usage counts, no advertising identifiers.</dd>
+        <dt>Our server</dt><dd>There isn't one for your work. Chats, files and settings stay on your Mac.</dd>
+        <dt>Model calls</dt><dd>When you send a turn, the request goes straight from your Mac to the model provider you configured, using your key.</dd>
+        <dt>Screen</dt><dd>Captured only while you turn screen access on, and only attached to the turn you send.</dd>
+        <dt>Deleting</dt><dd>Delete the app's data folder and everything Lantas stored is gone.</dd>
+      </dl>
+    </section>
+
+    <section id="local">
+      <h2>What stays on your Mac</h2>
+      <p>Everything Lantas writes is stored locally, in the app's own data folder:</p>
+      <ul>
+        <li><b>Chats and sessions</b> — your threads, messages, plans, todos and checkpoints. On desktop these are checkpointed to <code>~/Library/Application Support/Lantas/sessions.json</code> after each turn.</li>
+        <li><b>Settings</b> — the model you picked, the mode, your interface choices and your permission grants.</li>
+        <li><b>Provider keys</b> — the API keys you add are stored in the app's local settings and used only to call that provider. They are not sent to us, and there is no Lantas key server.</li>
+        <li><b>Workspace state</b> — the folder you opened, open buffers, changed-file lists and git context read from your own disk.</li>
+        <li><b>Audit log</b> — a local record of the actions the agent took, kept so you can review them.</li>
+        <li><b>Screen frames and attachments</b> — held in memory for the turn you sent. A screenshot is part of that request only if you attached it.</li>
+      </ul>
+      <p>In the browser preview of the app, the same information lives in that browser's local storage instead of the Application Support folder.</p>
+    </section>
+
+    <section id="leaves">
+      <h2>What leaves your Mac, and when</h2>
+      <h3>1. The model you chose</h3>
+      <p>When you send a message, the app sends the conversation, the parts of your workspace the agent read, and any attachment or screen frame you included to the provider you configured — Anthropic, OpenAI, Google, OpenRouter, Groq, or a local server such as Ollama or LM Studio. That request is between you and that provider, under their terms and privacy policy. Lantas does not proxy it and does not keep a copy.</p>
+      <p>If you run a model locally, no model request leaves the machine at all.</p>
+
+      <h3>2. Release and update checks</h3>
+      <p>The app asks GitHub for its release feed so it can tell you a newer version exists, and this website reads the same public feed to list versions. That request includes your IP address, as any web request does. It carries no account, identifier or telemetry payload.</p>
+
+      <h3>3. Apps you connect yourself</h3>
+      <p>Integrations are opt-in. If you connect Gmail through your own OAuth client, add a Composio toolkit, or attach an MCP server, then using that tool sends the relevant request to that service. OAuth tokens are stored locally. Each connected service processes the data under its own policy. You can remove a connection at any time in Settings.</p>
+
+      <h3>4. The Chrome extension</h3>
+      <p>The extension reads a tab only when you ask Lantas to work with it, and hands the page text, controls and the result of an action back to the app on your Mac. It does not send your browsing history anywhere. It requests Chrome's <code>debugger</code> permission so clicks and keystrokes go through the browser's real input pipeline; Chrome shows its "started debugging this browser" banner while that happens.</p>
+
+      <h3>5. This website</h3>
+      <p>The site is static. It sets no advertising or analytics cookies. It stores your light/dark choice and a short cache of the release list in your browser's local storage. Fonts are loaded from Google Fonts, so Google receives the request for those files; nothing else on the page contacts a third party.</p>
+    </section>
+
+    <section id="permissions">
+      <h2>Permissions are asked, not assumed</h2>
+      <p>On first launch Lantas shows a permission sheet before it uses anything. Each capability is a separate grant, and every tool checks the grant before it runs:</p>
+      <ul>
+        <li><b>Files</b> — read and edit files in the folder you opened. Choosing a folder is treated as consent for that folder.</li>
+        <li><b>Commands</b> — run builds, tests and git in that folder.</li>
+        <li><b>Screen</b> — attach a screenshot to a turn while it is on. Turn it off and nothing is captured.</li>
+        <li><b>Computer control</b> — let the agent click, type and scroll in the browser.</li>
+      </ul>
+      <p>Screen Recording and Accessibility are also granted by macOS itself, in <b>System Settings → Privacy &amp; Security</b>. Lantas can open the right pane for you but cannot flip the switch; only you can. Revoke a grant there, or in <b>Settings → Permissions</b>, and the matching tool stops working immediately.</p>
+    </section>
+
+    <section id="retention">
+      <h2>Retention and deletion</h2>
+      <p>We hold nothing to retain: there is no Lantas account and no server-side copy of your work. On your Mac, data stays until you delete it.</p>
+      <ul>
+        <li><b>One thread</b> — delete it from the sidebar.</li>
+        <li><b>Everything</b> — quit Lantas, then remove <code>~/Library/Application Support/Lantas</code>. That deletes sessions, settings, keys and the audit log.</li>
+        <li><b>Browser preview</b> — clear the site's local storage for that origin.</li>
+        <li><b>Provider copies</b> — content sent to a model provider is governed by that provider's retention policy. Use a local model if you need the request to stay on the machine.</li>
+      </ul>
+    </section>
+
+    <section id="security">
+      <h2>Security</h2>
+      <p>Lantas is a local application, so the security of your data depends mostly on your Mac: an account password, FileVault and a screen lock are the real protections. Keep provider keys in the app rather than in shared files, and revoke a key at the provider if a machine is lost.</p>
+      <p>Downloads are covered by the release signature the app verifies before installing an update. The current build is ad-hoc signed rather than notarized, which is why macOS asks you to approve it once.</p>
+    </section>
+
+    <section id="children">
+      <h2>Children</h2>
+      <p>Lantas is a developer tool and is not directed at children under 13. It does not knowingly collect personal information from anyone, because it does not collect personal information at all.</p>
+    </section>
+
+    <section id="changes">
+      <h2>Changes to this policy</h2>
+      <p>If a future version of Lantas adds a feature that sends data somewhere new, this page will say so before that version ships, and the effective date above will change. The app will keep asking before it uses a new capability.</p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Privacy questions, or a data flow you think this page describes wrongly: reach Anwar Kalonov through <a href="https://github.com/AnwarKalonov">github.com/AnwarKalonov</a>. The terms of use are on the <a href="terms.html">terms page</a>, and the licence that covers the software is the <a href="terms.html#licence">Lantas License 1.0</a>.</p>
+    </section>
+
+  </article>
+
+  <aside class="legal-aside">
+    <h3>On this page</h3>
+    <a href="#summary">The short version</a>
+    <a href="#local">What stays on your Mac</a>
+    <a href="#leaves">What leaves your Mac</a>
+    <a href="#permissions">Permissions</a>
+    <a href="#retention">Retention and deletion</a>
+    <a href="#security">Security</a>
+    <a href="#children">Children</a>
+    <a href="#changes">Changes</a>
+    <a href="#contact">Contact</a>
+    <div class="aside-foot">Also read the <a href="terms.html">terms of use</a> and the <a href="terms.html#licence">licence</a>.</div>
+  </aside>
+</div>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-mark">
+        <img class="lockup lockup-ink" src="assets/img/lockup-ink.png" alt="Lantas" width="284" height="140">
+        <img class="lockup lockup-light" src="assets/img/lockup-light.png" alt="" aria-hidden="true" width="284" height="140">
+      </div>
+      <div class="foot-links">
+        <a href="docs.html">Docs</a>
+        <a href="download.html">Download</a>
+        <a href="versions.html">Versions</a>
+        <a href="https://github.com/AnwarKalonov">GitHub</a>
+        <a href="docs.html#extension">Chrome extension</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span class="line">chat, code, and the browser · free</span>
+      <span class="mono">© 2026 Lantas</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>

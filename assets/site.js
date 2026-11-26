@@ -1017,36 +1017,65 @@ function initFilm() {
   sec._seek = (p) => apply(Math.min(1, Math.max(0, p)));
 }
 
-/* ---------- the demo clip: three panes, eleven seconds, no video file ---------- */
+/* ---------- the demo clip: the chat tab, twenty-four seconds, no video file ---------- */
 
 function initDemo() {
   const player = $("[data-demo]");
   if (!player) return;
-  const scenes = $$("[data-scene]", player);
-  const views = $$("[data-demo-view]", player);
+  const screen = $("[data-demo-screen]", player);
+  if (!screen) return;
+
   const chapters = $$("[data-chapter]", player);
   const bar = $("[data-demo-bar]", player);
   const toggle = $("[data-demo-toggle]", player);
   const icon = $("[data-demo-icon]", player);
-  if (!scenes.length) return;
+  const timed = $$("[data-demo-at]", player);
+  const typed = $$("[data-demo-type]", player);
+  const gmail = $(".is-gmail", player);
 
-  const LENGTH = 11000;
-  const CUES = [0, 2600, 6600];
-  const FADE = 10400;
-  let at = reduced ? FADE - 1 : 0;
-  let shown = -1;
+  const LENGTH = 24000;
+  const CUES = [0, 9700, 13900];
+  const NAMES = ["a", "b", "c"];
+  const CONNECT = 11600;
+  let at = reduced ? 20400 : 0;
+  let scene = "";
   let playing = false;
   let last = 0;
 
   const paint = () => {
-    const scene = at < CUES[1] ? 0 : at < CUES[2] ? 1 : 2;
-    if (scene !== shown) {
-      shown = scene;
-      scenes.forEach((el, index) => el.classList.toggle("is-on", index === scene));
-      views.forEach((el, index) => el.classList.toggle("on", index === scene));
-      chapters.forEach((el, index) => el.classList.toggle("on", index === scene));
+    const index = at < CUES[1] ? 0 : at < CUES[2] ? 1 : 2;
+    const key = NAMES[index];
+    if (key !== scene) {
+      scene = key;
+      screen.dataset.scene = key;
+      chapters.forEach((el, i) => el.classList.toggle("on", i === index));
     }
-    if (bar) bar.style.width = `${((Math.min(at, FADE) / LENGTH) * 100).toFixed(2)}%`;
+
+    if (gmail) gmail.classList.toggle("is-connected", at >= CONNECT);
+
+    timed.forEach((el) => {
+      const from = Number(el.dataset.demoAt) || 0;
+      const until = el.dataset.demoUntil ? Number(el.dataset.demoUntil) : Infinity;
+      el.classList.toggle("is-in", at >= from && at < until);
+    });
+
+    typed.forEach((el) => {
+      const full = el.dataset.demoType || "";
+      const from = Number(el.dataset.demoAt) || 0;
+      const cps = Number(el.dataset.demoCps) || 40;
+      const hide = el.dataset.demoHide ? Number(el.dataset.demoHide) : Infinity;
+      const typing = at >= from && at < hide;
+      const count = typing ? Math.min(full.length, Math.floor(((at - from) / 1000) * cps)) : 0;
+      const text = full.slice(0, count);
+      if (el.textContent !== text) el.textContent = text;
+      const box = el.closest(".app-composer");
+      if (box) {
+        box.classList.toggle("is-typing", typing && count < full.length);
+        box.classList.toggle("is-empty", !typing);
+      }
+    });
+
+    if (bar) bar.style.width = `${((at / LENGTH) * 100).toFixed(2)}%`;
   };
 
   const frame = (now) => {
@@ -1063,12 +1092,12 @@ function initDemo() {
     playing = on;
     last = 0;
     player.classList.toggle("is-paused", !on);
-    if (toggle) toggle.setAttribute("aria-label", on ? "Pause the demo" : "Play the demo");
+    if (toggle) toggle.setAttribute("aria-label", on ? "Pause the clip" : "Play the clip");
     if (icon) icon.textContent = on ? "❙❙" : "▶";
     if (on) requestAnimationFrame(frame);
   };
 
-  // Respect the operating system: show the still frame and let the user press play.
+  // Respect the operating system: show a still frame and let the user press play.
   paint();
   if (reduced) return;
 
@@ -1078,9 +1107,20 @@ function initDemo() {
   if ("IntersectionObserver" in window) {
     new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => setPlaying(entry.isIntersecting));
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setPlaying(true);
+            return;
+          }
+          // Off screen: stop, and start this short run from the top next time.
+          if (playing) {
+            setPlaying(false);
+            at = 0;
+            paint();
+          }
+        });
       },
-      { threshold: 0.25 }
+      { threshold: 0.35 }
     ).observe(player);
   } else {
     setPlaying(true);

@@ -6,8 +6,6 @@
 <title>Docs — Lantas</title>
 <meta name="description" content="Use Lantas: the free macOS agent with chat, code and browser in one window. Install it, connect providers and apps, learn the commands, and read the benchmark.">
 
-<link rel="icon" type="image/png" sizes="64x64" href="assets/img/favicon-64.png">
-<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -19,8 +17,6 @@
 <header class="nav">
   <div class="wrap nav-in">
     <a class="brand" href="index.html" aria-label="Lantas home">
-      <img class="glyph glyph-ink" src="assets/img/letter-ink.png" alt="" width="26" height="34">
-      <img class="glyph glyph-light" src="assets/img/letter-light.png" alt="" width="26" height="34" aria-hidden="true">
       <span class="slash">/</span> <span class="sub">Docs</span>
     </a>
 
@@ -115,14 +111,14 @@
       <p>Lantas is a macOS app. Download the dmg for Apple silicon from the releases page, open it, and drag <b>Lantas.app</b> to Applications. You need macOS 11 or newer, and Chrome 116 or newer for the extension.</p>
       <div class="cmdblock">
         <div class="row">
-          <span class="prompt">$</span><span>open ~/Downloads/<span data-file="dmg">Lantas-1.0.6-arm64.dmg</span></span>
-          <button class="cmd-copy" data-copy="open ~/Downloads/Lantas-1.0.6-arm64.dmg">
+          <span class="prompt">$</span><span>open ~/Downloads/<span data-file="dmg">Lantas-1.1.3-arm64.dmg</span></span>
+          <button class="cmd-copy" data-copy="open ~/Downloads/Lantas-1.1.3-arm64.dmg">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M6 15H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v1"/></svg>
             <span class="label">copy</span>
           </button>
         </div>
       </div>
-      <p>Or take <code data-file="app">Lantas-1.0.6-arm64.app.zip</code> and unzip it into Applications. The Chrome extension is inside the app at <code>Contents/Resources/chrome-extension</code>, and the app shows you the folder.</p>
+      <p>Or take <code data-file="app">Lantas-1.1.3-arm64.app.zip</code> and unzip it into Applications. The Chrome extension is inside the app at <code>Contents/Resources/chrome-extension</code>, and the app shows you the folder.</p>
       <p>Nothing is built on your machine, and no toolchain is needed.</p>
       <div class="callout">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5v.5"/></svg>
@@ -481,6 +477,11 @@
         <div class="k">the switch</div><div class="v">“Let Lantas act” off means the extension refuses every action</div>
       </div>
       <p>The extension asks for <code>tabs</code>, <code>scripting</code>, <code>storage</code> and <code>sidePanel</code>. It reads a page only when a question or an action needs it; it does not run in the background on every site you visit.</p>
+
+      <h3>Lantas asks before it acts</h3>
+      <p>On first launch Lantas shows a permission sheet instead of assuming consent. Each capability is a separate grant — <b>files</b>, <b>commands</b>, <b>screen</b> and <b>computer control</b> — and every tool checks its grant before it runs, so a denied capability returns a plain “not allowed” answer instead of reaching your disk, a shell or the screen.</p>
+      <p>Change any grant in <b>Settings → Permissions</b>, or reopen the sheet with <b>Review permissions</b>. Choosing a folder also counts as consent to read that folder. Screen Recording and Accessibility are granted by macOS itself; the sheet opens the right System Settings pane, but only you can flip the switch.</p>
+      <p>The exact data flows are on the <a href="privacy.html">privacy page</a>; the terms and licence are on the <a href="terms.html">terms page</a>.</p>
     </section>
 
     <section class="doc-sec" id="shortcuts">
@@ -552,7 +553,9 @@
         <a href="versions.html">Versions</a>
         <a href="https://github.com/AnwarKalonov/Lantas-download">GitHub</a>
         <a href="docs.html#extension">Chrome extension</a>
-        <a href="https://github.com/AnwarKalonov/Lantas-download/issues">Contact</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="https://github.com/AnwarKalonov">Contact</a>
       </div>
     </div>
     <div class="foot-bottom">

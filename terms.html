@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Terms — Lantas</title>
+<meta name="description" content="The terms that apply to the Lantas app and website, including the Lantas License 1.0: free to use, no copying, no resale, and forks must be open source with credit.">
+<meta name="robots" content="index, follow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+  .legal-hero { padding-block: clamp(48px, 6vw, 78px) clamp(20px, 3vw, 30px); border-bottom: 1px solid var(--line); background: radial-gradient(110% 130% at 86% 0%, var(--green-wash), transparent 58%); }
+  .legal-kicker { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; font-family: var(--mono); font-size: 11px; letter-spacing: .09em; text-transform: uppercase; color: var(--ink-3); }
+  .legal-kicker .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 4px var(--green-wash); }
+  .legal-hero h1 { margin: 0 0 16px; font-family: var(--serif); font-weight: 400; font-size: clamp(40px, 4.6vw, 60px); line-height: .98; letter-spacing: -.025em; }
+  .legal-hero h1 em { font-style: italic; color: var(--green); }
+  .legal-dek { max-width: 60ch; margin: 0; color: var(--ink-2); font-size: 16px; line-height: 26px; }
+  .legal-meta { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 22px; font-family: var(--mono); font-size: 10.5px; color: var(--ink-3); }
+  .legal-meta b { color: var(--ink-2); font-weight: 500; }
+
+  .legal-wrap { display: grid; grid-template-columns: minmax(0, 1fr) 250px; gap: 56px; padding-block: clamp(38px, 4.5vw, 58px) 96px; align-items: start; }
+  .legal { max-width: 70ch; }
+  .legal section { padding-bottom: 34px; margin-bottom: 34px; border-bottom: 1px solid var(--line); }
+  .legal section:last-child { border-bottom: 0; margin-bottom: 0; padding-bottom: 0; }
+  .legal h2 { margin: 0 0 12px; font-family: var(--serif); font-weight: 400; font-size: clamp(23px, 2.4vw, 29px); line-height: 1.15; letter-spacing: -.012em; }
+  .legal h3 { margin: 20px 0 6px; font-size: 14.5px; font-weight: 600; }
+  .legal p, .legal li { color: var(--ink-2); font-size: 14px; line-height: 23px; }
+  .legal p + p { margin-top: 11px; }
+  .legal ul, .legal ol { margin: 10px 0 0; padding-left: 20px; }
+  .legal li + li { margin-top: 7px; }
+  .legal code { padding: 1px 5px; border: 1px solid var(--line); border-radius: 4px; background: var(--paper-2); font-family: var(--mono); font-size: .88em; color: var(--ink-2); }
+  .legal a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--green); text-underline-offset: 3px; }
+  .legal-rules { margin: 14px 0 0; padding: 0; list-style: none; border: 1px solid var(--line); border-radius: 12px; background: var(--card); overflow: hidden; }
+  .legal-rules li { display: grid; grid-template-columns: 20px minmax(0, 1fr); gap: 10px; margin: 0; padding: 12px 16px; font-size: 13.5px; line-height: 21px; }
+  .legal-rules li + li { border-top: 1px solid var(--line); }
+  .legal-rules b { color: var(--ink); font-weight: 600; }
+  .legal-rules .mark { font-family: var(--mono); font-size: 11px; padding-top: 2px; color: var(--green); }
+  .legal-rules li.no .mark { color: var(--terra); }
+  .legal-aside { position: sticky; top: 84px; padding: 16px 18px; border: 1px solid var(--line); border-radius: 14px; background: var(--card); }
+  .legal-aside h3 { margin: 0 0 10px; font-family: var(--mono); font-size: 10px; letter-spacing: .09em; text-transform: uppercase; color: var(--ink-3); font-weight: 500; }
+  .legal-aside a { display: block; padding: 5px 0; color: var(--ink-2); font-size: 12.5px; text-decoration: none; }
+  .legal-aside a:hover { color: var(--ink); }
+  .legal-aside .aside-foot { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line); font-size: 11.5px; line-height: 18px; color: var(--ink-3); }
+  .legal-aside .aside-foot a { display: inline; padding: 0; color: var(--ink-2); text-decoration: underline; }
+
+  @media (max-width: 900px) { .legal-wrap { grid-template-columns: 1fr; gap: 26px; } .legal-aside { position: static; order: -1; } }
+</style>
+<script>try{var t=localStorage.getItem("lantas-theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");document.documentElement.dataset.theme=t;}catch(e){}</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="index.html" aria-label="Lantas home">
+      <span class="slash">/</span> <span class="sub">Terms</span>
+    </a>
+
+    <nav class="nav-links" aria-label="Sections">
+      <a href="index.html#features">Features</a>
+      <a href="docs.html">Docs</a>
+      <a href="download.html">Download</a>
+      <a href="versions.html">Versions</a>
+    </nav>
+
+    <div class="nav-right">
+      <button class="theme-btn" type="button" data-theme-toggle aria-label="Switch to dark mode" title="Switch theme">
+        <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="17" height="17" aria-hidden="true"><path d="M20.5 14.6A8.6 8.6 0 0 1 9.4 3.5a8.6 8.6 0 1 0 11.1 11.1Z"/></svg>
+        <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="17" height="17" aria-hidden="true"><circle cx="12" cy="12" r="4.1"/><path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.4 5.4l1.6 1.6M17 17l1.6 1.6M18.6 5.4 17 7M7 17l-1.6 1.6"/></svg>
+      </button>
+      <a class="txt" href="index.html">Home</a>
+      <a class="txt" href="https://github.com/AnwarKalonov">GitHub</a>
+      <a class="btn btn-primary btn-sm" href="download.html">Download</a>
+      <button class="menu-btn" aria-label="Menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="nav-progress" aria-hidden="true"><span></span></div>
+</header>
+
+<main>
+
+<div class="legal-hero">
+  <div class="wrap">
+    <p class="legal-kicker"><span class="dot"></span>Lantas · legal</p>
+    <h1>Free to use. <em>Not to take.</em></h1>
+    <p class="legal-dek">These terms cover the app, the Chrome extension and this website. The short version: use Lantas for your own work, keep our name on it, and if you build on it in public, publish your source and credit us.</p>
+    <div class="legal-meta">
+      <span><b>Effective</b> 25 November 2026</span>
+      <span><b>Licence</b> Lantas License 1.0</span>
+      <span><b>Contact</b> <a href="https://github.com/AnwarKalonov">github.com/AnwarKalonov</a></span>
+    </div>
+  </div>
+</div>
+
+<div class="wrap legal-wrap">
+  <article class="legal">
+
+    <section id="agreement">
+      <h2>1. Agreement</h2>
+      <p>By downloading, installing or using Lantas, you agree to these terms and to the <a href="#licence">Lantas License 1.0</a>. If you do not agree, do not install or use the software.</p>
+      <p>These terms are between you and Anwar Kalonov ("we", "us"), the author of Lantas. They do not replace the terms of any model provider, app or service you connect yourself; those are separate agreements between you and that provider.</p>
+    </section>
+
+    <section id="licence">
+      <h2>2. Licence</h2>
+      <p>Lantas is free to download and use, but it is not open source. The full text is the <a href="#licence-text">Lantas License 1.0</a> below; this is the plain-language summary.</p>
+      <ul class="legal-rules">
+        <li><span class="mark">✓</span><span><b>Run it, free.</b> Personal or commercial work, on machines you control, with no account and no fee.</span></li>
+        <li><span class="mark">✓</span><span><b>Keep your own backups.</b> Copy the app for backup, testing and archival use.</span></li>
+        <li class="no"><span class="mark">×</span><span><b>Don't redistribute it.</b> No reposting the app, the dmg, the site or the source, and no bundling it into a product you offer.</span></li>
+        <li class="no"><span class="mark">×</span><span><b>Don't sell it or host it.</b> No paid builds, no managed service, no resale.</span></li>
+        <li class="no"><span class="mark">×</span><span><b>Don't strip the name.</b> Copyright lines, the Lantas name and its links stay where they are.</span></li>
+        <li><span class="mark">→</span><span><b>Forks go public and give credit.</b> If you build a derivative and distribute it, it must be licensed under this same licence, must credit "Based on Lantas, originally by Anwar Kalonov — https://github.com/AnwarKalonov" in its about screen, README and website, and must publish its complete source free of charge.</span></li>
+      </ul>
+      <p>Without our written permission you may not do anything in the "don't" rows above. Ask through <a href="https://github.com/AnwarKalonov">github.com/AnwarKalonov</a> if you need one of them.</p>
+    </section>
+
+    <section id="use">
+      <h2>3. Acceptable use</h2>
+      <p>You are responsible for what you ask Lantas to do and for the accounts it acts on. Do not use it to:</p>
+      <ul>
+        <li>break the law, infringe someone's rights, or access systems and data you are not authorised to access;</li>
+        <li>evade a provider's terms, rate limits or safety systems;</li>
+        <li>send malware, spam or deceptive content;</li>
+        <li>process other people's personal data without a lawful basis.</li>
+      </ul>
+    </section>
+
+    <section id="keys">
+      <h2>4. Your keys, your costs</h2>
+      <p>Lantas does not include a model. You add your own provider key, or run a model locally. Your provider bills you directly; we never see your key, your usage or your bill. Keep your keys safe, and revoke them at the provider if a machine is compromised.</p>
+    </section>
+
+    <section id="third-party">
+      <h2>5. Third-party services and content</h2>
+      <p>Model providers, connected apps, MCP servers, Chrome and GitHub are third parties with their own terms and availability. We do not control them and are not responsible for their output, downtime, charges or data handling. Model output can be wrong; check anything that matters before you rely on it, especially file changes and commands.</p>
+    </section>
+
+    <section id="warranty">
+      <h2>6. No warranty</h2>
+      <p>Lantas is provided "as is", without warranty of any kind, express or implied, including merchantability, fitness for a particular purpose and non-infringement. It is software that can read and change files and run commands: keep backups, review changes, and use the permission settings.</p>
+    </section>
+
+    <section id="liability">
+      <h2>7. Limitation of liability</h2>
+      <p>To the maximum extent permitted by law, Anwar Kalonov is not liable for indirect, incidental, special, consequential or punitive damages, or for lost profits, lost data, business interruption or the cost of substitutes, arising from Lantas or these terms, even if advised of the possibility. Where liability cannot be excluded, it is limited to the amount you paid for the software, which is zero.</p>
+    </section>
+
+    <section id="changes">
+      <h2>8. Changes</h2>
+      <p>The app changes over time. These terms may change with it; the effective date above will move, and material changes will be described on this page before a release that depends on them. Continuing to use a new version means accepting the updated terms.</p>
+    </section>
+
+    <section id="law">
+      <h2>9. General</h2>
+      <p>If a part of these terms is unenforceable, the rest stays in force. The licence in section 10 is the complete grant of rights; nothing elsewhere on this site adds to it. Questions about these terms: <a href="https://github.com/AnwarKalonov">github.com/AnwarKalonov</a>.</p>
+    </section>
+
+    <section id="licence-text">
+      <h2>10. Lantas License 1.0</h2>
+      <p><b>Copyright © 2026 Anwar Kalonov. All rights reserved.</b> SPDX-License-Identifier: <code>LicenseRef-Lantas-1.0</code></p>
+      <p>This licence covers the Lantas application, its source code, its website, its documentation, its images and every other file distributed with them (the "Software"). It is not an open-source licence.</p>
+
+      <h3>1. Definitions</h3>
+      <p>"You" means the person or organisation using the Software. "Derivative" means any work based on the Software, including a modified version, a port, a translation, a reimplementation of a substantial part of it, or a work that incorporates a substantial part of it. "Distribute" means to give, publish, upload, sell, sublicense, lend or otherwise make the Software or a Derivative available to anyone other than You. "Credit" means the notice described in section 5(b).</p>
+
+      <h3>2. What You may do</h3>
+      <p>a) Run the Software, free of charge, for personal or commercial work, on machines You own or control. b) Make copies for backup, testing and archival purposes. c) Read, study and learn from the source code if You lawfully receive it.</p>
+
+      <h3>3. Conditions on every use</h3>
+      <p>a) Keep every copyright, licence and attribution notice in the Software. b) Do not remove, hide or alter the name "Lantas", the copyright line, or the links to the project. c) Do not represent the Software as Your own work.</p>
+
+      <h3>4. What You may not do without written permission</h3>
+      <p>a) Distribute the Software, in whole or in part, in any form. b) Distribute a Derivative, except as allowed by section 5. c) Sell, rent, lease, sublicense or charge for the Software or a Derivative. d) Make the Software or a Derivative available to others as a hosted or managed service, or bundle it into a product You offer. e) Use the "Lantas" name, wordmark or logo for a fork, product or service, apart from the factual credit required by section 5.</p>
+
+      <h3>5. Building on the Software: open source and credit</h3>
+      <p>If You create a Derivative and Distribute it, all of the following must be true. a) It is licensed under this same licence and carries a copy of it. b) It gives clear Credit in its about screen, its README and any website for it, worded at least as: "Based on Lantas, originally by Anwar Kalonov — https://github.com/AnwarKalonov", with the link visible and clickable wherever the credit appears in a user interface. c) You publish the complete corresponding source code of the Derivative, under this licence, free of charge, at the same place it is published, in a form that can be rebuilt. d) You do not charge for the Derivative, and You do not add technical measures that prevent recipients from exercising the rights in this licence.</p>
+      <p>Nothing in this section permits Distributing the unmodified Software, or a Derivative that does not meet every condition above. A copy that fails these conditions is not licensed.</p>
+
+      <h3>6. Contributions</h3>
+      <p>If You send a patch, pull request, suggestion or other contribution, You grant Anwar Kalonov a perpetual, worldwide, royalty-free licence to use, modify and distribute it as part of the Software under this licence. You keep ownership of Your contribution and are not owed anything for it.</p>
+
+      <h3>7. Termination</h3>
+      <p>a) This licence ends automatically if You breach it. b) It is reinstated automatically if You cure the breach within 30 days of learning of it and stop the conduct that caused it. c) When it ends, You must stop using the Software and delete every copy of the Software and of any Derivative You made. d) Sections 3, 4, 5, 8, 9 and 10 survive termination.</p>
+
+      <h3>8. No warranty</h3>
+      <p>The Software is provided "as is", without warranty of any kind, express or implied, including merchantability, fitness for a particular purpose, non-infringement and uninterrupted or error-free operation. You use it at Your own risk and are responsible for Your data, backups, keys and provider costs.</p>
+
+      <h3>9. Limitation of liability</h3>
+      <p>To the maximum extent permitted by law, Anwar Kalonov is not liable for any indirect, incidental, special, consequential or punitive damages, or for lost profits, lost data, business interruption or the cost of substitutes, arising from the Software or this licence, even if advised of the possibility. Where liability cannot be excluded, it is limited to the amount You paid for the Software, which is zero.</p>
+
+      <h3>10. No other rights</h3>
+      <p>No trademark, service mark, trade name, patent or other intellectual property right is granted except the limited rights in sections 2 and 5. All rights not expressly granted are reserved. For permission to do anything section 4 prohibits, write to Anwar Kalonov through <a href="https://github.com/AnwarKalonov">github.com/AnwarKalonov</a>.</p>
+    </section>
+
+  </article>
+
+  <aside class="legal-aside">
+    <h3>On this page</h3>
+    <a href="#agreement">1. Agreement</a>
+    <a href="#licence">2. Licence</a>
+    <a href="#use">3. Acceptable use</a>
+    <a href="#keys">4. Your keys, your costs</a>
+    <a href="#third-party">5. Third parties</a>
+    <a href="#warranty">6. No warranty</a>
+    <a href="#liability">7. Liability</a>
+    <a href="#changes">8. Changes</a>
+    <a href="#law">9. General</a>
+    <a href="#licence-text">10. Licence text</a>
+    <div class="aside-foot">Your data is covered by the <a href="privacy.html">privacy policy</a>.</div>
+  </aside>
+</div>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-mark">
+        <img class="lockup lockup-ink" src="assets/img/lockup-ink.png" alt="Lantas" width="284" height="140">
+        <img class="lockup lockup-light" src="assets/img/lockup-light.png" alt="" aria-hidden="true" width="284" height="140">
+      </div>
+      <div class="foot-links">
+        <a href="docs.html">Docs</a>
+        <a href="download.html">Download</a>
+        <a href="versions.html">Versions</a>
+        <a href="https://github.com/AnwarKalonov">GitHub</a>
+        <a href="docs.html#extension">Chrome extension</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span class="line">chat, code, and the browser · free</span>
+      <span class="mono">© 2026 Lantas</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>
